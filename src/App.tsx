@@ -4,12 +4,14 @@ import { RegistrationForm } from './components/RegistrationForm';
 import { AptitudeTest } from './components/AptitudeTest';
 import { ResultView } from './components/ResultView';
 import { UserData, AppState } from './types';
+import { sendTestResults } from './services/emailService';
 
 export default function App() {
   const [appState, setAppState] = useState<AppState>('registration');
   const [user, setUser] = useState<UserData | null>(null);
   const [score, setScore] = useState(0);
   const [total, setTotal] = useState(0);
+  const [isSendingEmail, setIsSendingEmail] = useState(false);
 
   const handleRegister = (data: UserData) => {
     alert("If you switch tab or minimize or change another tab 3 times, aptitude will quit. Click 'OK' to start the Aptitude test and the timer.");
@@ -17,10 +19,16 @@ export default function App() {
     setAppState('test');
   };
 
-  const handleComplete = (finalScore: number, totalQuestions: number) => {
+  const handleComplete = async (finalScore: number, totalQuestions: number) => {
     setScore(finalScore);
     setTotal(totalQuestions);
     setAppState('result');
+
+    if (user) {
+      setIsSendingEmail(true);
+      await sendTestResults(user, finalScore, totalQuestions);
+      setIsSendingEmail(false);
+    }
   };
 
   const handleRestart = () => {
