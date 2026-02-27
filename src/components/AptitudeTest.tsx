@@ -18,35 +18,11 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [timeLeft, setTimeLeft] = useState(30 * 60); // 30 minutes in seconds
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [violations, setViolations] = useState(0);
+  const [hasStarted] = useState(true);
 
   const selectedSet = questionsData.sets[selectedSetIndex];
   const questions: Question[] = selectedSet.questions;
-
-  useEffect(() => {
-    if (timeLeft <= 0) {
-      handleSubmit();
-      return;
-    }
-
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => prev - 1);
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [timeLeft]);
-
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
-
-  const handleOptionSelect = (optionKey: string) => {
-    setAnswers({
-      ...answers,
-      [questions[currentQuestionIndex].id]: optionKey,
-    });
-  };
 
   const handleSubmit = () => {
     if (isSubmitted) return;
@@ -61,6 +37,55 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
     onComplete(score, questions.length);
   };
 
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden' && !isSubmitted) {
+        setViolations((prev) => {
+          const newCount = prev + 1;
+          if (newCount >= 3) {
+            alert('Test terminated: You have exceeded the maximum number of window minimization violations (3/3). Your current progress will be submitted.');
+            handleSubmit();
+            return newCount;
+          } else {
+            alert(`Warning: Window minimization or tab switching is not allowed during the assessment. Violation ${newCount}/3. The test will automatically submit on the 3rd violation.`);
+            return newCount;
+          }
+        });
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [isSubmitted, answers, hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted || timeLeft <= 0) {
+      if (hasStarted && timeLeft <= 0) handleSubmit();
+      return;
+    }
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [timeLeft, hasStarted]);
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  const handleOptionSelect = (optionKey: string) => {
+    setAnswers({
+      ...answers,
+      [questions[currentQuestionIndex].id]: optionKey,
+    });
+  };
+
   const currentQuestion = questions[currentQuestionIndex];
   const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
 
@@ -69,8 +94,8 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
-          <h2 className="text-2xl font-semibold text-zinc-900">{selectedSet.set_name}</h2>
-          <p className="text-zinc-500">Candidate: {user.name}</p>
+          <h2 className="text-2xl font-semibold text-zinc-900">{user.name}</h2>
+          <p className="text-zinc-500">Aptitude Assessment in Progress</p>
         </div>
         <div className={cn(
           "flex items-center gap-3 px-6 py-3 rounded-2xl border transition-colors",

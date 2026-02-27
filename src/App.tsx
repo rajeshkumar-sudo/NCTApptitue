@@ -4,7 +4,6 @@ import { RegistrationForm } from './components/RegistrationForm';
 import { AptitudeTest } from './components/AptitudeTest';
 import { ResultView } from './components/ResultView';
 import { UserData, AppState } from './types';
-import { BrainCircuit } from 'lucide-react';
 
 export default function App() {
   const [appState, setAppState] = useState<AppState>('registration');
@@ -13,6 +12,7 @@ export default function App() {
   const [total, setTotal] = useState(0);
 
   const handleRegister = (data: UserData) => {
+    alert("If you switch tab or minimize or change another tab 3 times, aptitude will quit. Click 'OK' to start the Aptitude test and the timer.");
     setUser(data);
     setAppState('test');
   };
@@ -38,10 +38,15 @@ export default function App() {
 
       <nav className="relative z-10 w-full px-6 py-8 flex items-center justify-between max-w-7xl mx-auto">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-zinc-900 rounded-xl flex items-center justify-center text-white">
-            <BrainCircuit className="w-6 h-6" />
+          <div className="w-16 h-10 bg-white rounded-xl flex items-center justify-center overflow-hidden border border-zinc-200">
+            <img 
+              src="/images/nichetectcareer_logo.png" 
+              alt="Niche Logo" 
+              className="w-full h-full object-contain p-1"
+              referrerPolicy="no-referrer"
+            />
           </div>
-          <span className="text-xl font-bold tracking-tight">AptiMaster</span>
+          <span className="text-xl font-bold tracking-tight">Niche Aptitude</span>
         </div>
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-500">
           <span className="hover:text-zinc-900 cursor-pointer transition-colors">Resources</span>
@@ -82,7 +87,7 @@ export default function App() {
       </main>
 
       <footer className="relative z-10 w-full py-8 text-center text-zinc-400 text-xs tracking-widest uppercase">
-        &copy; 2026 AptiMaster Professional Suite &bull; Secure Assessment Environment
+        &copy; 2026 Niche Tech Career &bull; Secure Assessment Environment
       </footer>
     </div>
   );

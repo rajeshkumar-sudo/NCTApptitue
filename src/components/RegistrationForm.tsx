@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { User, Mail, Phone, ArrowRight } from 'lucide-react';
+import { User, Mail, Phone, ArrowRight, Hash } from 'lucide-react';
 import { UserData } from '../types';
 import { cn } from '../utils';
 
@@ -13,11 +13,12 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
     name: '',
     email: '',
     phone: '',
+    rollNumber: '',
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.phone) {
+    if (formData.name && formData.email && formData.phone && formData.rollNumber) {
       onRegister(formData);
     }
   };
@@ -45,6 +46,21 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
               className="w-full pl-11 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-zinc-900/5 focus:border-zinc-900 transition-all"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-zinc-700 ml-1">Student Roll Number</label>
+          <div className="relative">
+            <Hash className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400" />
+            <input
+              required
+              type="text"
+              placeholder="ROLL-2026-001"
+              className="w-full pl-11 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-zinc-900/5 focus:border-zinc-900 transition-all"
+              value={formData.rollNumber}
+              onChange={(e) => setFormData({ ...formData, rollNumber: e.target.value })}
             />
           </div>
         </div>

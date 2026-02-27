@@ -30,6 +30,7 @@ export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, onRe
         </div>
         <h2 className="text-4xl font-bold text-zinc-900 mb-2">Assessment Complete</h2>
         <p className="text-zinc-500">Thank you for participating, {user.name}.</p>
+        <p className="text-zinc-400 text-sm mt-1">Roll Number: {user.rollNumber}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
