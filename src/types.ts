@@ -1,0 +1,26 @@
+export interface Question {
+  id: number;
+  question: string;
+  options: {
+    [key: string]: string;
+  };
+  answer: string;
+  explanation?: string;
+}
+
+export interface QuestionSet {
+  set_name: string;
+  questions: Question[];
+}
+
+export interface QuestionsData {
+  sets: QuestionSet[];
+}
+
+export interface UserData {
+  name: string;
+  email: string;
+  phone: string;
+}
+
+export type AppState = 'registration' | 'test' | 'result';

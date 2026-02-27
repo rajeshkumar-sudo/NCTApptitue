@@ -1,0 +1,1829 @@
+{
+  "sets": [
+    {
+      "set_name": "SET A: Mixed Difficulty",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is 20% of 1500?",
+          "options": {
+            "a": "300",
+            "b": "30",
+            "c": "3000",
+            "d": "150"
+          },
+          "answer": "a",
+          "explanation": "20% means 20/100 = 0.2. Multiply 0.2 × 1500 = 300"
+        },
+        {
+          "id": 2,
+          "question": "A book is bought for $80 and sold for $60. Find the loss percentage.",
+          "options": {
+            "a": "20%",
+            "b": "25%",
+            "c": "33.33%",
+            "d": "75%"
+          },
+          "answer": "b",
+          "explanation": "Loss = CP - SP = $80 - $60 = $20. Loss% = (Loss/CP) × 100 = (20/80) × 100 = 25%"
+        },
+        {
+          "id": 3,
+          "question": "Find the ratio of 5 to 15.",
+          "options": {
+            "a": "1:2",
+            "b": "1:3",
+            "c": "3:1",
+            "d": "5:15"
+          },
+          "answer": "b",
+          "explanation": "Ratio 5:15 simplifies by dividing both terms by 5 → 1:3"
+        },
+        {
+          "id": 4,
+          "question": "If A can do a piece of work in 5 days, what is A's 1 day's work?",
+          "options": {
+            "a": "5",
+            "b": "1/5",
+            "c": "5/1",
+            "d": "1"
+          },
+          "answer": "b",
+          "explanation": "Work done in 1 day = 1/Total days = 1/5 of the total work"
+        },
+        {
+          "id": 5,
+          "question": "Find speed if distance = 100 km and time = 2 hours.",
+          "options": {
+            "a": "200 km/h",
+            "b": "50 km/h",
+            "c": "98 km/h",
+            "d": "102 km/h"
+          },
+          "answer": "b",
+          "explanation": "Speed = Distance/Time = 100 km/2 hours = 50 km/h"
+        },
+        {
+          "id": 6,
+          "question": "Find average of 10, 20, 30.",
+          "options": {
+            "a": "60",
+            "b": "30",
+            "c": "20",
+            "d": "10"
+          },
+          "answer": "c",
+          "explanation": "Average = Sum of numbers/Count = (10 + 20 + 30)/3 = 60/3 = 20"
+        },
+        {
+          "id": 7,
+          "question": "Find Simple Interest on $100 for 1 year at 5% per annum.",
+          "options": {
+            "a": "$5",
+            "b": "$50",
+            "c": "$105",
+            "d": "$500"
+          },
+          "answer": "a",
+          "explanation": "SI = (P × R × T)/100 = (100 × 5 × 1)/100 = 500/100 = $5"
+        },
+        {
+          "id": 8,
+          "question": "Which of the following is a prime number?",
+          "options": {
+            "a": "4",
+            "b": "6",
+            "c": "7",
+            "d": "9"
+          },
+          "answer": "c",
+          "explanation": "Prime numbers have exactly two factors: 1 and itself. 4 = 1,2,4 (not prime); 6 = 1,2,3,6 (not prime); 7 = 1,7 (prime); 9 = 1,3,9 (not prime)"
+        },
+        {
+          "id": 9,
+          "question": "Find the LCM of 2 and 3.",
+          "options": {
+            "a": "2",
+            "b": "3",
+            "c": "6",
+            "d": "1"
+          },
+          "answer": "c",
+          "explanation": "LCM is the smallest number divisible by both: Multiples of 2: 2,4,6,8... Multiples of 3: 3,6,9... Smallest common = 6"
+        },
+        {
+          "id": 10,
+          "question": "What comes next in the series: A, C, E, G, ?",
+          "options": {
+            "a": "H",
+            "b": "I",
+            "c": "J",
+            "d": "K"
+          },
+          "answer": "b",
+          "explanation": "Series skips one letter: A (skip B) → C (skip D) → E (skip F) → G (skip H) → I"
+        },
+        {
+          "id": 11,
+          "question": "If A's salary is 20% less than B's, by what percent is B's salary more than A's?",
+          "options": {
+            "a": "20%",
+            "b": "25%",
+            "c": "16.67%",
+            "d": "24%"
+          },
+          "answer": "b",
+          "explanation": "Let B = 100, then A = 80. Difference = 20. Percentage more = (Difference/A) × 100 = (20/80) × 100 = 25%"
+        },
+        {
+          "id": 12,
+          "question": "A shopkeeper sells an item at a profit of 20%. If he buys it for $100 and sells it for $x, find x.",
+          "options": {
+            "a": "80",
+            "b": "100",
+            "c": "120",
+            "d": "140"
+          },
+          "answer": "c",
+          "explanation": "Profit = 20% of CP = 20% of 100 = $20. SP = CP + Profit = 100 + 20 = $120"
+        },
+        {
+          "id": 13,
+          "question": "A can do a piece of work in 20 days, B in 30 days. They work together for 5 days and then A leaves. In how many days will B finish the remaining work?",
+          "options": {
+            "a": "17.5 days",
+            "b": "20 days",
+            "c": "15 days",
+            "d": "10 days"
+          },
+          "answer": "a",
+          "explanation": "A's 1 day work = 1/20, B's 1 day work = 1/30. Together 1 day work = 1/20 + 1/30 = 3/60 + 2/60 = 5/60 = 1/12. Work done in 5 days = 5 × (1/12) = 5/12. Remaining work = 1 - 5/12 = 7/12. Time for B alone = (7/12) ÷ (1/30) = (7/12) × 30 = 210/12 = 17.5 days"
+        },
+        {
+          "id": 14,
+          "question": "Find the sum of all odd numbers from 1 to 100.",
+          "options": {
+            "a": "2500",
+            "b": "2525",
+            "c": "2550",
+            "d": "5050"
+          },
+          "answer": "a",
+          "explanation": "Odd numbers from 1 to 99 form an AP: a=1, d=2, last term=99. Number of terms n = (last - first)/d + 1 = (99-1)/2 + 1 = 98/2 + 1 = 49 + 1 = 50. Sum = n/2[2a + (n-1)d] = 50/2[2 + 49×2] = 25[2 + 98] = 25 × 100 = 2500"
+        },
+        {
+          "id": 15,
+          "question": "A is the father of B. C is the daughter of B. D is the brother of C. How is D related to A?",
+          "options": {
+            "a": "Grandson",
+            "b": "Son",
+            "c": "Brother",
+            "d": "Nephew"
+          },
+          "answer": "a",
+          "explanation": "A → B (A is father of B). B → C and D (B is parent of C and D). Therefore, D is child of B, so D is A's grandchild. Since D is male (brother of C), D is A's grandson"
+        },
+        {
+          "id": 16,
+          "question": "Ramesh walks 10 km north, turns right and walks 5 km, turns right and walks 10 km, turns left and walks 5 km. How far is he from starting point?",
+          "options": {
+            "a": "5 km",
+            "b": "10 km",
+            "c": "15 km",
+            "d": "20 km"
+          },
+          "answer": "b",
+          "explanation": "Start at (0,0). North 10 km → (0,10). Right (East) 5 km → (5,10). Right (South) 10 km → (5,0). Left (East) 5 km → (10,0). Distance from start = √[(10-0)² + (0-0)²] = √(100) = 10 km"
+        },
+        {
+          "id": 17,
+          "question": "A train 150 m long passes a pole in 5 seconds. Find its speed in km/h.",
+          "options": {
+            "a": "30 km/h",
+            "b": "54 km/h",
+            "c": "72 km/h",
+            "d": "108 km/h"
+          },
+          "answer": "d",
+          "explanation": "Speed in m/s = Distance/Time = 150/5 = 30 m/s. Convert to km/h: Multiply by 18/5 = 30 × 18/5 = 540/5 = 108 km/h"
+        },
+        {
+          "id": 18,
+          "question": "The average of 20 numbers is zero. Of them, at the most, how many may be greater than zero?",
+          "options": {
+            "a": "0",
+            "b": "1",
+            "c": "10",
+            "d": "19"
+          },
+          "answer": "d",
+          "explanation": "Average = 0 means sum of all 20 numbers = 0. If 19 numbers are positive, the 20th number must be negative enough to make total sum zero. Example: 19 numbers of 1 each sum to 19, then 20th number = -19 gives total 0. So maximum positive numbers = 19"
+        },
+        {
+          "id": 19,
+          "question": "In what ratio must a grocer mix two varieties of tea costing $60/kg and $65/kg so that by selling the mixture at $68.20/kg he may gain 10%?",
+          "options": {
+            "a": "3:2",
+            "b": "3:4",
+            "c": "3:5",
+            "d": "4:5"
+          },
+          "answer": "a",
+          "explanation": "SP = $68.20 with 10% gain means CP = SP/1.1 = 68.20/1.1 = $62/kg. Using alligation method: Variety 1: $60, Variety 2: $65, Mean: $62. Ratio = (65 - 62) : (62 - 60) = 3 : 2"
+        },
+        {
+          "id": 20,
+          "question": "What will be the output of the following C code?\nint x = 10;\nint y = x++ + ++x;\nprintf(\"%d\", y);",
+          "options": {
+            "a": "21",
+            "b": "22",
+            "c": "23",
+            "d": "20"
+          },
+          "answer": "b",
+          "explanation": "Step 1: x++ uses current value of x (10) then increments x to 11. Step 2: ++x increments x from 11 to 12 then uses this value (12). Step 3: y = 10 + 12 = 22"
+        },
+        {
+          "id": 21,
+          "question": "What does the following code print?\nint arr[] = {10, 20, 30};\nint *ptr = arr;\nprintf(\"%d\", *(ptr + 1));",
+          "options": {
+            "a": "10",
+            "b": "20",
+            "c": "30",
+            "d": "Garbage value"
+          },
+          "answer": "b",
+          "explanation": "ptr points to the first element arr[0] = 10. ptr + 1 points to the next element arr[1]. *(ptr + 1) dereferences to get value at arr[1] = 20"
+        },
+        {
+          "id": 22,
+          "question": "What is a virtual function in C++?",
+          "options": {
+            "a": "Function that doesn't exist",
+            "b": "Function that can be overridden",
+            "c": "Static function",
+            "d": "Global function"
+          },
+          "answer": "b",
+          "explanation": "Virtual functions enable runtime polymorphism by allowing derived classes to override base class functions. When called through a base class pointer/reference, the derived class version executes."
+        },
+        {
+          "id": 23,
+          "question": "What is the time complexity to insert at the beginning of a linked list?",
+          "options": {
+            "a": "O(1)",
+            "b": "O(n)",
+            "c": "O(log n)",
+            "d": "O(n²)"
+          },
+          "answer": "a",
+          "explanation": "Insertion at beginning only requires creating a new node and adjusting a few pointers - constant time operation regardless of list size."
+        },
+        {
+          "id": 24,
+          "question": "What is the best case time complexity of Quick Sort?",
+          "options": {
+            "a": "O(n)",
+            "b": "O(n log n)",
+            "c": "O(n²)",
+            "d": "O(log n)"
+          },
+          "answer": "b",
+          "explanation": "Best case occurs when the pivot always divides the array into two equal halves, creating a balanced tree of depth log n with n comparisons at each level."
+        },
+        {
+          "id": 25,
+          "question": "What is the difference between DELETE and TRUNCATE?",
+          "options": {
+            "a": "DELETE is DDL, TRUNCATE is DML",
+            "b": "DELETE is DML, TRUNCATE is DDL",
+            "c": "Both are DML",
+            "d": "Both are DDL"
+          },
+          "answer": "b",
+          "explanation": "DELETE (DML): Removes rows one by one, can use WHERE clause, can be rolled back, slower. TRUNCATE (DDL): Removes all rows at once, cannot use WHERE, cannot rollback, faster."
+        },
+        {
+          "id": 26,
+          "question": "A train passes two persons walking in the same direction at 2 km/h and 4 km/h in 9 seconds and 10 seconds respectively. Find the speed and length of the train.",
+          "options": {
+            "a": "22 km/h, 50m",
+            "b": "20 km/h, 45m",
+            "c": "18 km/h, 40m",
+            "d": "24 km/h, 55m"
+          },
+          "answer": "a",
+          "explanation": "Let train speed = S km/h, length = L m. Relative speed with person 1 = (S-2) km/h = (S-2)×(5/18) m/s. L = (S-2)×(5/18)×9 = (S-2)×(5/2). Relative speed with person 2 = (S-4) km/h = (S-4)×(5/18) m/s. L = (S-4)×(5/18)×10 = (S-4)×(50/18). Equating: (S-2)×(5/2) = (S-4)×(50/18). Multiply both sides by 18: (S-2)×45 = (S-4)×50. 45S - 90 = 50S - 200. -5S = -110 → S = 22 km/h. Substitute: L = (22-2)×(5/2) = 20×2.5 = 50 m"
+        },
+        {
+          "id": 27,
+          "question": "The difference between compound interest and simple interest on a sum for 2 years at 5% p.a. is $2.50. Find the sum.",
+          "options": {
+            "a": "$500",
+            "b": "$1000",
+            "c": "$1500",
+            "d": "$2000"
+          },
+          "answer": "b",
+          "explanation": "For 2 years, CI - SI = P(R/100)². 2.50 = P(5/100)² = P(0.05)² = P(0.0025). P = 2.50/0.0025 = $1000"
+        },
+        {
+          "id": 28,
+          "question": "What is the time complexity to find the middle of a singly linked list in one pass?",
+          "options": {
+            "a": "O(1)",
+            "b": "O(n)",
+            "c": "O(log n)",
+            "d": "O(n²)"
+          },
+          "answer": "b",
+          "explanation": "Using slow and fast pointers (tortoise and hare method), we traverse the entire list once, making it O(n) time."
+        },
+        {
+          "id": 29,
+          "question": "Consider paging with page size 4KB, 32-bit address space. How many bits for page offset?",
+          "options": {
+            "a": "10",
+            "b": "12",
+            "c": "14",
+            "d": "16"
+          },
+          "answer": "b",
+          "explanation": "Page size = 4KB = 4 × 1024 bytes = 4096 bytes = 2¹² bytes. Therefore, offset requires 12 bits."
+        },
+        {
+          "id": 30,
+          "question": "Solve recurrence: T(n) = 3T(n/4) + n²",
+          "options": {
+            "a": "O(n²)",
+            "b": "O(n^(log₄3))",
+            "c": "O(n² log n)",
+            "d": "O(n^(3/4))"
+          },
+          "answer": "a",
+          "explanation": "Using Master Theorem: a=3, b=4, f(n)=n². Compare n^(log₄3) ≈ n^0.792 with n². Since n² grows faster (polynomially larger), case 3 applies. Check regularity: 3(n/4)² = 3n²/16 ≤ c·n² for c=3/16<1. Therefore T(n) = O(n²)"
+        }
+      ]
+    },
+    {
+      "set_name": "SET B: Mixed Difficulty",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Express 3/4 as a percentage.",
+          "options": {
+            "a": "34%",
+            "b": "75%",
+            "c": "7.5%",
+            "d": "25%"
+          },
+          "answer": "b",
+          "explanation": "(3/4) × 100 = 300/4 = 75%"
+        },
+        {
+          "id": 2,
+          "question": "An article bought for $50 is sold for $60. What is the profit?",
+          "options": {
+            "a": "$5",
+            "b": "$10",
+            "c": "$15",
+            "d": "$110"
+          },
+          "answer": "b",
+          "explanation": "Profit = SP - CP = 60 - 50 = $10"
+        },
+        {
+          "id": 3,
+          "question": "The ratio of boys to girls is 4:5. If there are 20 boys, how many girls?",
+          "options": {
+            "a": "16",
+            "b": "25",
+            "c": "45",
+            "d": "9"
+          },
+          "answer": "b",
+          "explanation": "4:5 = 20:x → 4/5 = 20/x → Cross multiply: 4x = 100 → x = 25"
+        },
+        {
+          "id": 4,
+          "question": "A and B together can do a work in 4 days. If A alone does it in 6 days, B alone can do it in?",
+          "options": {
+            "a": "2 days",
+            "b": "12 days",
+            "c": "10 days",
+            "d": "24 days"
+          },
+          "answer": "b",
+          "explanation": "(1/A + 1/B) = 1/4. 1/6 + 1/B = 1/4. 1/B = 1/4 - 1/6 = 3/12 - 2/12 = 1/12. Therefore B alone takes 12 days"
+        },
+        {
+          "id": 5,
+          "question": "Convert 36 km/h to m/s.",
+          "options": {
+            "a": "10 m/s",
+            "b": "36 m/s",
+            "c": "129.6 m/s",
+            "d": "5 m/s"
+          },
+          "answer": "a",
+          "explanation": "To convert km/h to m/s, multiply by 5/18: 36 × 5/18 = 180/18 = 10 m/s"
+        },
+        {
+          "id": 6,
+          "question": "The average of 3 numbers is 15. Their sum is?",
+          "options": {
+            "a": "5",
+            "b": "18",
+            "c": "45",
+            "d": "12"
+          },
+          "answer": "c",
+          "explanation": "Average = Sum/Count → Sum = Average × Count = 15 × 3 = 45"
+        },
+        {
+          "id": 7,
+          "question": "Find the Principal if SI = $10, R = 10%, T = 1 year.",
+          "options": {
+            "a": "$100",
+            "b": "$1",
+            "c": "$110",
+            "d": "$10"
+          },
+          "answer": "a",
+          "explanation": "SI = (P × R × T)/100 → 10 = (P × 10 × 1)/100 → 10 = P/10 → P = $100"
+        },
+        {
+          "id": 8,
+          "question": "The smallest natural number is?",
+          "options": {
+            "a": "0",
+            "b": "1",
+            "c": "-1",
+            "d": "2"
+          },
+          "answer": "b",
+          "explanation": "Natural numbers are positive integers starting from 1. 0 is not a natural number."
+        },
+        {
+          "id": 9,
+          "question": "Find the HCF of 4 and 6.",
+          "options": {
+            "a": "4",
+            "b": "6",
+            "c": "2",
+            "d": "12"
+          },
+          "answer": "c",
+          "explanation": "Factors of 4: 1,2,4. Factors of 6: 1,2,3,6. Highest common factor = 2"
+        },
+        {
+          "id": 10,
+          "question": "Pointing to a man, Riya said, \"He is the son of my mother's only daughter.\" How is Riya related to that man?",
+          "options": {
+            "a": "Sister",
+            "b": "Mother",
+            "c": "Aunt",
+            "d": "Cousin"
+          },
+          "answer": "b",
+          "explanation": "Riya's mother's only daughter is Riya herself (assuming she's the only daughter). Therefore, the man is the son of Riya, making Riya his mother."
+        },
+        {
+          "id": 11,
+          "question": "75% of a number is equal to 3/4 of 200. Find the number.",
+          "options": {
+            "a": "150",
+            "b": "200",
+            "c": "100",
+            "d": "300"
+          },
+          "answer": "b",
+          "explanation": "3/4 of 200 = 150. 75% of a number = 150 → 0.75x = 150 → x = 150/0.75 = 200"
+        },
+        {
+          "id": 12,
+          "question": "If CP of 12 articles is equal to SP of 10 articles, find gain percent.",
+          "options": {
+            "a": "16.67%",
+            "b": "20%",
+            "c": "25%",
+            "d": "10%"
+          },
+          "answer": "b",
+          "explanation": "Let CP of 1 article = $1. Then CP of 12 articles = $12 = SP of 10 articles. So SP of 1 article = $12/10 = $1.2. Gain = 1.2 - 1 = 0.2. Gain% = (0.2/1) × 100 = 20%"
+        },
+        {
+          "id": 13,
+          "question": "A and B together can complete a work in 12 days. A alone can do it in 20 days. If B does it alone for half the work and then A does the remaining, the total time taken is?",
+          "options": {
+            "a": "20 days",
+            "b": "25 days",
+            "c": "22 days",
+            "d": "30 days"
+          },
+          "answer": "b",
+          "explanation": "1/A + 1/B = 1/12, 1/20 + 1/B = 1/12 → 1/B = 1/12 - 1/20 = 5/60 - 3/60 = 2/60 = 1/30. B takes 30 days for full work. Half work by B = 15 days. Half work by A = 10 days. Total = 25 days"
+        },
+        {
+          "id": 14,
+          "question": "How many numbers between 100 and 1000 are divisible by 7?",
+          "options": {
+            "a": "128",
+            "b": "129",
+            "c": "130",
+            "d": "142"
+          },
+          "answer": "a",
+          "explanation": "First number ≥100 divisible by 7: 105 (7×15). Last number ≤999 divisible by 7: 994 (7×142). Number of terms = 142 - 15 + 1 = 128"
+        },
+        {
+          "id": 15,
+          "question": "P is the sister of Q. R is the mother of P. S is the father of R. How is Q related to S?",
+          "options": {
+            "a": "Granddaughter",
+            "b": "Daughter",
+            "c": "Grandson",
+            "d": "Cannot be determined"
+          },
+          "answer": "d",
+          "explanation": "P and Q are siblings. R is mother of P and Q. S is father of R, so S is grandfather of P and Q. But gender of Q is not specified, so we cannot determine if Q is grandson or granddaughter."
+        },
+        {
+          "id": 16,
+          "question": "Statements: Some pens are pencils. All pencils are erasers. Some erasers are sharpeners.\nConclusions: I. Some pens are sharpeners. II. Some sharpeners are pencils.",
+          "options": {
+            "a": "Only I follows",
+            "b": "Only II follows",
+            "c": "Both follow",
+            "d": "Neither follows"
+          },
+          "answer": "d",
+          "explanation": "From the statements, we cannot definitely conclude that some pens are sharpeners (they might be, but not necessarily). Similarly, some sharpeners being pencils is not necessarily true."
+        },
+        {
+          "id": 17,
+          "question": "Two trains 140 m and 160 m long run at the speed of 60 km/h and 40 km/h respectively in opposite directions on parallel tracks. The time they take to cross each other is?",
+          "options": {
+            "a": "10.8 sec",
+            "b": "7.2 sec",
+            "c": "18 sec",
+            "d": "12 sec"
+          },
+          "answer": "a",
+          "explanation": "Relative speed = 60+40 = 100 km/h = 100×(5/18) = 500/18 m/s. Total distance = 140+160 = 300 m. Time = Distance/Speed = 300 ÷ (500/18) = 300 × 18/500 = 5400/500 = 10.8 sec"
+        },
+        {
+          "id": 18,
+          "question": "The average age of 30 boys in a class is 15 years. If the teacher's age is included, the average increases by 1 year. Find the teacher's age.",
+          "options": {
+            "a": "45 yrs",
+            "b": "46 yrs",
+            "c": "44 yrs",
+            "d": "40 yrs"
+          },
+          "answer": "b",
+          "explanation": "Sum of ages of 30 boys = 30×15 = 450. New average with teacher = 16 years. Sum of 31 persons = 31×16 = 496. Teacher's age = 496 - 450 = 46 years"
+        },
+        {
+          "id": 19,
+          "question": "Find the greatest number that will divide 43, 91, and 183 so as to leave the same remainder in each case.",
+          "options": {
+            "a": "4",
+            "b": "7",
+            "c": "9",
+            "d": "13"
+          },
+          "answer": "a",
+          "explanation": "Let the common remainder be r. Then numbers are (43-r), (91-r), (183-r) divisible by the number. The differences: 91-43=48, 183-91=92, 183-43=140. HCF of 48,92,140 = 4"
+        },
+        {
+          "id": 20,
+          "question": "Which of the following correctly swaps two numbers without a temporary variable?",
+          "options": {
+            "a": "a = b; b = a;",
+            "b": "a = a + b; b = a - b; a = a - b;",
+            "c": "a = a * b; b = a / b; a = a / b;",
+            "d": "Both b and c"
+          },
+          "answer": "d",
+          "explanation": "Both methods b and c correctly swap numbers (though method c may fail if b=0 or with floating points due to precision). Method a does not work as it loses the original value."
+        },
+        {
+          "id": 21,
+          "question": "What will be the output?\n#define SQUARE(x) x*x\nprintf(\"%d\", SQUARE(3+2));",
+          "options": {
+            "a": "25",
+            "b": "11",
+            "c": "17",
+            "d": "10"
+          },
+          "answer": "b",
+          "explanation": "Macro expands as 3+2*3+2 = 3+6+2 = 11, not (3+2)*(3+2)=25 due to operator precedence."
+        },
+        {
+          "id": 22,
+          "question": "What is an abstract class?",
+          "options": {
+            "a": "Class with all concrete methods",
+            "b": "Class with at least one pure virtual function",
+            "c": "Class with no methods",
+            "d": "Class that cannot be instantiated"
+          },
+          "answer": "b",
+          "explanation": "An abstract class in C++ is a class that has at least one pure virtual function. Such classes cannot be instantiated."
+        },
+        {
+          "id": 23,
+          "question": "Which traversal visits the root last in a binary tree?",
+          "options": {
+            "a": "Preorder",
+            "b": "Inorder",
+            "c": "Postorder",
+            "d": "Level order"
+          },
+          "answer": "c",
+          "explanation": "In postorder traversal, we visit left subtree, then right subtree, then the root. So root is visited last."
+        },
+        {
+          "id": 24,
+          "question": "Which sorting algorithm is stable?",
+          "options": {
+            "a": "Quick Sort",
+            "b": "Heap Sort",
+            "c": "Merge Sort",
+            "d": "Selection Sort"
+          },
+          "answer": "c",
+          "explanation": "Merge Sort is stable as it maintains the relative order of equal elements. Quick Sort and Heap Sort are typically unstable."
+        },
+        {
+          "id": 25,
+          "question": "What does UNION do in SQL?",
+          "options": {
+            "a": "Combines columns",
+            "b": "Combines rows from multiple SELECTs",
+            "c": "Intersects tables",
+            "d": "Excludes duplicates"
+          },
+          "answer": "b",
+          "explanation": "UNION combines the result sets of two or more SELECT statements into a single result set, removing duplicates by default."
+        },
+        {
+          "id": 26,
+          "question": "Rohan walks 5 km north, then turns right and walks 3 km. Then he turns right again and walks 5 km. How far is he from his starting point?",
+          "options": {
+            "a": "2 km",
+            "b": "3 km",
+            "c": "5 km",
+            "d": "8 km"
+          },
+          "answer": "b",
+          "explanation": "Start at (0,0). North 5 km → (0,5). Right (East) 3 km → (3,5). Right (South) 5 km → (3,0). Distance from start = √[(3-0)² + (0-0)²] = √9 = 3 km"
+        },
+        {
+          "id": 27,
+          "question": "A mixture contains milk and water in the ratio 5:1. On adding 5 liters of water, the ratio becomes 5:2. Find the quantity of milk.",
+          "options": {
+            "a": "20 L",
+            "b": "25 L",
+            "c": "30 L",
+            "d": "35 L"
+          },
+          "answer": "b",
+          "explanation": "Let milk = 5x, water = x. After adding 5L water: milk = 5x, water = x+5. New ratio 5x:(x+5) = 5:2 → 10x = 5x+25 → 5x=25 → x=5. Milk = 5×5 = 25 L"
+        },
+        {
+          "id": 28,
+          "question": "Consider pointer arithmetic:\nint arr[] = {10, 20, 30, 40, 50};\nint *ptr = arr;\nprintf(\"%d\", *(ptr + 2) + *(arr + 1));",
+          "options": {
+            "a": "30",
+            "b": "40",
+            "c": "50",
+            "d": "60"
+          },
+          "answer": "c",
+          "explanation": "*(ptr + 2) = arr[2] = 30. *(arr + 1) = arr[1] = 20. Sum = 30 + 20 = 50"
+        },
+        {
+          "id": 29,
+          "question": "What is the space complexity of breadth-first search on a graph with V vertices and E edges?",
+          "options": {
+            "a": "O(1)",
+            "b": "O(V)",
+            "c": "O(E)",
+            "d": "O(V+E)"
+          },
+          "answer": "d",
+          "explanation": "BFS requires a queue that can hold up to V vertices in worst case, and a visited array of size V, so O(V). However, for adjacency list representation, we also need O(E) space for the graph itself. Total O(V+E)."
+        },
+        {
+          "id": 30,
+          "question": "Given IP 192.168.1.130/25, what's the network address?",
+          "options": {
+            "a": "192.168.1.0",
+            "b": "192.168.1.128",
+            "c": "192.168.1.192",
+            "d": "192.168.1.64"
+          },
+          "answer": "b",
+          "explanation": "/25 means subnet mask 255.255.255.128. The network address is obtained by setting host bits to 0. 130 in binary is 10000010, with 1 network bit in last octet, so network part is 10000000 = 128. Thus 192.168.1.128"
+        }
+      ]
+    },
+    {
+      "set_name": "SET C: Mixed Difficulty",
+      "questions": [
+        {
+          "id": 1,
+          "question": "If 15% of a number is 30, find the number.",
+          "options": {
+            "a": "200",
+            "b": "45",
+            "c": "450",
+            "d": "4.5"
+          },
+          "answer": "a",
+          "explanation": "15% = 0.15. 0.15 × N = 30 → N = 30/0.15 = 200"
+        },
+        {
+          "id": 2,
+          "question": "If a pen costs $10 and is sold for $12, what is the profit percentage?",
+          "options": {
+            "a": "2%",
+            "b": "20%",
+            "c": "25%",
+            "d": "16.67%"
+          },
+          "answer": "b",
+          "explanation": "Profit = SP - CP = 12 - 10 = $2. Profit% = (Profit/CP) × 100 = (2/10) × 100 = 20%"
+        },
+        {
+          "id": 3,
+          "question": "Divide 100 in the ratio 2:3.",
+          "options": {
+            "a": "40,60",
+            "b": "50,50",
+            "c": "20,30",
+            "d": "30,70"
+          },
+          "answer": "a",
+          "explanation": "Sum of ratio terms = 2+3 = 5. First part = (2/5) × 100 = 40. Second part = (3/5) × 100 = 60"
+        },
+        {
+          "id": 4,
+          "question": "If A is twice as good as B, and B takes 12 days, A takes?",
+          "options": {
+            "a": "24 days",
+            "b": "12 days",
+            "c": "6 days",
+            "d": "18 days"
+          },
+          "answer": "c",
+          "explanation": "If A is twice as good, A takes half the time of B. So A takes 12/2 = 6 days"
+        },
+        {
+          "id": 5,
+          "question": "Find distance if speed = 60 km/h and time = 3 hours.",
+          "options": {
+            "a": "20 km",
+            "b": "63 km",
+            "c": "180 km",
+            "d": "57 km"
+          },
+          "answer": "c",
+          "explanation": "Distance = Speed × Time = 60 × 3 = 180 km"
+        },
+        {
+          "id": 6,
+          "question": "Find the average of first 10 natural numbers.",
+          "options": {
+            "a": "5",
+            "b": "5.5",
+            "c": "10",
+            "d": "55"
+          },
+          "answer": "b",
+          "explanation": "Sum of first 10 natural numbers = n(n+1)/2 = 10×11/2 = 55. Average = 55/10 = 5.5"
+        },
+        {
+          "id": 7,
+          "question": "Find SI on $200 for 2 years at 10% p.a.",
+          "options": {
+            "a": "$20",
+            "b": "$40",
+            "c": "$400",
+            "d": "$240"
+          },
+          "answer": "b",
+          "explanation": "SI = (P × R × T)/100 = (200 × 10 × 2)/100 = 4000/100 = $40"
+        },
+        {
+          "id": 8,
+          "question": "Which number is composite?",
+          "options": {
+            "a": "2",
+            "b": "3",
+            "c": "5",
+            "d": "9"
+          },
+          "answer": "d",
+          "explanation": "Composite numbers have more than two factors. 9 = 1,3,9 (3 factors) so composite. 2,3,5 are prime."
+        },
+        {
+          "id": 9,
+          "question": "LCM of 5 and 10 is?",
+          "options": {
+            "a": "5",
+            "b": "10",
+            "c": "50",
+            "d": "2"
+          },
+          "answer": "b",
+          "explanation": "Multiples of 5: 5,10,15,... Multiples of 10: 10,20,30,... Smallest common = 10"
+        },
+        {
+          "id": 10,
+          "question": "Rohan walks 5 km north, then turns right and walks 3 km. Then he turns right again and walks 5 km. How far is he from his starting point?",
+          "options": {
+            "a": "2 km",
+            "b": "3 km",
+            "c": "5 km",
+            "d": "8 km"
+          },
+          "answer": "b",
+          "explanation": "Start at (0,0). North 5 km → (0,5). Right (East) 3 km → (3,5). Right (South) 5 km → (3,0). Distance from start = √[(3-0)² + (0-0)²] = √9 = 3 km"
+        },
+        {
+          "id": 11,
+          "question": "If a:b = 3:4 and b:c = 8:9, find a:c.",
+          "options": {
+            "a": "1:2",
+            "b": "3:2",
+            "c": "2:3",
+            "d": "1:3"
+          },
+          "answer": "c",
+          "explanation": "a:b = 3:4 = 6:8. b:c = 8:9. Therefore a:b:c = 6:8:9. So a:c = 6:9 = 2:3"
+        },
+        {
+          "id": 12,
+          "question": "Three bells ring at intervals of 6, 12, and 15 minutes. If they ring together at 8:00 am, at what time will they ring together again?",
+          "options": {
+            "a": "9:00 am",
+            "b": "10:00 am",
+            "c": "11:00 am",
+            "d": "12:00 pm"
+          },
+          "answer": "a",
+          "explanation": "LCM of 6,12,15 = 60 minutes = 1 hour. So they ring together again at 9:00 am"
+        },
+        {
+          "id": 13,
+          "question": "Statement: \"All politicians are honest. But some honest people are not politicians.\"\nConclusions: I. Some honest people are politicians. II. All honest people are politicians.",
+          "options": {
+            "a": "Only I follows",
+            "b": "Only II follows",
+            "c": "Both follow",
+            "d": "Neither follows"
+          },
+          "answer": "a",
+          "explanation": "All politicians are honest means politicians are a subset of honest people. So some honest people are definitely politicians. Conclusion II is false as some honest people are not politicians."
+        },
+        {
+          "id": 14,
+          "question": "A man covers a distance at 60 km/h and returns at 40 km/h. Find his average speed for the whole journey.",
+          "options": {
+            "a": "50 km/h",
+            "b": "48 km/h",
+            "c": "45 km/h",
+            "d": "52 km/h"
+          },
+          "answer": "b",
+          "explanation": "Average speed = 2xy/(x+y) = 2×60×40/(60+40) = 4800/100 = 48 km/h"
+        },
+        {
+          "id": 15,
+          "question": "A bag contains 3 red and 5 black balls. One ball is drawn at random. Find the probability that it is red.",
+          "options": {
+            "a": "3/5",
+            "b": "3/8",
+            "c": "5/8",
+            "d": "1/8"
+          },
+          "answer": "b",
+          "explanation": "Total balls = 3+5 = 8. Favorable outcomes (red) = 3. Probability = 3/8"
+        },
+        {
+          "id": 16,
+          "question": "If EARTH is coded as 511820, then SKY is coded as?",
+          "options": {
+            "a": "191125",
+            "b": "192511",
+            "c": "19125",
+            "d": "1925"
+          },
+          "answer": "a",
+          "explanation": "Each letter is coded by its position in alphabet: E=5, A=1, R=18, T=20, H=8 → 511820. Similarly S=19, K=11, Y=25 → 191125"
+        },
+        {
+          "id": 17,
+          "question": "Which is the correct way to dynamically allocate a 2D array?",
+          "options": {
+            "a": "int arr[10][10];",
+            "b": "int **arr = malloc(rows * sizeof(int*));",
+            "c": "int *arr = malloc(rows * cols * sizeof(int));",
+            "d": "Both b and c"
+          },
+          "answer": "d",
+          "explanation": "Both methods are valid: b creates an array of pointers, c uses a 1D array to simulate 2D. Static allocation in a is not dynamic."
+        },
+        {
+          "id": 18,
+          "question": "What is the diamond problem in inheritance?",
+          "options": {
+            "a": "Shape class problem",
+            "b": "Ambiguity in multiple inheritance",
+            "c": "Memory allocation issue",
+            "d": "Compilation error"
+          },
+          "answer": "b",
+          "explanation": "The diamond problem occurs in multiple inheritance when a class inherits from two classes that have a common base class, causing ambiguity about which base class members to use."
+        },
+        {
+          "id": 19,
+          "question": "What is the maximum number of nodes in a binary tree of height h?",
+          "options": {
+            "a": "2^h - 1",
+            "b": "2^h",
+            "c": "2^(h+1) - 1",
+            "d": "h^2"
+          },
+          "answer": "c",
+          "explanation": "A perfect binary tree of height h (where height is number of levels) has maximum nodes = 2^h - 1 if root at level 0. If root at level 1, then 2^(h+1) - 1. Typically height is number of levels, so 2^(h+1) - 1."
+        },
+        {
+          "id": 20,
+          "question": "What is the space complexity of Merge Sort?",
+          "options": {
+            "a": "O(1)",
+            "b": "O(log n)",
+            "c": "O(n)",
+            "d": "O(n²)"
+          },
+          "answer": "c",
+          "explanation": "Merge sort requires O(n) auxiliary space for merging temporary arrays."
+        },
+        {
+          "id": 21,
+          "question": "What is the time complexity of heap sort?",
+          "options": {
+            "a": "O(n)",
+            "b": "O(n log n)",
+            "c": "O(n²)",
+            "d": "O(log n)"
+          },
+          "answer": "b",
+          "explanation": "Heap sort has O(n log n) time complexity in all cases (best, average, worst)."
+        },
+        {
+          "id": 22,
+          "question": "What is a candidate key?",
+          "options": {
+            "a": "Primary key",
+            "b": "Unique key that can be primary",
+            "c": "Foreign key",
+            "d": "Composite key"
+          },
+          "answer": "b",
+          "explanation": "A candidate key is a column or set of columns that can uniquely identify each row. One candidate key is chosen as the primary key."
+        },
+        {
+          "id": 23,
+          "question": "What is a critical section?",
+          "options": {
+            "a": "Important code",
+            "b": "Code segment accessing shared resources",
+            "c": "Error section",
+            "d": "Main function"
+          },
+          "answer": "b",
+          "explanation": "A critical section is a code segment that accesses shared resources and must not be executed by more than one process/thread at a time."
+        },
+        {
+          "id": 24,
+          "question": "What is thrashing?",
+          "options": {
+            "a": "Process killing",
+            "b": "Excessive paging activity",
+            "c": "CPU overheating",
+            "d": "Disk crash"
+          },
+          "answer": "b",
+          "explanation": "Thrashing occurs when a computer's virtual memory subsystem is in a constant state of paging, rapidly swapping data between memory and disk, degrading performance."
+        },
+        {
+          "id": 25,
+          "question": "What is the range of Class A IP addresses?",
+          "options": {
+            "a": "1-126",
+            "b": "128-191",
+            "c": "192-223",
+            "d": "224-239"
+          },
+          "answer": "a",
+          "explanation": "Class A: 1.0.0.0 to 126.0.0.0 (127 is loopback). Class B: 128-191, Class C: 192-223, Class D: 224-239 (multicast)."
+        },
+        {
+          "id": 26,
+          "question": "Statements: All cats are dogs. Some dogs are rats.\nConclusions: I. Some cats are rats. II. All rats are dogs.",
+          "options": {
+            "a": "Only I follows",
+            "b": "Only II follows",
+            "c": "Both follow",
+            "d": "Neither follows"
+          },
+          "answer": "d",
+          "explanation": "From 'All cats are dogs' and 'Some dogs are rats', we cannot conclude any relationship between cats and rats. Also, all rats being dogs is not necessarily true."
+        },
+        {
+          "id": 27,
+          "question": "A man travels at 60 km/h for the first 2 hours, at 40 km/h for the next 3 hours, and at 50 km/h for the next 2 hours. Find his average speed for the whole journey.",
+          "options": {
+            "a": "47.5 km/h",
+            "b": "48 km/h",
+            "c": "48.5 km/h",
+            "d": "49 km/h"
+          },
+          "answer": "c",
+          "explanation": "Distance = (60×2) + (40×3) + (50×2) = 120 + 120 + 100 = 340 km. Time = 2+3+2 = 7 hours. Average speed = 340/7 = 48.57 ≈ 48.5 km/h"
+        },
+        {
+          "id": 28,
+          "question": "Consider the following code:\nint x = 10;\nint y = 20;\nint *p1 = &x;\nint *p2 = &y;\n*p1 = *p2 + 2;\np1 = p2;\n*p2 = 30;\nprintf(\"%d %d\", x, y);",
+          "options": {
+            "a": "22 30",
+            "b": "10 30",
+            "c": "22 22",
+            "d": "20 30"
+          },
+          "answer": "a",
+          "explanation": "*p1 = *p2 + 2 → x = 20 + 2 = 22. p1 = p2 → p1 now points to y. *p2 = 30 → y = 30. So x=22, y=30"
+        },
+        {
+          "id": 29,
+          "question": "What is the time complexity of KMP pattern matching?",
+          "options": {
+            "a": "O(m+n)",
+            "b": "O(m*n)",
+            "c": "O(n log m)",
+            "d": "O(m log n)"
+          },
+          "answer": "a",
+          "explanation": "Knuth-Morris-Pratt algorithm has O(m+n) time complexity where m is pattern length and n is text length."
+        },
+        {
+          "id": 30,
+          "question": "Given page references: 1,2,3,4,1,2,5,1,2,3,4,5 with 3 frames. Using FIFO, how many page faults?",
+          "options": {
+            "a": "8",
+            "b": "9",
+            "c": "10",
+            "d": "11"
+          },
+          "answer": "b",
+          "explanation": "FIFO with 3 frames: 1(f),2(f),3(f),4(f - replace 1),1(f - replace 2),2(f - replace 3),5(f - replace 4),1(f - replace 1),2(f - replace 2),3(f - replace 5),4(f - replace 1),5(f - replace 2) = 9 faults"
+        }
+      ]
+    },
+    {
+      "set_name": "SET D: Mixed Difficulty",
+      "questions": [
+        {
+          "id": 1,
+          "question": "An item costing $200 is sold at a 10% profit. Find the Selling Price.",
+          "options": {
+            "a": "$210",
+            "b": "$220",
+            "c": "$180",
+            "d": "$190"
+          },
+          "answer": "b",
+          "explanation": "Profit = 10% of 200 = $20. SP = CP + Profit = 200 + 20 = $220"
+        },
+        {
+          "id": 2,
+          "question": "By selling for $50, a man gains $10. Find the gain percent.",
+          "options": {
+            "a": "20%",
+            "b": "25%",
+            "c": "16.67%",
+            "d": "10%"
+          },
+          "answer": "b",
+          "explanation": "CP = SP - Gain = 50 - 10 = $40. Gain% = (Gain/CP) × 100 = (10/40) × 100 = 25%"
+        },
+        {
+          "id": 3,
+          "question": "10 men can build a wall in 5 days. How many men are needed to build it in 1 day?",
+          "options": {
+            "a": "2",
+            "b": "10",
+            "c": "50",
+            "d": "5"
+          },
+          "answer": "c",
+          "explanation": "M1D1 = M2D2 → 10×5 = M2×1 → M2 = 50 men"
+        },
+        {
+          "id": 4,
+          "question": "A can do a work in 15 days. He worked for 5 days. The fraction of work left is?",
+          "options": {
+            "a": "1/3",
+            "b": "2/3",
+            "c": "1/5",
+            "d": "4/5"
+          },
+          "answer": "b",
+          "explanation": "Work done in 5 days = 5/15 = 1/3. Work left = 1 - 1/3 = 2/3"
+        },
+        {
+          "id": 5,
+          "question": "A man runs at 8 m/s. His speed in km/h is?",
+          "options": {
+            "a": "28.8",
+            "b": "2.22",
+            "c": "8",
+            "d": "80"
+          },
+          "answer": "a",
+          "explanation": "To convert m/s to km/h, multiply by 18/5: 8 × 18/5 = 144/5 = 28.8 km/h"
+        },
+        {
+          "id": 6,
+          "question": "Average of 5, 10, 15, 20 is?",
+          "options": {
+            "a": "50",
+            "b": "10",
+            "c": "12.5",
+            "d": "15"
+          },
+          "answer": "c",
+          "explanation": "Sum = 5+10+15+20 = 50. Count = 4. Average = 50/4 = 12.5"
+        },
+        {
+          "id": 7,
+          "question": "At what rate % gives $100 as interest on $1000 for 1 year?",
+          "options": {
+            "a": "1%",
+            "b": "10%",
+            "c": "100%",
+            "d": "0.1%"
+          },
+          "answer": "b",
+          "explanation": "SI = (P×R×T)/100 → 100 = (1000×R×1)/100 → 100 = 10R → R = 10%"
+        },
+        {
+          "id": 8,
+          "question": "The successor of 99 is?",
+          "options": {
+            "a": "98",
+            "b": "100",
+            "c": "101",
+            "d": "99"
+          },
+          "answer": "b",
+          "explanation": "Successor of a number is the number that comes immediately after it. Successor of 99 is 100."
+        },
+        {
+          "id": 9,
+          "question": "Find the HCF of 12 and 18.",
+          "options": {
+            "a": "2",
+            "b": "3",
+            "c": "6",
+            "d": "36"
+          },
+          "answer": "c",
+          "explanation": "Factors of 12: 1,2,3,4,6,12. Factors of 18: 1,2,3,6,9,18. Highest common factor = 6"
+        },
+        {
+          "id": 10,
+          "question": "In a row of students, Ravi is 7th from left and 9th from right. How many students are there?",
+          "options": {
+            "a": "15",
+            "b": "16",
+            "c": "17",
+            "d": "18"
+          },
+          "answer": "a",
+          "explanation": "Total students = (Position from left + Position from right) - 1 = 7 + 9 - 1 = 15"
+        },
+        {
+          "id": 11,
+          "question": "Divide $1250 among A, B, C in the ratio 2:3:5. Find C's share.",
+          "options": {
+            "a": "250",
+            "b": "375",
+            "c": "625",
+            "d": "500"
+          },
+          "answer": "c",
+          "explanation": "Sum of ratio terms = 2+3+5 = 10. C's share = (5/10) × 1250 = 625"
+        },
+        {
+          "id": 12,
+          "question": "Assertion (A): We see lightning before hearing thunder.\nReason (R): Light travels faster than sound.\nChoose the correct option:",
+          "options": {
+            "a": "Both A and R are true and R is correct explanation of A",
+            "b": "Both A and R are true but R is not correct explanation of A",
+            "c": "A is true but R is false",
+            "d": "A is false but R is true"
+          },
+          "answer": "a",
+          "explanation": "Lightning is seen before thunder because light travels much faster than sound. So both are true and R explains A."
+        },
+        {
+          "id": 13,
+          "question": "A die is thrown once. Find the probability of getting an odd number.",
+          "options": {
+            "a": "1/2",
+            "b": "1/3",
+            "c": "1/6",
+            "d": "2/3"
+          },
+          "answer": "a",
+          "explanation": "Odd numbers on a die: 1,3,5 → 3 favorable outcomes. Total outcomes = 6. Probability = 3/6 = 1/2"
+        },
+        {
+          "id": 14,
+          "question": "A told B, \"The girl I met yesterday is the daughter of the only son of my grandfather.\" How is the girl related to A?",
+          "options": {
+            "a": "Sister",
+            "b": "Cousin",
+            "c": "Aunt",
+            "d": "Mother"
+          },
+          "answer": "a",
+          "explanation": "The only son of A's grandfather is A's father. The daughter of A's father is A's sister."
+        },
+        {
+          "id": 15,
+          "question": "Statement: Many students are dropping out of school.\nCourse of Action: I. Provide scholarships to needy students. II. Make education compulsory till a certain age.\nChoose the correct option:",
+          "options": {
+            "a": "Only I follows",
+            "b": "Only II follows",
+            "c": "Both follow",
+            "d": "Neither follows"
+          },
+          "answer": "c",
+          "explanation": "Both actions can help reduce dropouts: scholarships address financial issues, compulsory education ensures attendance."
+        },
+        {
+          "id": 16,
+          "question": "What is the size of an empty class in C++?",
+          "options": {
+            "a": "0",
+            "b": "1",
+            "c": "4",
+            "d": "8"
+          },
+          "answer": "b",
+          "explanation": "In C++, an empty class has a non-zero size (typically 1 byte) to ensure that different objects have different addresses."
+        },
+        {
+          "id": 17,
+          "question": "What is the time complexity of the heapify operation?",
+          "options": {
+            "a": "O(1)",
+            "b": "O(log n)",
+            "c": "O(n)",
+            "d": "O(n log n)"
+          },
+          "answer": "b",
+          "explanation": "Heapify (sift down) operation on a single node takes O(log n) time as it may travel from root to leaf."
+        },
+        {
+          "id": 18,
+          "question": "Which algorithm uses the \"divide and conquer\" strategy?",
+          "options": {
+            "a": "Binary Search",
+            "b": "Linear Search",
+            "c": "Bubble Sort",
+            "d": "Insertion Sort"
+          },
+          "answer": "a",
+          "explanation": "Binary Search divides the array into halves and searches in one half, following divide and conquer approach."
+        },
+        {
+          "id": 19,
+          "question": "Which problem is best solved using dynamic programming?",
+          "options": {
+            "a": "Binary Search",
+            "b": "Fibonacci (efficient)",
+            "c": "Linear Search",
+            "d": "Bubble Sort"
+          },
+          "answer": "b",
+          "explanation": "Dynamic programming is ideal for problems with overlapping subproblems like Fibonacci, where memoization avoids redundant calculations."
+        },
+        {
+          "id": 20,
+          "question": "What is the time complexity of the Tower of Hanoi?",
+          "options": {
+            "a": "O(n)",
+            "b": "O(2^n)",
+            "c": "O(n²)",
+            "d": "O(n log n)"
+          },
+          "answer": "b",
+          "explanation": "Tower of Hanoi requires 2^n - 1 moves, so time complexity is O(2^n)."
+        },
+        {
+          "id": 21,
+          "question": "Which join returns all rows from the left table?",
+          "options": {
+            "a": "INNER JOIN",
+            "b": "LEFT JOIN",
+            "c": "RIGHT JOIN",
+            "d": "FULL JOIN"
+          },
+          "answer": "b",
+          "explanation": "LEFT JOIN returns all records from the left table and matching records from the right table."
+        },
+        {
+          "id": 22,
+          "question": "What is a mutex?",
+          "options": {
+            "a": "Mutual exclusion object",
+            "b": "Multiple execution",
+            "c": "Memory unit",
+            "d": "Process scheduler"
+          },
+          "answer": "a",
+          "explanation": "A mutex (mutual exclusion) is a synchronization primitive used to prevent multiple threads from accessing shared resources simultaneously."
+        },
+        {
+          "id": 23,
+          "question": "What is the convoy effect in scheduling?",
+          "options": {
+            "a": "CPU bound process blocking I/O bound",
+            "b": "Multiple processes running",
+            "c": "Deadlock situation",
+            "d": "Starvation"
+          },
+          "answer": "a",
+          "explanation": "Convoy effect occurs when a CPU-bound process holds the CPU, forcing I/O-bound processes to wait, leading to inefficient resource utilization."
+        },
+        {
+          "id": 24,
+          "question": "What is a race condition?",
+          "options": {
+            "a": "Racing programs",
+            "b": "Outcome depends on execution order",
+            "c": "Speed competition",
+            "d": "Process priority"
+          },
+          "answer": "b",
+          "explanation": "A race condition occurs when multiple threads access shared data concurrently, and the final outcome depends on the timing/order of execution."
+        },
+        {
+          "id": 25,
+          "question": "What is the loopback IP address?",
+          "options": {
+            "a": "192.168.0.1",
+            "b": "10.0.0.1",
+            "c": "127.0.0.1",
+            "d": "0.0.0.0"
+          },
+          "answer": "c",
+          "explanation": "127.0.0.1 is the loopback address used to test network software on the local machine."
+        },
+        {
+          "id": 26,
+          "question": "If CAT is coded as 24, then DOG will be coded as?",
+          "options": {
+            "a": "26",
+            "b": "28",
+            "c": "30",
+            "d": "32"
+          },
+          "answer": "a",
+          "explanation": "C=3, A=1, T=20 → sum = 24. D=4, O=15, G=7 → sum = 26"
+        },
+        {
+          "id": 27,
+          "question": "In a 60-liter mixture of milk and water, the ratio of milk to water is 2:1. How much water should be added to make the ratio 1:2?",
+          "options": {
+            "a": "40 L",
+            "b": "50 L",
+            "c": "60 L",
+            "d": "70 L"
+          },
+          "answer": "c",
+          "explanation": "Milk = (2/3)×60 = 40 L, Water = 20 L. Let water added = x. New ratio 40:(20+x) = 1:2 → 80 = 20+x → x = 60 L"
+        },
+        {
+          "id": 28,
+          "question": "What will the following code print?\n#include <stdio.h>\n#define SWAP(a,b) {a=a+b; b=a-b; a=a-b;}\nint main() {\n    int x = 5, y = 10;\n    SWAP(x,y);\n    printf(\"%d %d\", x, y);\n    return 0;\n}",
+          "options": {
+            "a": "10 5",
+            "b": "5 10",
+            "c": "15 5",
+            "d": "10 15"
+          },
+          "answer": "a",
+          "explanation": "SWAP macro swaps values: a=a+b=15, b=a-b=15-10=5, a=a-b=15-5=10. So x=10, y=5"
+        },
+        {
+          "id": 29,
+          "question": "What is the time complexity to check if a binary tree is BST?",
+          "options": {
+            "a": "O(1)",
+            "b": "O(log n)",
+            "c": "O(n)",
+            "d": "O(n log n)"
+          },
+          "answer": "c",
+          "explanation": "Checking if a binary tree is BST requires traversing all nodes once, comparing each node's value with its allowed range. So O(n)."
+        },
+        {
+          "id": 30,
+          "question": "Given transactions T1: R(A), W(A), R(B), W(B); T2: R(A), W(A), R(B), W(B). Which schedule is conflict serializable?",
+          "options": {
+            "a": "T1:R(A), T2:R(A), T1:W(A), T2:W(A), T1:R(B), T2:R(B), T1:W(B), T2:W(B)",
+            "b": "T1:R(A), T1:W(A), T2:R(A), T2:W(A), T1:R(B), T1:W(B), T2:R(B), T2:W(B)",
+            "c": "T1:R(A), T1:W(A), T1:R(B), T1:W(B), T2:R(A), T2:W(A), T2:R(B), T2:W(B)",
+            "d": "All of the above"
+          },
+          "answer": "c",
+          "explanation": "Schedule c is serial (T1 then T2) so it's conflict serializable. Schedules a and b have conflicts that may not be equivalent to any serial schedule."
+        }
+      ]
+    },
+    {
+      "set_name": "SET E: Mixed Difficulty",
+      "questions": [
+        {
+          "id": 1,
+          "question": "An item is sold at a loss of 10%. If the CP was $200, find the SP.",
+          "options": {
+            "a": "$190",
+            "b": "$180",
+            "c": "$210",
+            "d": "$220"
+          },
+          "answer": "b",
+          "explanation": "Loss = 10% of 200 = $20. SP = CP - Loss = 200 - 20 = $180"
+        },
+        {
+          "id": 2,
+          "question": "Find the value of x if 2:5 :: 6:x.",
+          "options": {
+            "a": "10",
+            "b": "15",
+            "c": "12",
+            "d": "30"
+          },
+          "answer": "b",
+          "explanation": "2:5 = 6:x → 2/5 = 6/x → 2x = 30 → x = 15"
+        },
+        {
+          "id": 3,
+          "question": "A does 1/4 of a work in 1 day. How many days to finish the work?",
+          "options": {
+            "a": "1",
+            "b": "4",
+            "c": "1/4",
+            "d": "2"
+          },
+          "answer": "b",
+          "explanation": "If 1/4 work takes 1 day, complete work takes 1 × 4 = 4 days"
+        },
+        {
+          "id": 4,
+          "question": "Find the duplicate ratio of 2:3.",
+          "options": {
+            "a": "4:6",
+            "b": "4:9",
+            "c": "2:3",
+            "d": "1:1.5"
+          },
+          "answer": "b",
+          "explanation": "Duplicate ratio means squaring each term: 2² : 3² = 4:9"
+        },
+        {
+          "id": 5,
+          "question": "A car travels 150 km in 3 hours. Its average speed is?",
+          "options": {
+            "a": "50 km/h",
+            "b": "153 km/h",
+            "c": "450 km/h",
+            "d": "147 km/h"
+          },
+          "answer": "a",
+          "explanation": "Speed = Distance/Time = 150/3 = 50 km/h"
+        },
+        {
+          "id": 6,
+          "question": "Mean of 1, 3, 5, 7, 9 is?",
+          "options": {
+            "a": "3",
+            "b": "4",
+            "c": "5",
+            "d": "6"
+          },
+          "answer": "c",
+          "explanation": "Sum = 1+3+5+7+9 = 25. Count = 5. Mean = 25/5 = 5"
+        },
+        {
+          "id": 7,
+          "question": "Find Amount if P = $1000, R = 10%, T = 2 years (SI).",
+          "options": {
+            "a": "$200",
+            "b": "$1200",
+            "c": "$800",
+            "d": "$1020"
+          },
+          "answer": "b",
+          "explanation": "SI = (1000×10×2)/100 = $200. Amount = P + SI = 1000 + 200 = $1200"
+        },
+        {
+          "id": 8,
+          "question": "The face value of 4 in 345 is?",
+          "options": {
+            "a": "4",
+            "b": "40",
+            "c": "340",
+            "d": "345"
+          },
+          "answer": "a",
+          "explanation": "Face value of a digit is the digit itself regardless of its position. So face value of 4 is 4."
+        },
+        {
+          "id": 9,
+          "question": "Statements: All cats are dogs. Some dogs are rats.\nConclusions: I. Some cats are rats. II. All rats are dogs.\nChoose the correct option:",
+          "options": {
+            "a": "Only I follows",
+            "b": "Only II follows",
+            "c": "Both follow",
+            "d": "Neither follows"
+          },
+          "answer": "d",
+          "explanation": "No definite relationship between cats and rats can be established. All rats being dogs is also not necessarily true."
+        },
+        {
+          "id": 10,
+          "question": "What is the output of printf(\"%d\", 10 + 20); in C?",
+          "options": {
+            "a": "1020",
+            "b": "30",
+            "c": "10+20",
+            "d": "Error"
+          },
+          "answer": "b",
+          "explanation": "10 + 20 is evaluated as 30 and printed as integer due to %d format specifier."
+        },
+        {
+          "id": 11,
+          "question": "Find the next term: A, E, I, M, ?",
+          "options": {
+            "a": "P",
+            "b": "Q",
+            "c": "R",
+            "d": "S"
+          },
+          "answer": "b",
+          "explanation": "Positions: A=1, E=5, I=9, M=13. Difference of 4 each time. Next = 13+4 = 17 → Q"
+        },
+        {
+          "id": 12,
+          "question": "What is the port number for HTTP?",
+          "options": {
+            "a": "21",
+            "b": "80",
+            "c": "443",
+            "d": "25"
+          },
+          "answer": "b",
+          "explanation": "HTTP uses port 80 by default. HTTPS uses 443, FTP uses 21, SMTP uses 25."
+        },
+        {
+          "id": 13,
+          "question": "Which protocol is connection-oriented?",
+          "options": {
+            "a": "UDP",
+            "b": "TCP",
+            "c": "IP",
+            "d": "ICMP"
+          },
+          "answer": "b",
+          "explanation": "TCP (Transmission Control Protocol) is connection-oriented, while UDP is connectionless."
+        },
+        {
+          "id": 14,
+          "question": "What is ARP?",
+          "options": {
+            "a": "Address Resolution Protocol",
+            "b": "Automatic Routing Protocol",
+            "c": "Application Resolution Protocol",
+            "d": "Address Recognition Protocol"
+          },
+          "answer": "a",
+          "explanation": "ARP (Address Resolution Protocol) maps IP addresses to MAC addresses on a local network."
+        },
+        {
+          "id": 15,
+          "question": "What is the maximum header size of TCP?",
+          "options": {
+            "a": "20 bytes",
+            "b": "60 bytes",
+            "c": "40 bytes",
+            "d": "32 bytes"
+          },
+          "answer": "b",
+          "explanation": "TCP header minimum is 20 bytes, maximum with options is 60 bytes."
+        },
+        {
+          "id": 16,
+          "question": "What is a sprint in Agile?",
+          "options": {
+            "a": "Running exercise",
+            "b": "Fixed time development cycle",
+            "c": "Code compilation",
+            "d": "Testing phase"
+          },
+          "answer": "b",
+          "explanation": "A sprint is a time-boxed iteration (usually 1-4 weeks) during which a specific set of work is completed."
+        },
+        {
+          "id": 17,
+          "question": "What is a user story?",
+          "options": {
+            "a": "Story about user",
+            "b": "Short requirement description",
+            "c": "User manual",
+            "d": "Design document"
+          },
+          "answer": "b",
+          "explanation": "A user story is a short, simple description of a feature from the perspective of the user."
+        },
+        {
+          "id": 18,
+          "question": "What is regression testing?",
+          "options": {
+            "a": "Testing new features",
+            "b": "Testing unchanged parts after changes",
+            "c": "Testing performance",
+            "d": "Security testing"
+          },
+          "answer": "b",
+          "explanation": "Regression testing ensures that recent code changes haven't affected existing functionality."
+        },
+        {
+          "id": 19,
+          "question": "What is black box testing?",
+          "options": {
+            "a": "Testing without code knowledge",
+            "b": "Testing with code knowledge",
+            "c": "Hardware testing",
+            "d": "Network testing"
+          },
+          "answer": "a",
+          "explanation": "Black box testing focuses on inputs and outputs without knowledge of internal code structure."
+        },
+        {
+          "id": 20,
+          "question": "What is white box testing?",
+          "options": {
+            "a": "Testing without code",
+            "b": "Testing with internal code structure knowledge",
+            "c": "User testing",
+            "d": "Acceptance testing"
+          },
+          "answer": "b",
+          "explanation": "White box testing involves testing internal structures or workings of an application."
+        },
+        {
+          "id": 21,
+          "question": "What is a primary key?",
+          "options": {
+            "a": "Unique identifier",
+            "b": "Can be null",
+            "c": "Duplicate allowed",
+            "d": "Foreign key reference"
+          },
+          "answer": "a",
+          "explanation": "A primary key uniquely identifies each record in a table and cannot be null or duplicate."
+        },
+        {
+          "id": 22,
+          "question": "What is normalization?",
+          "options": {
+            "a": "Organizing data to reduce redundancy",
+            "b": "Increasing redundancy",
+            "c": "Deleting tables",
+            "d": "Creating indexes"
+          },
+          "answer": "a",
+          "explanation": "Normalization organizes data to minimize redundancy and dependency by dividing tables appropriately."
+        },
+        {
+          "id": 23,
+          "question": "What is ACID in databases?",
+          "options": {
+            "a": "Atomicity, Consistency, Isolation, Durability",
+            "b": "Availability, Consistency, Isolation, Durability",
+            "c": "Atomicity, Consistency, Integrity, Durability",
+            "d": "Accuracy, Consistency, Isolation, Durability"
+          },
+          "answer": "a",
+          "explanation": "ACID properties ensure reliable processing of database transactions."
+        },
+        {
+          "id": 24,
+          "question": "What is deadlock?",
+          "options": {
+            "a": "Processes waiting indefinitely",
+            "b": "Process termination",
+            "c": "CPU idle",
+            "d": "Memory full"
+          },
+          "answer": "a",
+          "explanation": "Deadlock occurs when two or more processes are unable to proceed because each is waiting for resources held by others."
+        },
+        {
+          "id": 25,
+          "question": "What is starvation?",
+          "options": {
+            "a": "Process never gets resources",
+            "b": "Process runs too long",
+            "c": "Memory shortage",
+            "d": "CPU overload"
+          },
+          "answer": "a",
+          "explanation": "Starvation occurs when a process is perpetually denied necessary resources to complete its work."
+        },
+        {
+          "id": 26,
+          "question": "What is the subnet mask for /27?",
+          "options": {
+            "a": "255.255.255.0",
+            "b": "255.255.255.128",
+            "c": "255.255.255.192",
+            "d": "255.255.255.224"
+          },
+          "answer": "d",
+          "explanation": "/27 means 27 network bits. In last octet, 3 bits for network (128+64+32=224). So mask = 255.255.255.224"
+        },
+        {
+          "id": 27,
+          "question": "Consider the following code:\nint a = 5, b = 10, c = 15;\nint *arr[] = {&a, &b, &c};\nprintf(\"%d\", **arr);",
+          "options": {
+            "a": "5",
+            "b": "10",
+            "c": "15",
+            "d": "Address of a"
+          },
+          "answer": "a",
+          "explanation": "arr is an array of pointers. *arr gives first element (pointer to a). **arr dereferences to get value of a = 5"
+        },
+        {
+          "id": 28,
+          "question": "What is the time complexity of Dijkstra's algorithm with adjacency matrix?",
+          "options": {
+            "a": "O(V)",
+            "b": "O(E log V)",
+            "c": "O(V²)",
+            "d": "O(V log V)"
+          },
+          "answer": "c",
+          "explanation": "With adjacency matrix, finding minimum distance vertex takes O(V) and we do this V times, so O(V²). With adjacency list and heap it's O((V+E) log V)."
+        },
+        {
+          "id": 29,
+          "question": "Solve: T(n) = 2T(n/2) + n",
+          "options": {
+            "a": "O(n)",
+            "b": "O(n log n)",
+            "c": "O(n²)",
+            "d": "O(log n)"
+          },
+          "answer": "b",
+          "explanation": "This is the standard divide and conquer recurrence. By Master Theorem, a=2, b=2, f(n)=n, case 2 gives O(n log n)."
+        },
+        {
+          "id": 30,
+          "question": "How many IPv4 addresses are possible?",
+          "options": {
+            "a": "2^16",
+            "b": "2^32",
+            "c": "2^64",
+            "d": "2^128"
+          },
+          "answer": "b",
+          "explanation": "IPv4 uses 32-bit addresses, so total possible addresses = 2^32 ≈ 4.3 billion."
+        }
+      ]
+    }
+  ]
+}
