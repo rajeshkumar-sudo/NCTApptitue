@@ -22,6 +22,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
   const [violations, setViolations] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
   const lastViolationTime = useRef(0);
+  const isAway = useRef(false);
   const [securityAlert, setSecurityAlert] = useState<{ show: boolean; message: string; count: number; isInitial?: boolean } | null>({
     show: true,
     isInitial: true,
@@ -89,13 +90,23 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
 
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'hidden' && !isSubmitted) {
+        isAway.current = true;
+      } else if (document.visibilityState === 'visible' && isAway.current && !isSubmitted) {
         handleSecurityViolation('Tab switching or window minimization detected');
+        isAway.current = false;
       }
     };
 
     const handleBlur = () => {
       if (!isSubmitted) {
+        isAway.current = true;
+      }
+    };
+
+    const handleFocus = () => {
+      if (isAway.current && !isSubmitted) {
         handleSecurityViolation('Window focus lost');
+        isAway.current = false;
       }
     };
 
@@ -111,6 +122,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
     window.addEventListener('blur', handleBlur);
+    window.addEventListener('focus', handleFocus);
     window.addEventListener('resize', handleResize);
 
     // Initial check
@@ -119,6 +131,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('blur', handleBlur);
+      window.removeEventListener('focus', handleFocus);
       window.removeEventListener('resize', handleResize);
     };
   }, [isSubmitted, hasStarted]);
