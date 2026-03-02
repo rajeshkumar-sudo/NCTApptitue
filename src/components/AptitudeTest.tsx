@@ -25,7 +25,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
     show: true,
     isInitial: true,
     count: 0,
-    message: "Warning: Window minimization or tab switching is not allowed during the assessment. Violation 1/3. The test will automatically submit on the 3rd violation. Don't make it half of the screen."
+    message: "Warning: Window minimization or tab switching is not allowed during the assessment. Violation 0/3. The test will automatically submit on the 3rd violation. Don't make it half of the screen."
   });
 
   const selectedSet = questionsData.sets[selectedSetIndex];

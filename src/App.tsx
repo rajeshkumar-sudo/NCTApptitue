@@ -62,24 +62,23 @@ export default function App() {
     setRetakeAlert({
       show: true,
       type: 'key-entry',
-      message: "Please enter your authorized Retake Key (NICHE01 - NICHE99) to initialize the final attempt.",
+      message: "Please enter your authorized Retake Key to initialize the final attempt.",
       inputValue: '',
       error: ''
     });
   };
 
   const handleKeyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRetakeAlert(prev => prev ? { ...prev, inputValue: e.target.value.toUpperCase(), error: '' } : null);
+    setRetakeAlert(prev => prev ? { ...prev, inputValue: e.target.value, error: '' } : null);
   };
 
   const validateRetakeKey = () => {
     if (!retakeAlert?.inputValue) return;
     
-    const keyRegex = /^NICHE\s?(0[1-9]|[1-9][0-9])$/;
-    if (keyRegex.test(retakeAlert.inputValue)) {
+    if (retakeAlert.inputValue.trim() === "673573") {
       confirmRetake();
     } else {
-      setRetakeAlert(prev => prev ? { ...prev, error: 'Invalid Retake Key. Format: NICHE01 - NICHE99' } : null);
+      setRetakeAlert(prev => prev ? { ...prev, error: 'Invalid Retake Key. Please enter the correct authorization code.' } : null);
     }
   };
 
@@ -160,7 +159,7 @@ export default function App() {
                           type="text"
                           value={retakeAlert.inputValue}
                           onChange={handleKeyChange}
-                          placeholder="e.g. NICHE01"
+                          placeholder="Enter Code"
                           className={cn(
                             "w-full bg-black/5 border-b-2 px-4 py-4 text-center font-mono text-xl tracking-[0.2em] focus:outline-none transition-all",
                             retakeAlert.error ? "border-red-500" : "border-black focus:bg-black/10"
