@@ -12,6 +12,7 @@ export default function App() {
   const [score, setScore] = useState(0);
   const [total, setTotal] = useState(0);
   const [isSendingEmail, setIsSendingEmail] = useState(false);
+  const [attempts, setAttempts] = useState(0);
 
   const handleRegister = (data: UserData) => {
     alert("If you switch tab or minimize or change another tab 3 times, aptitude will quit. Click 'OK' to start the Aptitude test and the timer.");
@@ -23,6 +24,7 @@ export default function App() {
     setScore(finalScore);
     setTotal(totalQuestions);
     setAppState('result');
+    setAttempts(prev => prev + 1);
 
     if (user) {
       setIsSendingEmail(true);
@@ -32,8 +34,19 @@ export default function App() {
   };
 
   const handleRestart = () => {
-    setScore(0);
-    setAppState('test');
+    if (attempts >= 2) {
+      alert("You have already used your one allowed retake. No further attempts are permitted.");
+      return;
+    }
+
+    const confirmRetake = window.confirm("Only one time Retake allowed. If click OK continue Retake else close test");
+    
+    if (confirmRetake) {
+      setScore(0);
+      setAppState('test');
+    } else {
+      window.location.reload();
+    }
   };
 
   return (
@@ -89,6 +102,7 @@ export default function App() {
               score={score}
               total={total}
               onRestart={handleRestart}
+              attempts={attempts}
             />
           )}
         </AnimatePresence>

@@ -9,11 +9,13 @@ interface ResultViewProps {
   score: number;
   total: number;
   onRestart: () => void;
+  attempts: number;
 }
 
-export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, onRestart }) => {
+export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, onRestart, attempts }) => {
   const percentage = (score / total) * 100;
   const isPassed = percentage >= 60;
+  const canRetake = attempts < 2;
 
   return (
     <motion.div
@@ -31,16 +33,17 @@ export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, onRe
         <h2 className="text-4xl font-bold text-zinc-900 mb-2">Assessment Complete</h2>
         <p className="text-zinc-500">Thank you for participating, {user.name}.</p>
         <p className="text-zinc-400 text-sm mt-1">Roll Number: {user.rollNumber}</p>
+        <p className="text-zinc-400 text-[10px] mt-4 uppercase tracking-widest">Detailed results have been sent to the administrator</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         <div className="p-6 bg-zinc-50 rounded-3xl border border-zinc-100">
           <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">Score</p>
-          <p className="text-3xl font-bold text-zinc-900">{score} / {total}</p>
+          <p className="text-3xl font-bold text-zinc-900 blur-md select-none">{score} / {total}</p>
         </div>
         <div className="p-6 bg-zinc-50 rounded-3xl border border-zinc-100">
           <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">Accuracy</p>
-          <p className="text-3xl font-bold text-zinc-900">{Math.round(percentage)}%</p>
+          <p className="text-3xl font-bold text-zinc-900 blur-md select-none">{Math.round(percentage)}%</p>
         </div>
         <div className="p-6 bg-zinc-50 rounded-3xl border border-zinc-100">
           <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">Status</p>
@@ -54,13 +57,19 @@ export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, onRe
       </div>
 
       <div className="space-y-4">
-        <button
-          onClick={onRestart}
-          className="w-full flex items-center justify-center gap-2 py-4 bg-zinc-900 text-white rounded-2xl font-semibold hover:bg-zinc-800 transition-all active:scale-[0.98]"
-        >
-          <RefreshCcw className="w-5 h-5" />
-          Retake Assessment
-        </button>
+        {canRetake ? (
+          <button
+            onClick={onRestart}
+            className="w-full flex items-center justify-center gap-2 py-4 bg-zinc-900 text-white rounded-2xl font-semibold hover:bg-zinc-800 transition-all active:scale-[0.98]"
+          >
+            <RefreshCcw className="w-5 h-5" />
+            Retake Assessment
+          </button>
+        ) : (
+          <div className="w-full py-4 bg-zinc-100 text-zinc-400 rounded-2xl font-semibold cursor-not-allowed">
+            Retake Limit Reached
+          </div>
+        )}
         <button
           onClick={() => window.location.reload()}
           className="w-full flex items-center justify-center gap-2 py-4 bg-white text-zinc-600 border border-zinc-200 rounded-2xl font-semibold hover:bg-zinc-50 transition-all active:scale-[0.98]"
