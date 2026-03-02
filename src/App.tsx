@@ -175,7 +175,7 @@ export default function App() {
                           <span className="text-[8px] font-bold uppercase tracking-widest text-black/40 mb-1 block text-left">Authorization Key</span>
                           <input
                             autoFocus
-                            type="text"
+                            type="password"
                             value={retakeAlert.inputValue}
                             onChange={(e) => handleCredentialChange('inputValue', e.target.value)}
                             placeholder="Enter Key"
