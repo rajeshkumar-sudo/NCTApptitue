@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Clock, CheckCircle2, AlertCircle, ChevronRight, ChevronLeft, Send } from 'lucide-react';
+import { Clock, CheckCircle2, AlertCircle, AlertTriangle, ChevronRight, ChevronLeft, Send } from 'lucide-react';
 import { Question, UserData, QuestionsData } from '../types';
 import { cn } from '../utils';
 import questionsRaw from '../questions.json';
@@ -21,6 +21,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [violations, setViolations] = useState(0);
   const [hasStarted] = useState(true);
+  const [securityAlert, setSecurityAlert] = useState<{ show: boolean; message: string; count: number } | null>(null);
 
   const selectedSet = questionsData.sets[selectedSetIndex];
   const questions: Question[] = selectedSet.questions;
@@ -31,7 +32,6 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
     'Hard': 100
   };
 
-  // Initialize question timer
   useEffect(() => {
     if (questions[currentQuestionIndex]) {
       const difficulty = questions[currentQuestionIndex].difficulty || 'Medium';
@@ -53,27 +53,65 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
   };
 
   useEffect(() => {
-    if (!hasStarted) return;
+    if (!hasStarted || isSubmitted) return;
+
+    const handleSecurityViolation = (message: string) => {
+      setViolations((prev) => {
+        const newCount = prev + 1;
+        if (newCount >= 3) {
+          setSecurityAlert({ 
+            show: true, 
+            message: `Security Protocol Breach: ${message}. Maximum violations reached. Terminating session.`,
+            count: newCount 
+          });
+          setTimeout(() => handleSubmit(), 3000);
+          return newCount;
+        } else {
+          setSecurityAlert({ 
+            show: true, 
+            message: `Warning: Window minimization or tab switching is not allowed during the assessment. Violation ${newCount}/3. The test will automatically submit on the 3rd violation. Don't make it half of the screen.`,
+            count: newCount
+          });
+          return newCount;
+        }
+      });
+    };
 
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'hidden' && !isSubmitted) {
-        setViolations((prev) => {
-          const newCount = prev + 1;
-          if (newCount >= 3) {
-            alert('Test terminated: You have exceeded the maximum number of window minimization violations (3/3). Your current progress will be submitted.');
-            handleSubmit();
-            return newCount;
-          } else {
-            alert(`Warning: Window minimization or tab switching is not allowed during the assessment. Violation ${newCount}/3. The test will automatically submit on the 3rd violation.`);
-            return newCount;
-          }
-        });
+        handleSecurityViolation('Tab switching or window minimization detected');
+      }
+    };
+
+    const handleBlur = () => {
+      if (!isSubmitted) {
+        handleSecurityViolation('Window focus lost');
+      }
+    };
+
+    const handleResize = () => {
+      if (!isSubmitted) {
+        // Check if window is significantly smaller than screen width (suggests split screen)
+        const isSplitScreen = window.innerWidth < window.screen.availWidth * 0.85;
+        if (isSplitScreen) {
+          handleSecurityViolation('Split-screen or window resizing detected');
+        }
       }
     };
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
-  }, [isSubmitted, answers, hasStarted]);
+    window.addEventListener('blur', handleBlur);
+    window.addEventListener('resize', handleResize);
+
+    // Initial check
+    handleResize();
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('blur', handleBlur);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isSubmitted, hasStarted]);
 
   useEffect(() => {
     if (!hasStarted || isSubmitted) return;
@@ -88,7 +126,6 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
       
       setQuestionTimeLeft((prev) => {
         if (prev <= 1) {
-          // Time up for current question
           if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(prevIndex => prevIndex + 1);
           } else {
@@ -120,119 +157,183 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
   const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 py-8">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-        <div>
-          <h2 className="text-2xl font-semibold text-zinc-900">{user.name}</h2>
-          <p className="text-zinc-500">Aptitude Assessment in Progress</p>
-        </div>
-        <div className="flex flex-col md:flex-row md:items-center gap-4">
-          <div className={cn(
-            "flex items-center gap-3 px-6 py-3 rounded-2xl border transition-colors",
-            timeLeft < 300 ? "bg-red-50 border-red-100 text-red-600" : "bg-zinc-50 border-zinc-100 text-zinc-700"
-          )}>
-            <div className="flex flex-col">
-              <span className="text-[10px] uppercase tracking-wider font-bold opacity-60">Total Time</span>
-              <div className="flex items-center gap-2">
-                <Clock className={cn("w-4 h-4", timeLeft < 300 && "animate-pulse")} />
-                <span className="font-mono text-lg font-medium">{formatTime(timeLeft)}</span>
+    <div className="w-full max-w-4xl mx-auto px-4 py-10">
+      {/* Security Alert Dialog */}
+      <AnimatePresence>
+        {securityAlert?.show && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="w-full max-w-md bg-white border border-black p-10 shadow-2xl text-center"
+            >
+              <div className="w-16 h-16 bg-black text-white flex items-center justify-center mx-auto mb-8">
+                <AlertTriangle className="w-8 h-8" />
               </div>
-            </div>
-          </div>
-
-          <div className={cn(
-            "flex items-center gap-3 px-6 py-3 rounded-2xl border transition-colors",
-            questionTimeLeft < 10 ? "bg-orange-50 border-orange-100 text-orange-600" : "bg-zinc-50 border-zinc-100 text-zinc-700"
-          )}>
-            <div className="flex flex-col">
-              <span className="text-[10px] uppercase tracking-wider font-bold opacity-60">Question Time</span>
-              <div className="flex items-center gap-2">
-                <Clock className={cn("w-4 h-4", questionTimeLeft < 10 && "animate-pulse")} />
-                <span className="font-mono text-lg font-medium">{formatTime(questionTimeLeft)}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Progress Bar */}
-      <div className="w-full h-2 bg-zinc-100 rounded-full mb-12 overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: `${progress}%` }}
-          className="h-full bg-zinc-900"
-        />
-      </div>
-
-      {/* Question Card */}
-      <div className="bg-white rounded-3xl p-8 shadow-sm border border-black/5 min-h-[400px] flex flex-col">
-        <div className="mb-8 flex justify-between items-start">
-          <div>
-            <span className="inline-block px-3 py-1 bg-zinc-100 text-zinc-600 text-xs font-bold rounded-full uppercase tracking-wider mb-4 mr-2">
-              Question {currentQuestionIndex + 1} of {questions.length}
-            </span>
-            {currentQuestion.difficulty && (
-              <span className={cn(
-                "inline-block px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wider mb-4",
-                currentQuestion.difficulty === 'Easy' ? "bg-emerald-100 text-emerald-700" :
-                currentQuestion.difficulty === 'Medium' ? "bg-amber-100 text-amber-700" :
-                "bg-rose-100 text-rose-700"
-              )}>
-                {currentQuestion.difficulty}
-              </span>
-            )}
-          </div>
-        </div>
-        <div className="mb-8">
-          <h3 className="text-xl md:text-2xl font-medium text-zinc-900 leading-relaxed">
-            {currentQuestion.question}
-          </h3>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 flex-grow">
-          {Object.entries(currentQuestion.options).map(([key, option]) => (
-            <button
-              key={key}
-              onClick={() => handleOptionSelect(key)}
-              className={cn(
-                "group relative flex items-center p-5 rounded-2xl border text-left transition-all duration-200",
-                answers[currentQuestion.id] === key
-                  ? "bg-zinc-900 border-zinc-900 text-white shadow-md"
-                  : "bg-white border-zinc-200 text-zinc-700 hover:border-zinc-400 hover:bg-zinc-50"
+              <h4 className="text-xl font-display font-bold uppercase tracking-tight mb-4">Security Alert</h4>
+              <p className="text-black/60 text-sm font-medium leading-relaxed mb-10 uppercase tracking-tight">
+                {securityAlert.message}
+              </p>
+              {securityAlert.count < 3 && (
+                <button
+                  onClick={() => setSecurityAlert(null)}
+                  className="w-full py-4 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
+                >
+                  Acknowledge & Continue
+                </button>
               )}
-            >
-              <span className={cn(
-                "w-8 h-8 flex items-center justify-center rounded-full border mr-4 text-sm font-medium transition-colors",
-                answers[currentQuestion.id] === key
-                  ? "bg-white/20 border-white/20 text-white"
-                  : "bg-zinc-50 border-zinc-200 text-zinc-500 group-hover:border-zinc-300"
-              )}>
-                {key.toUpperCase()}
-              </span>
-              <span className="font-medium">{option}</span>
-            </button>
-          ))}
-        </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+      {/* Dashboard Header */}
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-16">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="flex items-center gap-4 mb-3">
+            <span className="px-2 py-0.5 bg-black text-white text-[9px] font-bold uppercase tracking-widest rounded">Live Session</span>
+            <span className="text-black/30 text-[9px] font-bold uppercase tracking-widest">ID: {user.rollNumber}</span>
+          </div>
+          <h2 className="text-4xl font-display font-bold text-black tracking-tight uppercase">{user.name}</h2>
+          <p className="text-black/40 font-medium mt-1 text-sm">Technical Aptitude Evaluation</p>
+        </motion.div>
 
-        <div className="flex items-center justify-end pt-8 border-t border-zinc-100">
-          {currentQuestionIndex === questions.length - 1 ? (
-            <button
-              onClick={handleSubmit}
-              className="flex items-center gap-2 px-8 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-all active:scale-95 shadow-lg shadow-emerald-600/20"
+        <div className="flex flex-wrap items-center gap-6">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex flex-col gap-1 min-w-[140px]"
+          >
+            <span className="text-[9px] font-bold uppercase tracking-widest text-black/30">Total Remaining</span>
+            <div className="flex items-center gap-3">
+              <Clock className={cn("w-3 h-3", timeLeft < 300 ? "text-black animate-pulse" : "text-black/40")} />
+              <span className={cn("font-mono text-2xl font-bold", timeLeft < 300 ? "text-black" : "text-black/80")}>
+                {formatTime(timeLeft)}
+              </span>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+            className="flex flex-col gap-1 min-w-[140px]"
+          >
+            <span className="text-[9px] font-bold uppercase tracking-widest text-black/30">Question Timer</span>
+            <div className="flex items-center gap-3">
+              <Clock className={cn("w-3 h-3", questionTimeLeft < 10 ? "text-black animate-pulse" : "text-black/40")} />
+              <span className={cn("font-mono text-2xl font-bold", questionTimeLeft < 10 ? "text-black" : "text-black/80")}>
+                {formatTime(questionTimeLeft)}
+              </span>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      <div className="w-full">
+        {/* Question Area */}
+        <div className="max-w-3xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentQuestionIndex}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white p-12 md:p-16 border border-black/10 shadow-2xl min-h-[500px] flex flex-col relative"
             >
-              Submit Test
-              <Send className="w-5 h-5" />
-            </button>
-          ) : (
-            <button
-              onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}
-              className="flex items-center gap-2 px-8 py-3 bg-zinc-900 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all active:scale-95 shadow-lg shadow-zinc-900/20"
-            >
-              Next Question
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          )}
+              {/* Progress Bar */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-black/5">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: `${progress}%` }}
+                  className="h-full bg-black"
+                />
+              </div>
+
+              {/* Question Header */}
+              <div className="mb-16">
+                <div className="flex items-center gap-4 mb-8">
+                  <span className="text-black/40 text-[9px] font-bold uppercase tracking-widest">
+                    Question {currentQuestionIndex + 1} / {questions.length}
+                  </span>
+                  {currentQuestion.difficulty && (
+                    <span className="px-2 py-0.5 border border-black/10 text-black/60 text-[9px] font-bold uppercase tracking-widest rounded">
+                      {currentQuestion.difficulty}
+                    </span>
+                  )}
+                </div>
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-black leading-tight text-balance uppercase tracking-tight">
+                  {currentQuestion.question}
+                </h3>
+              </div>
+
+              {/* Options Grid */}
+              <div className="grid grid-cols-1 gap-4 mb-16 flex-grow">
+                {Object.entries(currentQuestion.options).map(([key, option]) => (
+                  <motion.button
+                    whileHover={{ x: 4 }}
+                    whileTap={{ scale: 0.99 }}
+                    key={key}
+                    onClick={() => handleOptionSelect(key)}
+                    className={cn(
+                      "group relative flex items-center p-6 border transition-all duration-200 text-left",
+                      answers[currentQuestion.id] === key
+                        ? "bg-black border-black text-white"
+                        : "bg-transparent border-black/10 text-black/60 hover:border-black hover:text-black"
+                    )}
+                  >
+                    <span className={cn(
+                      "w-8 h-8 flex items-center justify-center border mr-6 text-[10px] font-bold transition-all",
+                      answers[currentQuestion.id] === key
+                        ? "bg-white/10 border-white/20 text-white"
+                        : "bg-black/5 border-black/5 text-black/30 group-hover:border-black/20"
+                    )}>
+                      {key.toUpperCase()}
+                    </span>
+                    <span className="font-bold text-lg uppercase tracking-tight">{option}</span>
+                  </motion.button>
+                ))}
+              </div>
+
+              {/* Footer Controls */}
+              <div className="flex items-center justify-end pt-12 border-t border-black/5">
+                {currentQuestionIndex === questions.length - 1 ? (
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={handleSubmit}
+                    className="flex items-center gap-4 px-12 py-5 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] shadow-xl"
+                  >
+                    Finalize Submission
+                    <Send className="w-3 h-3" />
+                  </motion.button>
+                ) : (
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}
+                    className="flex items-center gap-4 px-12 py-5 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] shadow-xl"
+                  >
+                    Next Question
+                    <ChevronRight className="w-3 h-3" />
+                  </motion.button>
+                )}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+          
+          <div className="mt-12 flex justify-center opacity-30">
+            <div className="flex items-center gap-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-black" />
+              <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-black">
+                {violations === 0 ? "Environment Secure" : `Security Violations: ${violations}/3`}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
