@@ -35,11 +35,11 @@ export default function App() {
 
   const handleRestart = () => {
     if (attempts >= 2) {
-      alert("You have already used your one allowed retake. No further attempts are permitted.");
+      alert("Only one time Retake allowed. You have already completed your retake attempt.");
       return;
     }
 
-    const confirmRetake = window.confirm("Only one time Retake allowed. If click OK continue Retake else close test");
+    const confirmRetake = window.confirm("Only one time Retake allowed if click ok continue Retake else close test");
     
     if (confirmRetake) {
       setScore(0);
@@ -61,13 +61,13 @@ export default function App() {
         <div className="flex items-center gap-3">
           <div className="w-16 h-10 bg-white rounded-xl flex items-center justify-center overflow-hidden border border-zinc-200">
             <img 
-              src="/images/nichetectcareer_logo.png" 
+              src="https://ik.imagekit.io/hgl70kbgh/nichetectcareer_logo%20(1).png" 
               alt="Niche Logo" 
               className="w-full h-full object-contain p-1"
               referrerPolicy="no-referrer"
             />
           </div>
-          <span className="text-xl font-bold tracking-tight">Niche Aptitude</span>
+          <span className="text-xl font-bold tracking-tight">Aptitude</span>
         </div>
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-500">
           <span className="hover:text-zinc-900 cursor-pointer transition-colors">Resources</span>

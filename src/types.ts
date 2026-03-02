@@ -6,6 +6,7 @@ export interface Question {
   };
   answer: string;
   explanation?: string;
+  difficulty?: 'Easy' | 'Medium' | 'Hard';
 }
 
 export interface QuestionSet {

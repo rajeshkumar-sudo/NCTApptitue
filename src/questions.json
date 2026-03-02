@@ -13,7 +13,8 @@
             "d": "150"
           },
           "answer": "a",
-          "explanation": "20% means 20/100 = 0.2. Multiply 0.2 × 1500 = 300"
+          "explanation": "20% means 20/100 = 0.2. Multiply 0.2 × 1500 = 300",
+          "difficulty": "Easy"
         },
         {
           "id": 2,
@@ -25,7 +26,8 @@
             "d": "75%"
           },
           "answer": "b",
-          "explanation": "Loss = CP - SP = $80 - $60 = $20. Loss% = (Loss/CP) × 100 = (20/80) × 100 = 25%"
+          "explanation": "Loss = CP - SP = $80 - $60 = $20. Loss% = (Loss/CP) × 100 = (20/80) × 100 = 25%",
+          "difficulty": "Easy"
         },
         {
           "id": 3,
@@ -37,7 +39,8 @@
             "d": "5:15"
           },
           "answer": "b",
-          "explanation": "Ratio 5:15 simplifies by dividing both terms by 5 → 1:3"
+          "explanation": "Ratio 5:15 simplifies by dividing both terms by 5 → 1:3",
+          "difficulty": "Easy"
         },
         {
           "id": 4,
@@ -49,7 +52,8 @@
             "d": "1"
           },
           "answer": "b",
-          "explanation": "Work done in 1 day = 1/Total days = 1/5 of the total work"
+          "explanation": "Work done in 1 day = 1/Total days = 1/5 of the total work",
+          "difficulty": "Easy"
         },
         {
           "id": 5,
@@ -61,7 +65,8 @@
             "d": "102 km/h"
           },
           "answer": "b",
-          "explanation": "Speed = Distance/Time = 100 km/2 hours = 50 km/h"
+          "explanation": "Speed = Distance/Time = 100 km/2 hours = 50 km/h",
+          "difficulty": "Easy"
         },
         {
           "id": 6,
@@ -73,7 +78,8 @@
             "d": "10"
           },
           "answer": "c",
-          "explanation": "Average = Sum of numbers/Count = (10 + 20 + 30)/3 = 60/3 = 20"
+          "explanation": "Average = Sum of numbers/Count = (10 + 20 + 30)/3 = 60/3 = 20",
+          "difficulty": "Easy"
         },
         {
           "id": 7,
@@ -85,7 +91,8 @@
             "d": "$500"
           },
           "answer": "a",
-          "explanation": "SI = (P × R × T)/100 = (100 × 5 × 1)/100 = 500/100 = $5"
+          "explanation": "SI = (P × R × T)/100 = (100 × 5 × 1)/100 = 500/100 = $5",
+          "difficulty": "Easy"
         },
         {
           "id": 8,
@@ -97,7 +104,8 @@
             "d": "9"
           },
           "answer": "c",
-          "explanation": "Prime numbers have exactly two factors: 1 and itself. 4 = 1,2,4 (not prime); 6 = 1,2,3,6 (not prime); 7 = 1,7 (prime); 9 = 1,3,9 (not prime)"
+          "explanation": "Prime numbers have exactly two factors: 1 and itself. 4 = 1,2,4 (not prime); 6 = 1,2,3,6 (not prime); 7 = 1,7 (prime); 9 = 1,3,9 (not prime)",
+          "difficulty": "Easy"
         },
         {
           "id": 9,
@@ -109,7 +117,8 @@
             "d": "1"
           },
           "answer": "c",
-          "explanation": "LCM is the smallest number divisible by both: Multiples of 2: 2,4,6,8... Multiples of 3: 3,6,9... Smallest common = 6"
+          "explanation": "LCM is the smallest number divisible by both: Multiples of 2: 2,4,6,8... Multiples of 3: 3,6,9... Smallest common = 6",
+          "difficulty": "Easy"
         },
         {
           "id": 10,
@@ -121,7 +130,8 @@
             "d": "K"
           },
           "answer": "b",
-          "explanation": "Series skips one letter: A (skip B) → C (skip D) → E (skip F) → G (skip H) → I"
+          "explanation": "Series skips one letter: A (skip B) → C (skip D) → E (skip F) → G (skip H) → I",
+          "difficulty": "Easy"
         },
         {
           "id": 11,
@@ -133,7 +143,8 @@
             "d": "24%"
           },
           "answer": "b",
-          "explanation": "Let B = 100, then A = 80. Difference = 20. Percentage more = (Difference/A) × 100 = (20/80) × 100 = 25%"
+          "explanation": "Let B = 100, then A = 80. Difference = 20. Percentage more = (Difference/A) × 100 = (20/80) × 100 = 25%",
+          "difficulty": "Medium"
         },
         {
           "id": 12,
@@ -145,7 +156,8 @@
             "d": "140"
           },
           "answer": "c",
-          "explanation": "Profit = 20% of CP = 20% of 100 = $20. SP = CP + Profit = 100 + 20 = $120"
+          "explanation": "Profit = 20% of CP = 20% of 100 = $20. SP = CP + Profit = 100 + 20 = $120",
+          "difficulty": "Easy"
         },
         {
           "id": 13,
@@ -157,7 +169,8 @@
             "d": "10 days"
           },
           "answer": "a",
-          "explanation": "A's 1 day work = 1/20, B's 1 day work = 1/30. Together 1 day work = 1/20 + 1/30 = 3/60 + 2/60 = 5/60 = 1/12. Work done in 5 days = 5 × (1/12) = 5/12. Remaining work = 1 - 5/12 = 7/12. Time for B alone = (7/12) ÷ (1/30) = (7/12) × 30 = 210/12 = 17.5 days"
+          "explanation": "A's 1 day work = 1/20, B's 1 day work = 1/30. Together 1 day work = 1/20 + 1/30 = 3/60 + 2/60 = 5/60 = 1/12. Work done in 5 days = 5 × (1/12) = 5/12. Remaining work = 1 - 5/12 = 7/12. Time for B alone = (7/12) ÷ (1/30) = (7/12) × 30 = 210/12 = 17.5 days",
+          "difficulty": "Medium"
         },
         {
           "id": 14,
@@ -169,7 +182,8 @@
             "d": "5050"
           },
           "answer": "a",
-          "explanation": "Odd numbers from 1 to 99 form an AP: a=1, d=2, last term=99. Number of terms n = (last - first)/d + 1 = (99-1)/2 + 1 = 98/2 + 1 = 49 + 1 = 50. Sum = n/2[2a + (n-1)d] = 50/2[2 + 49×2] = 25[2 + 98] = 25 × 100 = 2500"
+          "explanation": "Odd numbers from 1 to 99 form an AP: a=1, d=2, last term=99. Number of terms n = (last - first)/d + 1 = (99-1)/2 + 1 = 98/2 + 1 = 49 + 1 = 50. Sum = n/2[2a + (n-1)d] = 50/2[2 + 49×2] = 25[2 + 98] = 25 × 100 = 2500",
+          "difficulty": "Medium"
         },
         {
           "id": 15,
@@ -181,7 +195,8 @@
             "d": "Nephew"
           },
           "answer": "a",
-          "explanation": "A → B (A is father of B). B → C and D (B is parent of C and D). Therefore, D is child of B, so D is A's grandchild. Since D is male (brother of C), D is A's grandson"
+          "explanation": "A → B (A is father of B). B → C and D (B is parent of C and D). Therefore, D is child of B, so D is A's grandchild. Since D is male (brother of C), D is A's grandson",
+          "difficulty": "Medium"
         },
         {
           "id": 16,
@@ -193,7 +208,8 @@
             "d": "20 km"
           },
           "answer": "b",
-          "explanation": "Start at (0,0). North 10 km → (0,10). Right (East) 5 km → (5,10). Right (South) 10 km → (5,0). Left (East) 5 km → (10,0). Distance from start = √[(10-0)² + (0-0)²] = √(100) = 10 km"
+          "explanation": "Start at (0,0). North 10 km → (0,10). Right (East) 5 km → (5,10). Right (South) 10 km → (5,0). Left (East) 5 km → (10,0). Distance from start = √[(10-0)² + (0-0)²] = √(100) = 10 km",
+          "difficulty": "Medium"
         },
         {
           "id": 17,
@@ -205,7 +221,8 @@
             "d": "108 km/h"
           },
           "answer": "d",
-          "explanation": "Speed in m/s = Distance/Time = 150/5 = 30 m/s. Convert to km/h: Multiply by 18/5 = 30 × 18/5 = 540/5 = 108 km/h"
+          "explanation": "Speed in m/s = Distance/Time = 150/5 = 30 m/s. Convert to km/h: Multiply by 18/5 = 30 × 18/5 = 540/5 = 108 km/h",
+          "difficulty": "Medium"
         },
         {
           "id": 18,
@@ -217,7 +234,8 @@
             "d": "19"
           },
           "answer": "d",
-          "explanation": "Average = 0 means sum of all 20 numbers = 0. If 19 numbers are positive, the 20th number must be negative enough to make total sum zero. Example: 19 numbers of 1 each sum to 19, then 20th number = -19 gives total 0. So maximum positive numbers = 19"
+          "explanation": "Average = 0 means sum of all 20 numbers = 0. If 19 numbers are positive, the 20th number must be negative enough to make total sum zero. Example: 19 numbers of 1 each sum to 19, then 20th number = -19 gives total 0. So maximum positive numbers = 19",
+          "difficulty": "Medium"
         },
         {
           "id": 19,
@@ -229,7 +247,8 @@
             "d": "4:5"
           },
           "answer": "a",
-          "explanation": "SP = $68.20 with 10% gain means CP = SP/1.1 = 68.20/1.1 = $62/kg. Using alligation method: Variety 1: $60, Variety 2: $65, Mean: $62. Ratio = (65 - 62) : (62 - 60) = 3 : 2"
+          "explanation": "SP = $68.20 with 10% gain means CP = SP/1.1 = 68.20/1.1 = $62/kg. Using alligation method: Variety 1: $60, Variety 2: $65, Mean: $62. Ratio = (65 - 62) : (62 - 60) = 3 : 2",
+          "difficulty": "Hard"
         },
         {
           "id": 20,
@@ -241,7 +260,8 @@
             "d": "20"
           },
           "answer": "b",
-          "explanation": "Step 1: x++ uses current value of x (10) then increments x to 11. Step 2: ++x increments x from 11 to 12 then uses this value (12). Step 3: y = 10 + 12 = 22"
+          "explanation": "Step 1: x++ uses current value of x (10) then increments x to 11. Step 2: ++x increments x from 11 to 12 then uses this value (12). Step 3: y = 10 + 12 = 22",
+          "difficulty": "Medium"
         },
         {
           "id": 21,
@@ -253,7 +273,8 @@
             "d": "Garbage value"
           },
           "answer": "b",
-          "explanation": "ptr points to the first element arr[0] = 10. ptr + 1 points to the next element arr[1]. *(ptr + 1) dereferences to get value at arr[1] = 20"
+          "explanation": "ptr points to the first element arr[0] = 10. ptr + 1 points to the next element arr[1]. *(ptr + 1) dereferences to get value at arr[1] = 20",
+          "difficulty": "Easy"
         },
         {
           "id": 22,
@@ -265,7 +286,8 @@
             "d": "Global function"
           },
           "answer": "b",
-          "explanation": "Virtual functions enable runtime polymorphism by allowing derived classes to override base class functions. When called through a base class pointer/reference, the derived class version executes."
+          "explanation": "Virtual functions enable runtime polymorphism by allowing derived classes to override base class functions. When called through a base class pointer/reference, the derived class version executes.",
+          "difficulty": "Medium"
         },
         {
           "id": 23,
@@ -277,7 +299,8 @@
             "d": "O(n²)"
           },
           "answer": "a",
-          "explanation": "Insertion at beginning only requires creating a new node and adjusting a few pointers - constant time operation regardless of list size."
+          "explanation": "Insertion at beginning only requires creating a new node and adjusting a few pointers - constant time operation regardless of list size.",
+          "difficulty": "Easy"
         },
         {
           "id": 24,
@@ -289,7 +312,8 @@
             "d": "O(log n)"
           },
           "answer": "b",
-          "explanation": "Best case occurs when the pivot always divides the array into two equal halves, creating a balanced tree of depth log n with n comparisons at each level."
+          "explanation": "Best case occurs when the pivot always divides the array into two equal halves, creating a balanced tree of depth log n with n comparisons at each level.",
+          "difficulty": "Medium"
         },
         {
           "id": 25,
@@ -301,7 +325,8 @@
             "d": "Both are DDL"
           },
           "answer": "b",
-          "explanation": "DELETE (DML): Removes rows one by one, can use WHERE clause, can be rolled back, slower. TRUNCATE (DDL): Removes all rows at once, cannot use WHERE, cannot rollback, faster."
+          "explanation": "DELETE (DML): Removes rows one by one, can use WHERE clause, can be rolled back, slower. TRUNCATE (DDL): Removes all rows at once, cannot use WHERE, cannot rollback, faster.",
+          "difficulty": "Medium"
         },
         {
           "id": 26,
@@ -313,7 +338,8 @@
             "d": "24 km/h, 55m"
           },
           "answer": "a",
-          "explanation": "Let train speed = S km/h, length = L m. Relative speed with person 1 = (S-2) km/h = (S-2)×(5/18) m/s. L = (S-2)×(5/18)×9 = (S-2)×(5/2). Relative speed with person 2 = (S-4) km/h = (S-4)×(5/18) m/s. L = (S-4)×(5/18)×10 = (S-4)×(50/18). Equating: (S-2)×(5/2) = (S-4)×(50/18). Multiply both sides by 18: (S-2)×45 = (S-4)×50. 45S - 90 = 50S - 200. -5S = -110 → S = 22 km/h. Substitute: L = (22-2)×(5/2) = 20×2.5 = 50 m"
+          "explanation": "Let train speed = S km/h, length = L m. Relative speed with person 1 = (S-2) km/h = (S-2)×(5/18) m/s. L = (S-2)×(5/18)×9 = (S-2)×(5/2). Relative speed with person 2 = (S-4) km/h = (S-4)×(5/18) m/s. L = (S-4)×(5/18)×10 = (S-4)×(50/18). Equating: (S-2)×(5/2) = (S-4)×(50/18). Multiply both sides by 18: (S-2)×45 = (S-4)×50. 45S - 90 = 50S - 200. -5S = -110 → S = 22 km/h. Substitute: L = (22-2)×(5/2) = 20×2.5 = 50 m",
+          "difficulty": "Hard"
         },
         {
           "id": 27,
@@ -325,7 +351,8 @@
             "d": "$2000"
           },
           "answer": "b",
-          "explanation": "For 2 years, CI - SI = P(R/100)². 2.50 = P(5/100)² = P(0.05)² = P(0.0025). P = 2.50/0.0025 = $1000"
+          "explanation": "For 2 years, CI - SI = P(R/100)². 2.50 = P(5/100)² = P(0.05)² = P(0.0025). P = 2.50/0.0025 = $1000",
+          "difficulty": "Hard"
         },
         {
           "id": 28,
@@ -337,7 +364,8 @@
             "d": "O(n²)"
           },
           "answer": "b",
-          "explanation": "Using slow and fast pointers (tortoise and hare method), we traverse the entire list once, making it O(n) time."
+          "explanation": "Using slow and fast pointers (tortoise and hare method), we traverse the entire list once, making it O(n) time.",
+          "difficulty": "Medium"
         },
         {
           "id": 29,
@@ -349,7 +377,8 @@
             "d": "16"
           },
           "answer": "b",
-          "explanation": "Page size = 4KB = 4 × 1024 bytes = 4096 bytes = 2¹² bytes. Therefore, offset requires 12 bits."
+          "explanation": "Page size = 4KB = 4 × 1024 bytes = 4096 bytes = 2¹² bytes. Therefore, offset requires 12 bits.",
+          "difficulty": "Medium"
         },
         {
           "id": 30,
@@ -361,7 +390,8 @@
             "d": "O(n^(3/4))"
           },
           "answer": "a",
-          "explanation": "Using Master Theorem: a=3, b=4, f(n)=n². Compare n^(log₄3) ≈ n^0.792 with n². Since n² grows faster (polynomially larger), case 3 applies. Check regularity: 3(n/4)² = 3n²/16 ≤ c·n² for c=3/16<1. Therefore T(n) = O(n²)"
+          "explanation": "Using Master Theorem: a=3, b=4, f(n)=n². Compare n^(log₄3) ≈ n^0.792 with n². Since n² grows faster (polynomially larger), case 3 applies. Check regularity: 3(n/4)² = 3n²/16 ≤ c·n² for c=3/16<1. Therefore T(n) = O(n²)",
+          "difficulty": "Hard"
         }
       ]
     },
@@ -378,7 +408,8 @@
             "d": "25%"
           },
           "answer": "b",
-          "explanation": "(3/4) × 100 = 300/4 = 75%"
+          "explanation": "(3/4) × 100 = 300/4 = 75%",
+          "difficulty": "Easy"
         },
         {
           "id": 2,
@@ -390,7 +421,8 @@
             "d": "$110"
           },
           "answer": "b",
-          "explanation": "Profit = SP - CP = 60 - 50 = $10"
+          "explanation": "Profit = SP - CP = 60 - 50 = $10",
+          "difficulty": "Easy"
         },
         {
           "id": 3,
@@ -402,7 +434,8 @@
             "d": "9"
           },
           "answer": "b",
-          "explanation": "4:5 = 20:x → 4/5 = 20/x → Cross multiply: 4x = 100 → x = 25"
+          "explanation": "4:5 = 20:x → 4/5 = 20/x → Cross multiply: 4x = 100 → x = 25",
+          "difficulty": "Easy"
         },
         {
           "id": 4,
@@ -414,7 +447,8 @@
             "d": "24 days"
           },
           "answer": "b",
-          "explanation": "(1/A + 1/B) = 1/4. 1/6 + 1/B = 1/4. 1/B = 1/4 - 1/6 = 3/12 - 2/12 = 1/12. Therefore B alone takes 12 days"
+          "explanation": "(1/A + 1/B) = 1/4. 1/6 + 1/B = 1/4. 1/B = 1/4 - 1/6 = 3/12 - 2/12 = 1/12. Therefore B alone takes 12 days",
+          "difficulty": "Easy"
         },
         {
           "id": 5,
@@ -426,7 +460,8 @@
             "d": "5 m/s"
           },
           "answer": "a",
-          "explanation": "To convert km/h to m/s, multiply by 5/18: 36 × 5/18 = 180/18 = 10 m/s"
+          "explanation": "To convert km/h to m/s, multiply by 5/18: 36 × 5/18 = 180/18 = 10 m/s",
+          "difficulty": "Easy"
         },
         {
           "id": 6,
@@ -438,7 +473,8 @@
             "d": "12"
           },
           "answer": "c",
-          "explanation": "Average = Sum/Count → Sum = Average × Count = 15 × 3 = 45"
+          "explanation": "Average = Sum/Count → Sum = Average × Count = 15 × 3 = 45",
+          "difficulty": "Easy"
         },
         {
           "id": 7,
@@ -450,7 +486,8 @@
             "d": "$10"
           },
           "answer": "a",
-          "explanation": "SI = (P × R × T)/100 → 10 = (P × 10 × 1)/100 → 10 = P/10 → P = $100"
+          "explanation": "SI = (P × R × T)/100 → 10 = (P × 10 × 1)/100 → 10 = P/10 → P = $100",
+          "difficulty": "Easy"
         },
         {
           "id": 8,
@@ -462,7 +499,8 @@
             "d": "2"
           },
           "answer": "b",
-          "explanation": "Natural numbers are positive integers starting from 1. 0 is not a natural number."
+          "explanation": "Natural numbers are positive integers starting from 1. 0 is not a natural number.",
+          "difficulty": "Easy"
         },
         {
           "id": 9,
@@ -474,7 +512,8 @@
             "d": "12"
           },
           "answer": "c",
-          "explanation": "Factors of 4: 1,2,4. Factors of 6: 1,2,3,6. Highest common factor = 2"
+          "explanation": "Factors of 4: 1,2,4. Factors of 6: 1,2,3,6. Highest common factor = 2",
+          "difficulty": "Easy"
         },
         {
           "id": 10,
@@ -486,7 +525,8 @@
             "d": "Cousin"
           },
           "answer": "b",
-          "explanation": "Riya's mother's only daughter is Riya herself (assuming she's the only daughter). Therefore, the man is the son of Riya, making Riya his mother."
+          "explanation": "Riya's mother's only daughter is Riya herself (assuming she's the only daughter). Therefore, the man is the son of Riya, making Riya his mother.",
+          "difficulty": "Medium"
         },
         {
           "id": 11,
@@ -498,7 +538,8 @@
             "d": "300"
           },
           "answer": "b",
-          "explanation": "3/4 of 200 = 150. 75% of a number = 150 → 0.75x = 150 → x = 150/0.75 = 200"
+          "explanation": "3/4 of 200 = 150. 75% of a number = 150 → 0.75x = 150 → x = 150/0.75 = 200",
+          "difficulty": "Easy"
         },
         {
           "id": 12,
@@ -510,7 +551,8 @@
             "d": "10%"
           },
           "answer": "b",
-          "explanation": "Let CP of 1 article = $1. Then CP of 12 articles = $12 = SP of 10 articles. So SP of 1 article = $12/10 = $1.2. Gain = 1.2 - 1 = 0.2. Gain% = (0.2/1) × 100 = 20%"
+          "explanation": "Let CP of 1 article = $1. Then CP of 12 articles = $12 = SP of 10 articles. So SP of 1 article = $12/10 = $1.2. Gain = 1.2 - 1 = 0.2. Gain% = (0.2/1) × 100 = 20%",
+          "difficulty": "Medium"
         },
         {
           "id": 13,
@@ -522,7 +564,8 @@
             "d": "30 days"
           },
           "answer": "b",
-          "explanation": "1/A + 1/B = 1/12, 1/20 + 1/B = 1/12 → 1/B = 1/12 - 1/20 = 5/60 - 3/60 = 2/60 = 1/30. B takes 30 days for full work. Half work by B = 15 days. Half work by A = 10 days. Total = 25 days"
+          "explanation": "1/A + 1/B = 1/12, 1/20 + 1/B = 1/12 → 1/B = 1/12 - 1/20 = 5/60 - 3/60 = 2/60 = 1/30. B takes 30 days for full work. Half work by B = 15 days. Half work by A = 10 days. Total = 25 days",
+          "difficulty": "Medium"
         },
         {
           "id": 14,
@@ -534,7 +577,8 @@
             "d": "142"
           },
           "answer": "a",
-          "explanation": "First number ≥100 divisible by 7: 105 (7×15). Last number ≤999 divisible by 7: 994 (7×142). Number of terms = 142 - 15 + 1 = 128"
+          "explanation": "First number ≥100 divisible by 7: 105 (7×15). Last number ≤999 divisible by 7: 994 (7×142). Number of terms = 142 - 15 + 1 = 128",
+          "difficulty": "Medium"
         },
         {
           "id": 15,
@@ -546,7 +590,8 @@
             "d": "Cannot be determined"
           },
           "answer": "d",
-          "explanation": "P and Q are siblings. R is mother of P and Q. S is father of R, so S is grandfather of P and Q. But gender of Q is not specified, so we cannot determine if Q is grandson or granddaughter."
+          "explanation": "P and Q are siblings. R is mother of P and Q. S is father of R, so S is grandfather of P and Q. But gender of Q is not specified, so we cannot determine if Q is grandson or granddaughter.",
+          "difficulty": "Medium"
         },
         {
           "id": 16,
@@ -558,7 +603,8 @@
             "d": "Neither follows"
           },
           "answer": "d",
-          "explanation": "From the statements, we cannot definitely conclude that some pens are sharpeners (they might be, but not necessarily). Similarly, some sharpeners being pencils is not necessarily true."
+          "explanation": "From the statements, we cannot definitely conclude that some pens are sharpeners (they might be, but not necessarily). Similarly, some sharpeners being pencils is not necessarily true.",
+          "difficulty": "Medium"
         },
         {
           "id": 17,
@@ -570,7 +616,8 @@
             "d": "12 sec"
           },
           "answer": "a",
-          "explanation": "Relative speed = 60+40 = 100 km/h = 100×(5/18) = 500/18 m/s. Total distance = 140+160 = 300 m. Time = Distance/Speed = 300 ÷ (500/18) = 300 × 18/500 = 5400/500 = 10.8 sec"
+          "explanation": "Relative speed = 60+40 = 100 km/h = 100×(5/18) = 500/18 m/s. Total distance = 140+160 = 300 m. Time = Distance/Speed = 300 ÷ (500/18) = 300 × 18/500 = 5400/500 = 10.8 sec",
+          "difficulty": "Medium"
         },
         {
           "id": 18,
@@ -582,7 +629,8 @@
             "d": "40 yrs"
           },
           "answer": "b",
-          "explanation": "Sum of ages of 30 boys = 30×15 = 450. New average with teacher = 16 years. Sum of 31 persons = 31×16 = 496. Teacher's age = 496 - 450 = 46 years"
+          "explanation": "Sum of ages of 30 boys = 30×15 = 450. New average with teacher = 16 years. Sum of 31 persons = 31×16 = 496. Teacher's age = 496 - 450 = 46 years",
+          "difficulty": "Medium"
         },
         {
           "id": 19,
@@ -594,7 +642,8 @@
             "d": "13"
           },
           "answer": "a",
-          "explanation": "Let the common remainder be r. Then numbers are (43-r), (91-r), (183-r) divisible by the number. The differences: 91-43=48, 183-91=92, 183-43=140. HCF of 48,92,140 = 4"
+          "explanation": "Let the common remainder be r. Then numbers are (43-r), (91-r), (183-r) divisible by the number. The differences: 91-43=48, 183-91=92, 183-43=140. HCF of 48,92,140 = 4",
+          "difficulty": "Hard"
         },
         {
           "id": 20,
@@ -606,7 +655,8 @@
             "d": "Both b and c"
           },
           "answer": "d",
-          "explanation": "Both methods b and c correctly swap numbers (though method c may fail if b=0 or with floating points due to precision). Method a does not work as it loses the original value."
+          "explanation": "Both methods b and c correctly swap numbers (though method c may fail if b=0 or with floating points due to precision). Method a does not work as it loses the original value.",
+          "difficulty": "Medium"
         },
         {
           "id": 21,
@@ -618,7 +668,8 @@
             "d": "10"
           },
           "answer": "b",
-          "explanation": "Macro expands as 3+2*3+2 = 3+6+2 = 11, not (3+2)*(3+2)=25 due to operator precedence."
+          "explanation": "Macro expands as 3+2*3+2 = 3+6+2 = 11, not (3+2)*(3+2)=25 due to operator precedence.",
+          "difficulty": "Medium"
         },
         {
           "id": 22,
@@ -630,7 +681,8 @@
             "d": "Class that cannot be instantiated"
           },
           "answer": "b",
-          "explanation": "An abstract class in C++ is a class that has at least one pure virtual function. Such classes cannot be instantiated."
+          "explanation": "An abstract class in C++ is a class that has at least one pure virtual function. Such classes cannot be instantiated.",
+          "difficulty": "Medium"
         },
         {
           "id": 23,
@@ -642,7 +694,8 @@
             "d": "Level order"
           },
           "answer": "c",
-          "explanation": "In postorder traversal, we visit left subtree, then right subtree, then the root. So root is visited last."
+          "explanation": "In postorder traversal, we visit left subtree, then right subtree, then the root. So root is visited last.",
+          "difficulty": "Easy"
         },
         {
           "id": 24,
@@ -654,7 +707,8 @@
             "d": "Selection Sort"
           },
           "answer": "c",
-          "explanation": "Merge Sort is stable as it maintains the relative order of equal elements. Quick Sort and Heap Sort are typically unstable."
+          "explanation": "Merge Sort is stable as it maintains the relative order of equal elements. Quick Sort and Heap Sort are typically unstable.",
+          "difficulty": "Medium"
         },
         {
           "id": 25,
@@ -666,7 +720,8 @@
             "d": "Excludes duplicates"
           },
           "answer": "b",
-          "explanation": "UNION combines the result sets of two or more SELECT statements into a single result set, removing duplicates by default."
+          "explanation": "UNION combines the result sets of two or more SELECT statements into a single result set, removing duplicates by default.",
+          "difficulty": "Easy"
         },
         {
           "id": 26,
@@ -678,7 +733,8 @@
             "d": "8 km"
           },
           "answer": "b",
-          "explanation": "Start at (0,0). North 5 km → (0,5). Right (East) 3 km → (3,5). Right (South) 5 km → (3,0). Distance from start = √[(3-0)² + (0-0)²] = √9 = 3 km"
+          "explanation": "Start at (0,0). North 5 km → (0,5). Right (East) 3 km → (3,5). Right (South) 5 km → (3,0). Distance from start = √[(3-0)² + (0-0)²] = √9 = 3 km",
+          "difficulty": "Medium"
         },
         {
           "id": 27,
@@ -690,7 +746,8 @@
             "d": "35 L"
           },
           "answer": "b",
-          "explanation": "Let milk = 5x, water = x. After adding 5L water: milk = 5x, water = x+5. New ratio 5x:(x+5) = 5:2 → 10x = 5x+25 → 5x=25 → x=5. Milk = 5×5 = 25 L"
+          "explanation": "Let milk = 5x, water = x. After adding 5L water: milk = 5x, water = x+5. New ratio 5x:(x+5) = 5:2 → 10x = 5x+25 → 5x=25 → x=5. Milk = 5×5 = 25 L",
+          "difficulty": "Medium"
         },
         {
           "id": 28,
@@ -702,7 +759,8 @@
             "d": "60"
           },
           "answer": "c",
-          "explanation": "*(ptr + 2) = arr[2] = 30. *(arr + 1) = arr[1] = 20. Sum = 30 + 20 = 50"
+          "explanation": "*(ptr + 2) = arr[2] = 30. *(arr + 1) = arr[1] = 20. Sum = 30 + 20 = 50",
+          "difficulty": "Medium"
         },
         {
           "id": 29,
@@ -714,7 +772,8 @@
             "d": "O(V+E)"
           },
           "answer": "d",
-          "explanation": "BFS requires a queue that can hold up to V vertices in worst case, and a visited array of size V, so O(V). However, for adjacency list representation, we also need O(E) space for the graph itself. Total O(V+E)."
+          "explanation": "BFS requires a queue that can hold up to V vertices in worst case, and a visited array of size V, so O(V). However, for adjacency list representation, we also need O(E) space for the graph itself. Total O(V+E).",
+          "difficulty": "Medium"
         },
         {
           "id": 30,
@@ -726,7 +785,8 @@
             "d": "192.168.1.64"
           },
           "answer": "b",
-          "explanation": "/25 means subnet mask 255.255.255.128. The network address is obtained by setting host bits to 0. 130 in binary is 10000010, with 1 network bit in last octet, so network part is 10000000 = 128. Thus 192.168.1.128"
+          "explanation": "/25 means subnet mask 255.255.255.128. The network address is obtained by setting host bits to 0. 130 in binary is 10000010, with 1 network bit in last octet, so network part is 10000000 = 128. Thus 192.168.1.128",
+          "difficulty": "Hard"
         }
       ]
     },
@@ -743,7 +803,8 @@
             "d": "4.5"
           },
           "answer": "a",
-          "explanation": "15% = 0.15. 0.15 × N = 30 → N = 30/0.15 = 200"
+          "explanation": "15% = 0.15. 0.15 × N = 30 → N = 30/0.15 = 200",
+          "difficulty": "Easy"
         },
         {
           "id": 2,
@@ -755,7 +816,8 @@
             "d": "16.67%"
           },
           "answer": "b",
-          "explanation": "Profit = SP - CP = 12 - 10 = $2. Profit% = (Profit/CP) × 100 = (2/10) × 100 = 20%"
+          "explanation": "Profit = SP - CP = 12 - 10 = $2. Profit% = (Profit/CP) × 100 = (2/10) × 100 = 20%",
+          "difficulty": "Easy"
         },
         {
           "id": 3,
@@ -767,7 +829,8 @@
             "d": "30,70"
           },
           "answer": "a",
-          "explanation": "Sum of ratio terms = 2+3 = 5. First part = (2/5) × 100 = 40. Second part = (3/5) × 100 = 60"
+          "explanation": "Sum of ratio terms = 2+3 = 5. First part = (2/5) × 100 = 40. Second part = (3/5) × 100 = 60",
+          "difficulty": "Easy"
         },
         {
           "id": 4,
@@ -779,7 +842,8 @@
             "d": "18 days"
           },
           "answer": "c",
-          "explanation": "If A is twice as good, A takes half the time of B. So A takes 12/2 = 6 days"
+          "explanation": "If A is twice as good, A takes half the time of B. So A takes 12/2 = 6 days",
+          "difficulty": "Easy"
         },
         {
           "id": 5,
@@ -791,7 +855,8 @@
             "d": "57 km"
           },
           "answer": "c",
-          "explanation": "Distance = Speed × Time = 60 × 3 = 180 km"
+          "explanation": "Distance = Speed × Time = 60 × 3 = 180 km",
+          "difficulty": "Easy"
         },
         {
           "id": 6,
@@ -803,7 +868,8 @@
             "d": "55"
           },
           "answer": "b",
-          "explanation": "Sum of first 10 natural numbers = n(n+1)/2 = 10×11/2 = 55. Average = 55/10 = 5.5"
+          "explanation": "Sum of first 10 natural numbers = n(n+1)/2 = 10×11/2 = 55. Average = 55/10 = 5.5",
+          "difficulty": "Easy"
         },
         {
           "id": 7,
@@ -815,7 +881,8 @@
             "d": "$240"
           },
           "answer": "b",
-          "explanation": "SI = (P × R × T)/100 = (200 × 10 × 2)/100 = 4000/100 = $40"
+          "explanation": "SI = (P × R × T)/100 = (200 × 10 × 2)/100 = 4000/100 = $40",
+          "difficulty": "Easy"
         },
         {
           "id": 8,
@@ -827,7 +894,8 @@
             "d": "9"
           },
           "answer": "d",
-          "explanation": "Composite numbers have more than two factors. 9 = 1,3,9 (3 factors) so composite. 2,3,5 are prime."
+          "explanation": "Composite numbers have more than two factors. 9 = 1,3,9 (3 factors) so composite. 2,3,5 are prime.",
+          "difficulty": "Easy"
         },
         {
           "id": 9,
@@ -839,7 +907,8 @@
             "d": "2"
           },
           "answer": "b",
-          "explanation": "Multiples of 5: 5,10,15,... Multiples of 10: 10,20,30,... Smallest common = 10"
+          "explanation": "Multiples of 5: 5,10,15,... Multiples of 10: 10,20,30,... Smallest common = 10",
+          "difficulty": "Easy"
         },
         {
           "id": 10,
@@ -851,7 +920,8 @@
             "d": "8 km"
           },
           "answer": "b",
-          "explanation": "Start at (0,0). North 5 km → (0,5). Right (East) 3 km → (3,5). Right (South) 5 km → (3,0). Distance from start = √[(3-0)² + (0-0)²] = √9 = 3 km"
+          "explanation": "Start at (0,0). North 5 km → (0,5). Right (East) 3 km → (3,5). Right (South) 5 km → (3,0). Distance from start = √[(3-0)² + (0-0)²] = √9 = 3 km",
+          "difficulty": "Medium"
         },
         {
           "id": 11,
@@ -863,7 +933,8 @@
             "d": "1:3"
           },
           "answer": "c",
-          "explanation": "a:b = 3:4 = 6:8. b:c = 8:9. Therefore a:b:c = 6:8:9. So a:c = 6:9 = 2:3"
+          "explanation": "a:b = 3:4 = 6:8. b:c = 8:9. Therefore a:b:c = 6:8:9. So a:c = 6:9 = 2:3",
+          "difficulty": "Medium"
         },
         {
           "id": 12,
@@ -875,7 +946,8 @@
             "d": "12:00 pm"
           },
           "answer": "a",
-          "explanation": "LCM of 6,12,15 = 60 minutes = 1 hour. So they ring together again at 9:00 am"
+          "explanation": "LCM of 6,12,15 = 60 minutes = 1 hour. So they ring together again at 9:00 am",
+          "difficulty": "Medium"
         },
         {
           "id": 13,
@@ -887,7 +959,8 @@
             "d": "Neither follows"
           },
           "answer": "a",
-          "explanation": "All politicians are honest means politicians are a subset of honest people. So some honest people are definitely politicians. Conclusion II is false as some honest people are not politicians."
+          "explanation": "All politicians are honest means politicians are a subset of honest people. So some honest people are definitely politicians. Conclusion II is false as some honest people are not politicians.",
+          "difficulty": "Medium"
         },
         {
           "id": 14,
@@ -899,7 +972,8 @@
             "d": "52 km/h"
           },
           "answer": "b",
-          "explanation": "Average speed = 2xy/(x+y) = 2×60×40/(60+40) = 4800/100 = 48 km/h"
+          "explanation": "Average speed = 2xy/(x+y) = 2×60×40/(60+40) = 4800/100 = 48 km/h",
+          "difficulty": "Medium"
         },
         {
           "id": 15,
@@ -911,7 +985,8 @@
             "d": "1/8"
           },
           "answer": "b",
-          "explanation": "Total balls = 3+5 = 8. Favorable outcomes (red) = 3. Probability = 3/8"
+          "explanation": "Total balls = 3+5 = 8. Favorable outcomes (red) = 3. Probability = 3/8",
+          "difficulty": "Easy"
         },
         {
           "id": 16,
@@ -923,7 +998,8 @@
             "d": "1925"
           },
           "answer": "a",
-          "explanation": "Each letter is coded by its position in alphabet: E=5, A=1, R=18, T=20, H=8 → 511820. Similarly S=19, K=11, Y=25 → 191125"
+          "explanation": "Each letter is coded by its position in alphabet: E=5, A=1, R=18, T=20, H=8 → 511820. Similarly S=19, K=11, Y=25 → 191125",
+          "difficulty": "Medium"
         },
         {
           "id": 17,
@@ -935,7 +1011,8 @@
             "d": "Both b and c"
           },
           "answer": "d",
-          "explanation": "Both methods are valid: b creates an array of pointers, c uses a 1D array to simulate 2D. Static allocation in a is not dynamic."
+          "explanation": "Both methods are valid: b creates an array of pointers, c uses a 1D array to simulate 2D. Static allocation in a is not dynamic.",
+          "difficulty": "Medium"
         },
         {
           "id": 18,
@@ -947,7 +1024,8 @@
             "d": "Compilation error"
           },
           "answer": "b",
-          "explanation": "The diamond problem occurs in multiple inheritance when a class inherits from two classes that have a common base class, causing ambiguity about which base class members to use."
+          "explanation": "The diamond problem occurs in multiple inheritance when a class inherits from two classes that have a common base class, causing ambiguity about which base class members to use.",
+          "difficulty": "Medium"
         },
         {
           "id": 19,
@@ -959,7 +1037,8 @@
             "d": "h^2"
           },
           "answer": "c",
-          "explanation": "A perfect binary tree of height h (where height is number of levels) has maximum nodes = 2^h - 1 if root at level 0. If root at level 1, then 2^(h+1) - 1. Typically height is number of levels, so 2^(h+1) - 1."
+          "explanation": "A perfect binary tree of height h (where height is number of levels) has maximum nodes = 2^h - 1 if root at level 0. If root at level 1, then 2^(h+1) - 1. Typically height is number of levels, so 2^(h+1) - 1.",
+          "difficulty": "Medium"
         },
         {
           "id": 20,
@@ -971,7 +1050,8 @@
             "d": "O(n²)"
           },
           "answer": "c",
-          "explanation": "Merge sort requires O(n) auxiliary space for merging temporary arrays."
+          "explanation": "Merge sort requires O(n) auxiliary space for merging temporary arrays.",
+          "difficulty": "Easy"
         },
         {
           "id": 21,
@@ -983,7 +1063,8 @@
             "d": "O(log n)"
           },
           "answer": "b",
-          "explanation": "Heap sort has O(n log n) time complexity in all cases (best, average, worst)."
+          "explanation": "Heap sort has O(n log n) time complexity in all cases (best, average, worst).",
+          "difficulty": "Easy"
         },
         {
           "id": 22,
@@ -995,7 +1076,8 @@
             "d": "Composite key"
           },
           "answer": "b",
-          "explanation": "A candidate key is a column or set of columns that can uniquely identify each row. One candidate key is chosen as the primary key."
+          "explanation": "A candidate key is a column or set of columns that can uniquely identify each row. One candidate key is chosen as the primary key.",
+          "difficulty": "Easy"
         },
         {
           "id": 23,
@@ -1007,7 +1089,8 @@
             "d": "Main function"
           },
           "answer": "b",
-          "explanation": "A critical section is a code segment that accesses shared resources and must not be executed by more than one process/thread at a time."
+          "explanation": "A critical section is a code segment that accesses shared resources and must not be executed by more than one process/thread at a time.",
+          "difficulty": "Medium"
         },
         {
           "id": 24,
@@ -1019,7 +1102,8 @@
             "d": "Disk crash"
           },
           "answer": "b",
-          "explanation": "Thrashing occurs when a computer's virtual memory subsystem is in a constant state of paging, rapidly swapping data between memory and disk, degrading performance."
+          "explanation": "Thrashing occurs when a computer's virtual memory subsystem is in a constant state of paging, rapidly swapping data between memory and disk, degrading performance.",
+          "difficulty": "Medium"
         },
         {
           "id": 25,
@@ -1031,7 +1115,8 @@
             "d": "224-239"
           },
           "answer": "a",
-          "explanation": "Class A: 1.0.0.0 to 126.0.0.0 (127 is loopback). Class B: 128-191, Class C: 192-223, Class D: 224-239 (multicast)."
+          "explanation": "Class A: 1.0.0.0 to 126.0.0.0 (127 is loopback). Class B: 128-191, Class C: 192-223, Class D: 224-239 (multicast).",
+          "difficulty": "Medium"
         },
         {
           "id": 26,
@@ -1043,7 +1128,8 @@
             "d": "Neither follows"
           },
           "answer": "d",
-          "explanation": "From 'All cats are dogs' and 'Some dogs are rats', we cannot conclude any relationship between cats and rats. Also, all rats being dogs is not necessarily true."
+          "explanation": "From 'All cats are dogs' and 'Some dogs are rats', we cannot conclude any relationship between cats and rats. Also, all rats being dogs is not necessarily true.",
+          "difficulty": "Medium"
         },
         {
           "id": 27,
@@ -1055,7 +1141,8 @@
             "d": "49 km/h"
           },
           "answer": "c",
-          "explanation": "Distance = (60×2) + (40×3) + (50×2) = 120 + 120 + 100 = 340 km. Time = 2+3+2 = 7 hours. Average speed = 340/7 = 48.57 ≈ 48.5 km/h"
+          "explanation": "Distance = (60×2) + (40×3) + (50×2) = 120 + 120 + 100 = 340 km. Time = 2+3+2 = 7 hours. Average speed = 340/7 = 48.57 ≈ 48.5 km/h",
+          "difficulty": "Medium"
         },
         {
           "id": 28,
@@ -1067,7 +1154,8 @@
             "d": "20 30"
           },
           "answer": "a",
-          "explanation": "*p1 = *p2 + 2 → x = 20 + 2 = 22. p1 = p2 → p1 now points to y. *p2 = 30 → y = 30. So x=22, y=30"
+          "explanation": "*p1 = *p2 + 2 → x = 20 + 2 = 22. p1 = p2 → p1 now points to y. *p2 = 30 → y = 30. So x=22, y=30",
+          "difficulty": "Hard"
         },
         {
           "id": 29,
@@ -1079,7 +1167,8 @@
             "d": "O(m log n)"
           },
           "answer": "a",
-          "explanation": "Knuth-Morris-Pratt algorithm has O(m+n) time complexity where m is pattern length and n is text length."
+          "explanation": "Knuth-Morris-Pratt algorithm has O(m+n) time complexity where m is pattern length and n is text length.",
+          "difficulty": "Medium"
         },
         {
           "id": 30,
@@ -1091,7 +1180,8 @@
             "d": "11"
           },
           "answer": "b",
-          "explanation": "FIFO with 3 frames: 1(f),2(f),3(f),4(f - replace 1),1(f - replace 2),2(f - replace 3),5(f - replace 4),1(f - replace 1),2(f - replace 2),3(f - replace 5),4(f - replace 1),5(f - replace 2) = 9 faults"
+          "explanation": "FIFO with 3 frames: 1(f),2(f),3(f),4(f - replace 1),1(f - replace 2),2(f - replace 3),5(f - replace 4),1(f - replace 1),2(f - replace 2),3(f - replace 5),4(f - replace 1),5(f - replace 2) = 9 faults",
+          "difficulty": "Hard"
         }
       ]
     },
@@ -1108,7 +1198,8 @@
             "d": "$190"
           },
           "answer": "b",
-          "explanation": "Profit = 10% of 200 = $20. SP = CP + Profit = 200 + 20 = $220"
+          "explanation": "Profit = 10% of 200 = $20. SP = CP + Profit = 200 + 20 = $220",
+          "difficulty": "Easy"
         },
         {
           "id": 2,
@@ -1120,7 +1211,8 @@
             "d": "10%"
           },
           "answer": "b",
-          "explanation": "CP = SP - Gain = 50 - 10 = $40. Gain% = (Gain/CP) × 100 = (10/40) × 100 = 25%"
+          "explanation": "CP = SP - Gain = 50 - 10 = $40. Gain% = (Gain/CP) × 100 = (10/40) × 100 = 25%",
+          "difficulty": "Easy"
         },
         {
           "id": 3,
@@ -1132,7 +1224,8 @@
             "d": "5"
           },
           "answer": "c",
-          "explanation": "M1D1 = M2D2 → 10×5 = M2×1 → M2 = 50 men"
+          "explanation": "M1D1 = M2D2 → 10×5 = M2×1 → M2 = 50 men",
+          "difficulty": "Easy"
         },
         {
           "id": 4,
@@ -1144,7 +1237,8 @@
             "d": "4/5"
           },
           "answer": "b",
-          "explanation": "Work done in 5 days = 5/15 = 1/3. Work left = 1 - 1/3 = 2/3"
+          "explanation": "Work done in 5 days = 5/15 = 1/3. Work left = 1 - 1/3 = 2/3",
+          "difficulty": "Easy"
         },
         {
           "id": 5,
@@ -1156,7 +1250,8 @@
             "d": "80"
           },
           "answer": "a",
-          "explanation": "To convert m/s to km/h, multiply by 18/5: 8 × 18/5 = 144/5 = 28.8 km/h"
+          "explanation": "To convert m/s to km/h, multiply by 18/5: 8 × 18/5 = 144/5 = 28.8 km/h",
+          "difficulty": "Easy"
         },
         {
           "id": 6,
@@ -1168,7 +1263,8 @@
             "d": "15"
           },
           "answer": "c",
-          "explanation": "Sum = 5+10+15+20 = 50. Count = 4. Average = 50/4 = 12.5"
+          "explanation": "Sum = 5+10+15+20 = 50. Count = 4. Average = 50/4 = 12.5",
+          "difficulty": "Easy"
         },
         {
           "id": 7,
@@ -1180,7 +1276,8 @@
             "d": "0.1%"
           },
           "answer": "b",
-          "explanation": "SI = (P×R×T)/100 → 100 = (1000×R×1)/100 → 100 = 10R → R = 10%"
+          "explanation": "SI = (P×R×T)/100 → 100 = (1000×R×1)/100 → 100 = 10R → R = 10%",
+          "difficulty": "Easy"
         },
         {
           "id": 8,
@@ -1192,7 +1289,8 @@
             "d": "99"
           },
           "answer": "b",
-          "explanation": "Successor of a number is the number that comes immediately after it. Successor of 99 is 100."
+          "explanation": "Successor of a number is the number that comes immediately after it. Successor of 99 is 100.",
+          "difficulty": "Easy"
         },
         {
           "id": 9,
@@ -1204,7 +1302,8 @@
             "d": "36"
           },
           "answer": "c",
-          "explanation": "Factors of 12: 1,2,3,4,6,12. Factors of 18: 1,2,3,6,9,18. Highest common factor = 6"
+          "explanation": "Factors of 12: 1,2,3,4,6,12. Factors of 18: 1,2,3,6,9,18. Highest common factor = 6",
+          "difficulty": "Easy"
         },
         {
           "id": 10,
@@ -1216,7 +1315,8 @@
             "d": "18"
           },
           "answer": "a",
-          "explanation": "Total students = (Position from left + Position from right) - 1 = 7 + 9 - 1 = 15"
+          "explanation": "Total students = (Position from left + Position from right) - 1 = 7 + 9 - 1 = 15",
+          "difficulty": "Easy"
         },
         {
           "id": 11,
@@ -1228,7 +1328,8 @@
             "d": "500"
           },
           "answer": "c",
-          "explanation": "Sum of ratio terms = 2+3+5 = 10. C's share = (5/10) × 1250 = 625"
+          "explanation": "Sum of ratio terms = 2+3+5 = 10. C's share = (5/10) × 1250 = 625",
+          "difficulty": "Easy"
         },
         {
           "id": 12,
@@ -1240,7 +1341,8 @@
             "d": "A is false but R is true"
           },
           "answer": "a",
-          "explanation": "Lightning is seen before thunder because light travels much faster than sound. So both are true and R explains A."
+          "explanation": "Lightning is seen before thunder because light travels much faster than sound. So both are true and R explains A.",
+          "difficulty": "Easy"
         },
         {
           "id": 13,
@@ -1252,7 +1354,8 @@
             "d": "2/3"
           },
           "answer": "a",
-          "explanation": "Odd numbers on a die: 1,3,5 → 3 favorable outcomes. Total outcomes = 6. Probability = 3/6 = 1/2"
+          "explanation": "Odd numbers on a die: 1,3,5 → 3 favorable outcomes. Total outcomes = 6. Probability = 3/6 = 1/2",
+          "difficulty": "Easy"
         },
         {
           "id": 14,
@@ -1264,7 +1367,8 @@
             "d": "Mother"
           },
           "answer": "a",
-          "explanation": "The only son of A's grandfather is A's father. The daughter of A's father is A's sister."
+          "explanation": "The only son of A's grandfather is A's father. The daughter of A's father is A's sister.",
+          "difficulty": "Medium"
         },
         {
           "id": 15,
@@ -1276,7 +1380,8 @@
             "d": "Neither follows"
           },
           "answer": "c",
-          "explanation": "Both actions can help reduce dropouts: scholarships address financial issues, compulsory education ensures attendance."
+          "explanation": "Both actions can help reduce dropouts: scholarships address financial issues, compulsory education ensures attendance.",
+          "difficulty": "Easy"
         },
         {
           "id": 16,
@@ -1288,7 +1393,8 @@
             "d": "8"
           },
           "answer": "b",
-          "explanation": "In C++, an empty class has a non-zero size (typically 1 byte) to ensure that different objects have different addresses."
+          "explanation": "In C++, an empty class has a non-zero size (typically 1 byte) to ensure that different objects have different addresses.",
+          "difficulty": "Medium"
         },
         {
           "id": 17,
@@ -1300,7 +1406,8 @@
             "d": "O(n log n)"
           },
           "answer": "b",
-          "explanation": "Heapify (sift down) operation on a single node takes O(log n) time as it may travel from root to leaf."
+          "explanation": "Heapify (sift down) operation on a single node takes O(log n) time as it may travel from root to leaf.",
+          "difficulty": "Easy"
         },
         {
           "id": 18,
@@ -1312,7 +1419,8 @@
             "d": "Insertion Sort"
           },
           "answer": "a",
-          "explanation": "Binary Search divides the array into halves and searches in one half, following divide and conquer approach."
+          "explanation": "Binary Search divides the array into halves and searches in one half, following divide and conquer approach.",
+          "difficulty": "Easy"
         },
         {
           "id": 19,
@@ -1324,7 +1432,8 @@
             "d": "Bubble Sort"
           },
           "answer": "b",
-          "explanation": "Dynamic programming is ideal for problems with overlapping subproblems like Fibonacci, where memoization avoids redundant calculations."
+          "explanation": "Dynamic programming is ideal for problems with overlapping subproblems like Fibonacci, where memoization avoids redundant calculations.",
+          "difficulty": "Easy"
         },
         {
           "id": 20,
@@ -1336,7 +1445,8 @@
             "d": "O(n log n)"
           },
           "answer": "b",
-          "explanation": "Tower of Hanoi requires 2^n - 1 moves, so time complexity is O(2^n)."
+          "explanation": "Tower of Hanoi requires 2^n - 1 moves, so time complexity is O(2^n).",
+          "difficulty": "Medium"
         },
         {
           "id": 21,
@@ -1348,7 +1458,8 @@
             "d": "FULL JOIN"
           },
           "answer": "b",
-          "explanation": "LEFT JOIN returns all records from the left table and matching records from the right table."
+          "explanation": "LEFT JOIN returns all records from the left table and matching records from the right table.",
+          "difficulty": "Easy"
         },
         {
           "id": 22,
@@ -1360,7 +1471,8 @@
             "d": "Process scheduler"
           },
           "answer": "a",
-          "explanation": "A mutex (mutual exclusion) is a synchronization primitive used to prevent multiple threads from accessing shared resources simultaneously."
+          "explanation": "A mutex (mutual exclusion) is a synchronization primitive used to prevent multiple threads from accessing shared resources simultaneously.",
+          "difficulty": "Medium"
         },
         {
           "id": 23,
@@ -1372,7 +1484,8 @@
             "d": "Starvation"
           },
           "answer": "a",
-          "explanation": "Convoy effect occurs when a CPU-bound process holds the CPU, forcing I/O-bound processes to wait, leading to inefficient resource utilization."
+          "explanation": "Convoy effect occurs when a CPU-bound process holds the CPU, forcing I/O-bound processes to wait, leading to inefficient resource utilization.",
+          "difficulty": "Medium"
         },
         {
           "id": 24,
@@ -1384,7 +1497,8 @@
             "d": "Process priority"
           },
           "answer": "b",
-          "explanation": "A race condition occurs when multiple threads access shared data concurrently, and the final outcome depends on the timing/order of execution."
+          "explanation": "A race condition occurs when multiple threads access shared data concurrently, and the final outcome depends on the timing/order of execution.",
+          "difficulty": "Medium"
         },
         {
           "id": 25,
@@ -1396,7 +1510,8 @@
             "d": "0.0.0.0"
           },
           "answer": "c",
-          "explanation": "127.0.0.1 is the loopback address used to test network software on the local machine."
+          "explanation": "127.0.0.1 is the loopback address used to test network software on the local machine.",
+          "difficulty": "Easy"
         },
         {
           "id": 26,
@@ -1408,7 +1523,8 @@
             "d": "32"
           },
           "answer": "a",
-          "explanation": "C=3, A=1, T=20 → sum = 24. D=4, O=15, G=7 → sum = 26"
+          "explanation": "C=3, A=1, T=20 → sum = 24. D=4, O=15, G=7 → sum = 26",
+          "difficulty": "Easy"
         },
         {
           "id": 27,
@@ -1420,7 +1536,8 @@
             "d": "70 L"
           },
           "answer": "c",
-          "explanation": "Milk = (2/3)×60 = 40 L, Water = 20 L. Let water added = x. New ratio 40:(20+x) = 1:2 → 80 = 20+x → x = 60 L"
+          "explanation": "Milk = (2/3)×60 = 40 L, Water = 20 L. Let water added = x. New ratio 40:(20+x) = 1:2 → 80 = 20+x → x = 60 L",
+          "difficulty": "Medium"
         },
         {
           "id": 28,
@@ -1432,7 +1549,8 @@
             "d": "10 15"
           },
           "answer": "a",
-          "explanation": "SWAP macro swaps values: a=a+b=15, b=a-b=15-10=5, a=a-b=15-5=10. So x=10, y=5"
+          "explanation": "SWAP macro swaps values: a=a+b=15, b=a-b=15-10=5, a=a-b=15-5=10. So x=10, y=5",
+          "difficulty": "Medium"
         },
         {
           "id": 29,
@@ -1444,7 +1562,8 @@
             "d": "O(n log n)"
           },
           "answer": "c",
-          "explanation": "Checking if a binary tree is BST requires traversing all nodes once, comparing each node's value with its allowed range. So O(n)."
+          "explanation": "Checking if a binary tree is BST requires traversing all nodes once, comparing each node's value with its allowed range. So O(n).",
+          "difficulty": "Medium"
         },
         {
           "id": 30,
@@ -1456,7 +1575,8 @@
             "d": "All of the above"
           },
           "answer": "c",
-          "explanation": "Schedule c is serial (T1 then T2) so it's conflict serializable. Schedules a and b have conflicts that may not be equivalent to any serial schedule."
+          "explanation": "Schedule c is serial (T1 then T2) so it's conflict serializable. Schedules a and b have conflicts that may not be equivalent to any serial schedule.",
+          "difficulty": "Hard"
         }
       ]
     },
@@ -1473,7 +1593,8 @@
             "d": "$220"
           },
           "answer": "b",
-          "explanation": "Loss = 10% of 200 = $20. SP = CP - Loss = 200 - 20 = $180"
+          "explanation": "Loss = 10% of 200 = $20. SP = CP - Loss = 200 - 20 = $180",
+          "difficulty": "Easy"
         },
         {
           "id": 2,
@@ -1485,7 +1606,8 @@
             "d": "30"
           },
           "answer": "b",
-          "explanation": "2:5 = 6:x → 2/5 = 6/x → 2x = 30 → x = 15"
+          "explanation": "2:5 = 6:x → 2/5 = 6/x → 2x = 30 → x = 15",
+          "difficulty": "Easy"
         },
         {
           "id": 3,
@@ -1497,7 +1619,8 @@
             "d": "2"
           },
           "answer": "b",
-          "explanation": "If 1/4 work takes 1 day, complete work takes 1 × 4 = 4 days"
+          "explanation": "If 1/4 work takes 1 day, complete work takes 1 × 4 = 4 days",
+          "difficulty": "Easy"
         },
         {
           "id": 4,
@@ -1509,7 +1632,8 @@
             "d": "1:1.5"
           },
           "answer": "b",
-          "explanation": "Duplicate ratio means squaring each term: 2² : 3² = 4:9"
+          "explanation": "Duplicate ratio means squaring each term: 2² : 3² = 4:9",
+          "difficulty": "Easy"
         },
         {
           "id": 5,
@@ -1521,7 +1645,8 @@
             "d": "147 km/h"
           },
           "answer": "a",
-          "explanation": "Speed = Distance/Time = 150/3 = 50 km/h"
+          "explanation": "Speed = Distance/Time = 150/3 = 50 km/h",
+          "difficulty": "Easy"
         },
         {
           "id": 6,
@@ -1533,7 +1658,8 @@
             "d": "6"
           },
           "answer": "c",
-          "explanation": "Sum = 1+3+5+7+9 = 25. Count = 5. Mean = 25/5 = 5"
+          "explanation": "Sum = 1+3+5+7+9 = 25. Count = 5. Mean = 25/5 = 5",
+          "difficulty": "Easy"
         },
         {
           "id": 7,
@@ -1545,7 +1671,8 @@
             "d": "$1020"
           },
           "answer": "b",
-          "explanation": "SI = (1000×10×2)/100 = $200. Amount = P + SI = 1000 + 200 = $1200"
+          "explanation": "SI = (1000×10×2)/100 = $200. Amount = P + SI = 1000 + 200 = $1200",
+          "difficulty": "Easy"
         },
         {
           "id": 8,
@@ -1557,7 +1684,8 @@
             "d": "345"
           },
           "answer": "a",
-          "explanation": "Face value of a digit is the digit itself regardless of its position. So face value of 4 is 4."
+          "explanation": "Face value of a digit is the digit itself regardless of its position. So face value of 4 is 4.",
+          "difficulty": "Easy"
         },
         {
           "id": 9,
@@ -1569,7 +1697,8 @@
             "d": "Neither follows"
           },
           "answer": "d",
-          "explanation": "No definite relationship between cats and rats can be established. All rats being dogs is also not necessarily true."
+          "explanation": "No definite relationship between cats and rats can be established. All rats being dogs is also not necessarily true.",
+          "difficulty": "Medium"
         },
         {
           "id": 10,
@@ -1581,7 +1710,8 @@
             "d": "Error"
           },
           "answer": "b",
-          "explanation": "10 + 20 is evaluated as 30 and printed as integer due to %d format specifier."
+          "explanation": "10 + 20 is evaluated as 30 and printed as integer due to %d format specifier.",
+          "difficulty": "Easy"
         },
         {
           "id": 11,
@@ -1593,7 +1723,8 @@
             "d": "S"
           },
           "answer": "b",
-          "explanation": "Positions: A=1, E=5, I=9, M=13. Difference of 4 each time. Next = 13+4 = 17 → Q"
+          "explanation": "Positions: A=1, E=5, I=9, M=13. Difference of 4 each time. Next = 13+4 = 17 → Q",
+          "difficulty": "Easy"
         },
         {
           "id": 12,
@@ -1605,7 +1736,8 @@
             "d": "25"
           },
           "answer": "b",
-          "explanation": "HTTP uses port 80 by default. HTTPS uses 443, FTP uses 21, SMTP uses 25."
+          "explanation": "HTTP uses port 80 by default. HTTPS uses 443, FTP uses 21, SMTP uses 25.",
+          "difficulty": "Easy"
         },
         {
           "id": 13,
@@ -1617,7 +1749,8 @@
             "d": "ICMP"
           },
           "answer": "b",
-          "explanation": "TCP (Transmission Control Protocol) is connection-oriented, while UDP is connectionless."
+          "explanation": "TCP (Transmission Control Protocol) is connection-oriented, while UDP is connectionless.",
+          "difficulty": "Easy"
         },
         {
           "id": 14,
@@ -1629,7 +1762,8 @@
             "d": "Address Recognition Protocol"
           },
           "answer": "a",
-          "explanation": "ARP (Address Resolution Protocol) maps IP addresses to MAC addresses on a local network."
+          "explanation": "ARP (Address Resolution Protocol) maps IP addresses to MAC addresses on a local network.",
+          "difficulty": "Easy"
         },
         {
           "id": 15,
@@ -1641,7 +1775,8 @@
             "d": "32 bytes"
           },
           "answer": "b",
-          "explanation": "TCP header minimum is 20 bytes, maximum with options is 60 bytes."
+          "explanation": "TCP header minimum is 20 bytes, maximum with options is 60 bytes.",
+          "difficulty": "Medium"
         },
         {
           "id": 16,
@@ -1653,7 +1788,8 @@
             "d": "Testing phase"
           },
           "answer": "b",
-          "explanation": "A sprint is a time-boxed iteration (usually 1-4 weeks) during which a specific set of work is completed."
+          "explanation": "A sprint is a time-boxed iteration (usually 1-4 weeks) during which a specific set of work is completed.",
+          "difficulty": "Easy"
         },
         {
           "id": 17,
@@ -1665,7 +1801,8 @@
             "d": "Design document"
           },
           "answer": "b",
-          "explanation": "A user story is a short, simple description of a feature from the perspective of the user."
+          "explanation": "A user story is a short, simple description of a feature from the perspective of the user.",
+          "difficulty": "Easy"
         },
         {
           "id": 18,
@@ -1677,7 +1814,8 @@
             "d": "Security testing"
           },
           "answer": "b",
-          "explanation": "Regression testing ensures that recent code changes haven't affected existing functionality."
+          "explanation": "Regression testing ensures that recent code changes haven't affected existing functionality.",
+          "difficulty": "Easy"
         },
         {
           "id": 19,
@@ -1689,7 +1827,8 @@
             "d": "Network testing"
           },
           "answer": "a",
-          "explanation": "Black box testing focuses on inputs and outputs without knowledge of internal code structure."
+          "explanation": "Black box testing focuses on inputs and outputs without knowledge of internal code structure.",
+          "difficulty": "Easy"
         },
         {
           "id": 20,
@@ -1701,7 +1840,8 @@
             "d": "Acceptance testing"
           },
           "answer": "b",
-          "explanation": "White box testing involves testing internal structures or workings of an application."
+          "explanation": "White box testing involves testing internal structures or workings of an application.",
+          "difficulty": "Easy"
         },
         {
           "id": 21,
@@ -1713,7 +1853,8 @@
             "d": "Foreign key reference"
           },
           "answer": "a",
-          "explanation": "A primary key uniquely identifies each record in a table and cannot be null or duplicate."
+          "explanation": "A primary key uniquely identifies each record in a table and cannot be null or duplicate.",
+          "difficulty": "Easy"
         },
         {
           "id": 22,
@@ -1725,7 +1866,8 @@
             "d": "Creating indexes"
           },
           "answer": "a",
-          "explanation": "Normalization organizes data to minimize redundancy and dependency by dividing tables appropriately."
+          "explanation": "Normalization organizes data to minimize redundancy and dependency by dividing tables appropriately.",
+          "difficulty": "Easy"
         },
         {
           "id": 23,
@@ -1737,7 +1879,8 @@
             "d": "Accuracy, Consistency, Isolation, Durability"
           },
           "answer": "a",
-          "explanation": "ACID properties ensure reliable processing of database transactions."
+          "explanation": "ACID properties ensure reliable processing of database transactions.",
+          "difficulty": "Medium"
         },
         {
           "id": 24,
@@ -1749,7 +1892,8 @@
             "d": "Memory full"
           },
           "answer": "a",
-          "explanation": "Deadlock occurs when two or more processes are unable to proceed because each is waiting for resources held by others."
+          "explanation": "Deadlock occurs when two or more processes are unable to proceed because each is waiting for resources held by others.",
+          "difficulty": "Easy"
         },
         {
           "id": 25,
@@ -1761,7 +1905,8 @@
             "d": "CPU overload"
           },
           "answer": "a",
-          "explanation": "Starvation occurs when a process is perpetually denied necessary resources to complete its work."
+          "explanation": "Starvation occurs when a process is perpetually denied necessary resources to complete its work.",
+          "difficulty": "Easy"
         },
         {
           "id": 26,
@@ -1773,7 +1918,8 @@
             "d": "255.255.255.224"
           },
           "answer": "d",
-          "explanation": "/27 means 27 network bits. In last octet, 3 bits for network (128+64+32=224). So mask = 255.255.255.224"
+          "explanation": "/27 means 27 network bits. In last octet, 3 bits for network (128+64+32=224). So mask = 255.255.255.224",
+          "difficulty": "Hard"
         },
         {
           "id": 27,
@@ -1785,7 +1931,8 @@
             "d": "Address of a"
           },
           "answer": "a",
-          "explanation": "arr is an array of pointers. *arr gives first element (pointer to a). **arr dereferences to get value of a = 5"
+          "explanation": "arr is an array of pointers. *arr gives first element (pointer to a). **arr dereferences to get value of a = 5",
+          "difficulty": "Medium"
         },
         {
           "id": 28,
@@ -1797,7 +1944,8 @@
             "d": "O(V log V)"
           },
           "answer": "c",
-          "explanation": "With adjacency matrix, finding minimum distance vertex takes O(V) and we do this V times, so O(V²). With adjacency list and heap it's O((V+E) log V)."
+          "explanation": "With adjacency matrix, finding minimum distance vertex takes O(V) and we do this V times, so O(V²). With adjacency list and heap it's O((V+E) log V).",
+          "difficulty": "Hard"
         },
         {
           "id": 29,
@@ -1809,7 +1957,8 @@
             "d": "O(log n)"
           },
           "answer": "b",
-          "explanation": "This is the standard divide and conquer recurrence. By Master Theorem, a=2, b=2, f(n)=n, case 2 gives O(n log n)."
+          "explanation": "This is the standard divide and conquer recurrence. By Master Theorem, a=2, b=2, f(n)=n, case 2 gives O(n log n).",
+          "difficulty": "Hard"
         },
         {
           "id": 30,
@@ -1821,7 +1970,8 @@
             "d": "2^128"
           },
           "answer": "b",
-          "explanation": "IPv4 uses 32-bit addresses, so total possible addresses = 2^32 ≈ 4.3 billion."
+          "explanation": "IPv4 uses 32-bit addresses, so total possible addresses = 2^32 ≈ 4.3 billion.",
+          "difficulty": "Easy"
         }
       ]
     }

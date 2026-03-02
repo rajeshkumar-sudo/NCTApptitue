@@ -17,12 +17,27 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [timeLeft, setTimeLeft] = useState(30 * 60); // 30 minutes in seconds
+  const [questionTimeLeft, setQuestionTimeLeft] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [violations, setViolations] = useState(0);
   const [hasStarted] = useState(true);
 
   const selectedSet = questionsData.sets[selectedSetIndex];
   const questions: Question[] = selectedSet.questions;
+
+  const DIFFICULTY_TIMES = {
+    'Easy': 40,
+    'Medium': 60,
+    'Hard': 100
+  };
+
+  // Initialize question timer
+  useEffect(() => {
+    if (questions[currentQuestionIndex]) {
+      const difficulty = questions[currentQuestionIndex].difficulty || 'Medium';
+      setQuestionTimeLeft(DIFFICULTY_TIMES[difficulty as keyof typeof DIFFICULTY_TIMES]);
+    }
+  }, [currentQuestionIndex, questions]);
 
   const handleSubmit = () => {
     if (isSubmitted) return;
@@ -61,17 +76,32 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
   }, [isSubmitted, answers, hasStarted]);
 
   useEffect(() => {
-    if (!hasStarted || timeLeft <= 0) {
-      if (hasStarted && timeLeft <= 0) handleSubmit();
+    if (!hasStarted || isSubmitted) return;
+
+    if (timeLeft <= 0) {
+      handleSubmit();
       return;
     }
 
     const timer = setInterval(() => {
-      setTimeLeft((prev) => prev - 1);
+      setTimeLeft((prev) => Math.max(0, prev - 1));
+      
+      setQuestionTimeLeft((prev) => {
+        if (prev <= 1) {
+          // Time up for current question
+          if (currentQuestionIndex < questions.length - 1) {
+            setCurrentQuestionIndex(prevIndex => prevIndex + 1);
+          } else {
+            handleSubmit();
+          }
+          return 0;
+        }
+        return prev - 1;
+      });
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [timeLeft, hasStarted]);
+  }, [timeLeft, hasStarted, isSubmitted, currentQuestionIndex, questions.length]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -97,12 +127,32 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
           <h2 className="text-2xl font-semibold text-zinc-900">{user.name}</h2>
           <p className="text-zinc-500">Aptitude Assessment in Progress</p>
         </div>
-        <div className={cn(
-          "flex items-center gap-3 px-6 py-3 rounded-2xl border transition-colors",
-          timeLeft < 300 ? "bg-red-50 border-red-100 text-red-600" : "bg-zinc-50 border-zinc-100 text-zinc-700"
-        )}>
-          <Clock className={cn("w-5 h-5", timeLeft < 300 && "animate-pulse")} />
-          <span className="font-mono text-xl font-medium">{formatTime(timeLeft)}</span>
+        <div className="flex flex-col md:flex-row md:items-center gap-4">
+          <div className={cn(
+            "flex items-center gap-3 px-6 py-3 rounded-2xl border transition-colors",
+            timeLeft < 300 ? "bg-red-50 border-red-100 text-red-600" : "bg-zinc-50 border-zinc-100 text-zinc-700"
+          )}>
+            <div className="flex flex-col">
+              <span className="text-[10px] uppercase tracking-wider font-bold opacity-60">Total Time</span>
+              <div className="flex items-center gap-2">
+                <Clock className={cn("w-4 h-4", timeLeft < 300 && "animate-pulse")} />
+                <span className="font-mono text-lg font-medium">{formatTime(timeLeft)}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className={cn(
+            "flex items-center gap-3 px-6 py-3 rounded-2xl border transition-colors",
+            questionTimeLeft < 10 ? "bg-orange-50 border-orange-100 text-orange-600" : "bg-zinc-50 border-zinc-100 text-zinc-700"
+          )}>
+            <div className="flex flex-col">
+              <span className="text-[10px] uppercase tracking-wider font-bold opacity-60">Question Time</span>
+              <div className="flex items-center gap-2">
+                <Clock className={cn("w-4 h-4", questionTimeLeft < 10 && "animate-pulse")} />
+                <span className="font-mono text-lg font-medium">{formatTime(questionTimeLeft)}</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -117,10 +167,24 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
 
       {/* Question Card */}
       <div className="bg-white rounded-3xl p-8 shadow-sm border border-black/5 min-h-[400px] flex flex-col">
+        <div className="mb-8 flex justify-between items-start">
+          <div>
+            <span className="inline-block px-3 py-1 bg-zinc-100 text-zinc-600 text-xs font-bold rounded-full uppercase tracking-wider mb-4 mr-2">
+              Question {currentQuestionIndex + 1} of {questions.length}
+            </span>
+            {currentQuestion.difficulty && (
+              <span className={cn(
+                "inline-block px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wider mb-4",
+                currentQuestion.difficulty === 'Easy' ? "bg-emerald-100 text-emerald-700" :
+                currentQuestion.difficulty === 'Medium' ? "bg-amber-100 text-amber-700" :
+                "bg-rose-100 text-rose-700"
+              )}>
+                {currentQuestion.difficulty}
+              </span>
+            )}
+          </div>
+        </div>
         <div className="mb-8">
-          <span className="inline-block px-3 py-1 bg-zinc-100 text-zinc-600 text-xs font-bold rounded-full uppercase tracking-wider mb-4">
-            Question {currentQuestionIndex + 1} of {questions.length}
-          </span>
           <h3 className="text-xl md:text-2xl font-medium text-zinc-900 leading-relaxed">
             {currentQuestion.question}
           </h3>
@@ -151,16 +215,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
           ))}
         </div>
 
-        <div className="flex items-center justify-between pt-8 border-t border-zinc-100">
-          <button
-            disabled={currentQuestionIndex === 0}
-            onClick={() => setCurrentQuestionIndex((prev) => prev - 1)}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-zinc-600 hover:bg-zinc-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-          >
-            <ChevronLeft className="w-5 h-5" />
-            Previous
-          </button>
-
+        <div className="flex items-center justify-end pt-8 border-t border-zinc-100">
           {currentQuestionIndex === questions.length - 1 ? (
             <button
               onClick={handleSubmit}
@@ -179,26 +234,6 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
             </button>
           )}
         </div>
-      </div>
-
-      {/* Question Navigator */}
-      <div className="mt-8 flex flex-wrap gap-2 justify-center">
-        {questions.map((q, idx) => (
-          <button
-            key={q.id}
-            onClick={() => setCurrentQuestionIndex(idx)}
-            className={cn(
-              "w-10 h-10 rounded-xl flex items-center justify-center text-sm font-medium transition-all",
-              currentQuestionIndex === idx
-                ? "ring-2 ring-zinc-900 ring-offset-2 bg-zinc-900 text-white"
-                : answers[q.id] !== undefined
-                ? "bg-zinc-200 text-zinc-700"
-                : "bg-zinc-100 text-zinc-400 hover:bg-zinc-200"
-            )}
-          >
-            {idx + 1}
-          </button>
-        ))}
       </div>
     </div>
   );

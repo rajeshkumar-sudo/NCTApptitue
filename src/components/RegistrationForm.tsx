@@ -15,10 +15,40 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
     phone: '',
     rollNumber: '',
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+
+    // Name validation: Letters and spaces only
+    if (!/^[a-zA-Z\s]*$/.test(formData.name)) {
+      newErrors.name = 'Full Name should contain only letters';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Please enter a valid name';
+    }
+
+    // Phone validation: Exactly 10 digits
+    if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = 'Phone number must be exactly 10 digits';
+    }
+
+    // Email validation (basic)
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    // Roll Number validation: Just check if empty
+    if (!formData.rollNumber.trim()) {
+      newErrors.rollNumber = 'Roll number is required';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.phone && formData.rollNumber) {
+    if (validate()) {
       onRegister(formData);
     }
   };
@@ -43,11 +73,21 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
               required
               type="text"
               placeholder="John Doe"
-              className="w-full pl-11 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-zinc-900/5 focus:border-zinc-900 transition-all"
+              className={cn(
+                "w-full pl-11 pr-4 py-3 bg-zinc-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-zinc-900/5 transition-all",
+                errors.name ? "border-red-300 focus:border-red-500" : "border-zinc-200 focus:border-zinc-900"
+              )}
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) => {
+                const val = e.target.value;
+                if (/^[a-zA-Z\s]*$/.test(val)) {
+                  setFormData({ ...formData, name: val });
+                  if (errors.name) setErrors({ ...errors, name: '' });
+                }
+              }}
             />
           </div>
+          {errors.name && <p className="text-xs text-red-500 ml-1">{errors.name}</p>}
         </div>
 
         <div className="space-y-2">
@@ -58,11 +98,18 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
               required
               type="text"
               placeholder="ROLL-2026-001"
-              className="w-full pl-11 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-zinc-900/5 focus:border-zinc-900 transition-all"
+              className={cn(
+                "w-full pl-11 pr-4 py-3 bg-zinc-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-zinc-900/5 transition-all",
+                errors.rollNumber ? "border-red-300 focus:border-red-500" : "border-zinc-200 focus:border-zinc-900"
+              )}
               value={formData.rollNumber}
-              onChange={(e) => setFormData({ ...formData, rollNumber: e.target.value })}
+              onChange={(e) => {
+                setFormData({ ...formData, rollNumber: e.target.value });
+                if (errors.rollNumber) setErrors({ ...errors, rollNumber: '' });
+              }}
             />
           </div>
+          {errors.rollNumber && <p className="text-xs text-red-500 ml-1">{errors.rollNumber}</p>}
         </div>
 
         <div className="space-y-2">
@@ -73,11 +120,18 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
               required
               type="email"
               placeholder="john@example.com"
-              className="w-full pl-11 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-zinc-900/5 focus:border-zinc-900 transition-all"
+              className={cn(
+                "w-full pl-11 pr-4 py-3 bg-zinc-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-zinc-900/5 transition-all",
+                errors.email ? "border-red-300 focus:border-red-500" : "border-zinc-200 focus:border-zinc-900"
+              )}
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onChange={(e) => {
+                setFormData({ ...formData, email: e.target.value });
+                if (errors.email) setErrors({ ...errors, email: '' });
+              }}
             />
           </div>
+          {errors.email && <p className="text-xs text-red-500 ml-1">{errors.email}</p>}
         </div>
 
         <div className="space-y-2">
@@ -87,12 +141,23 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
             <input
               required
               type="tel"
-              placeholder="+1 (555) 000-0000"
-              className="w-full pl-11 pr-4 py-3 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-zinc-900/5 focus:border-zinc-900 transition-all"
+              maxLength={10}
+              placeholder="10-digit mobile number"
+              className={cn(
+                "w-full pl-11 pr-4 py-3 bg-zinc-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-zinc-900/5 transition-all",
+                errors.phone ? "border-red-300 focus:border-red-500" : "border-zinc-200 focus:border-zinc-900"
+              )}
               value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              onChange={(e) => {
+                const val = e.target.value.replace(/\D/g, '');
+                if (val.length <= 10) {
+                  setFormData({ ...formData, phone: val });
+                  if (errors.phone) setErrors({ ...errors, phone: '' });
+                }
+              }}
             />
           </div>
+          {errors.phone && <p className="text-xs text-red-500 ml-1">{errors.phone}</p>}
         </div>
 
         <button
