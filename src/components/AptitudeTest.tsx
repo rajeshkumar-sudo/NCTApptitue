@@ -66,11 +66,11 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
         if (newCount >= 3) {
           setSecurityAlert({ 
             show: true, 
-            message: `Security Protocol Breach: ${message}. Maximum violations reached. Terminating session.`,
+            message: `Warning: Window minimization or tab switching is not allowed during the assessment. Violation 3/3. The test will automatically submit on the 3rd violation. Don't make it half of the screen.`,
             count: newCount 
           });
           setTimeout(() => handleSubmit(), 3000);
-          return newCount;
+          return 3; // Cap at 3 for display
         } else {
           setSecurityAlert({ 
             show: true, 
