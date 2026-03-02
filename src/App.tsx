@@ -6,6 +6,7 @@ import { ResultView } from './components/ResultView';
 import { UserData, AppState } from './types';
 import { sendTestResults } from './services/emailService';
 import { AlertTriangle } from 'lucide-react';
+import { cn } from './utils';
 
 export default function App() {
   const [appState, setAppState] = useState<AppState>('registration');
@@ -14,7 +15,13 @@ export default function App() {
   const [total, setTotal] = useState(0);
   const [isSendingEmail, setIsSendingEmail] = useState(false);
   const [attempts, setAttempts] = useState(0);
-  const [retakeAlert, setRetakeAlert] = useState<{ show: boolean; message: string; type: 'warning' | 'error' } | null>(null);
+  const [retakeAlert, setRetakeAlert] = useState<{ 
+    show: boolean; 
+    message: string; 
+    type: 'warning' | 'error' | 'key-entry';
+    inputValue?: string;
+    error?: string;
+  } | null>(null);
 
   const handleRegister = (data: UserData) => {
     setUser(data);
@@ -47,8 +54,33 @@ export default function App() {
     setRetakeAlert({
       show: true,
       type: 'warning',
-      message: "Only one time Retake allowed. Click 'Continue' to start your final attempt or 'Cancel' to refresh."
+      message: "Only one time Retake allowed. Click 'Continue' to proceed to key verification."
     });
+  };
+
+  const proceedToKeyEntry = () => {
+    setRetakeAlert({
+      show: true,
+      type: 'key-entry',
+      message: "Please enter your authorized Retake Key (NICHE01 - NICHE99) to initialize the final attempt.",
+      inputValue: '',
+      error: ''
+    });
+  };
+
+  const handleKeyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRetakeAlert(prev => prev ? { ...prev, inputValue: e.target.value.toUpperCase(), error: '' } : null);
+  };
+
+  const validateRetakeKey = () => {
+    if (!retakeAlert?.inputValue) return;
+    
+    const keyRegex = /^NICHE\s?(0[1-9]|[1-9][0-9])$/;
+    if (keyRegex.test(retakeAlert.inputValue)) {
+      confirmRetake();
+    } else {
+      setRetakeAlert(prev => prev ? { ...prev, error: 'Invalid Retake Key. Format: NICHE01 - NICHE99' } : null);
+    }
   };
 
   const confirmRetake = () => {
@@ -108,10 +140,10 @@ export default function App() {
                   {retakeAlert.type === 'warning' ? (
                     <>
                       <button
-                        onClick={confirmRetake}
+                        onClick={proceedToKeyEntry}
                         className="w-full py-4 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
                       >
-                        Continue Retake
+                        Continue
                       </button>
                       <button
                         onClick={() => window.location.reload()}
@@ -120,6 +152,41 @@ export default function App() {
                         Cancel
                       </button>
                     </>
+                  ) : retakeAlert.type === 'key-entry' ? (
+                    <div className="flex flex-col gap-6">
+                      <div className="relative">
+                        <input
+                          autoFocus
+                          type="text"
+                          value={retakeAlert.inputValue}
+                          onChange={handleKeyChange}
+                          placeholder="e.g. NICHE01"
+                          className={cn(
+                            "w-full bg-black/5 border-b-2 px-4 py-4 text-center font-mono text-xl tracking-[0.2em] focus:outline-none transition-all",
+                            retakeAlert.error ? "border-red-500" : "border-black focus:bg-black/10"
+                          )}
+                        />
+                        {retakeAlert.error && (
+                          <span className="text-[9px] text-red-500 font-bold uppercase tracking-widest mt-2 block">
+                            {retakeAlert.error}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex flex-col gap-3">
+                        <button
+                          onClick={validateRetakeKey}
+                          className="w-full py-4 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
+                        >
+                          Verify & Start
+                        </button>
+                        <button
+                          onClick={() => setRetakeAlert(null)}
+                          className="text-[9px] font-bold uppercase tracking-widest text-black/40 hover:text-black transition-colors py-2"
+                        >
+                          Back to Results
+                        </button>
+                      </div>
+                    </div>
                   ) : (
                     <button
                       onClick={() => setRetakeAlert(null)}
