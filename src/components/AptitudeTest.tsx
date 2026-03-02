@@ -27,7 +27,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
     show: true,
     isInitial: true,
     count: 0,
-    message: "Warning: Window minimization or tab switching is not allowed during the assessment. Violation 0/3. The test will automatically submit on the 3rd violation. Don't make it half of the screen."
+    message: "Warning: Do not minimize the window or switch tabs during the test. This is violation 0 out of 3. If you do this 3 times, the test will be submitted automatically. Please keep the test in full screen."
   });
 
   const selectedSet = questionsData.sets[selectedSetIndex];
@@ -72,7 +72,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
         if (newCount >= 3) {
           setSecurityAlert({ 
             show: true, 
-            message: `Warning: Window minimization or tab switching is not allowed during the assessment. Violation 3/3. The test will automatically submit on the 3rd violation. Don't make it half of the screen.`,
+            message: `Warning: Do not minimize the window or switch tabs during the test. This is violation 3 out of 3. If you do this 3 times, the test will be submitted automatically. Please keep the test in full screen.`,
             count: 3 
           });
           setTimeout(() => handleSubmit(), 3000);
@@ -80,7 +80,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
         } else {
           setSecurityAlert({ 
             show: true, 
-            message: `Warning: Window minimization or tab switching is not allowed during the assessment. Violation ${newCount}/3. The test will automatically submit on the 3rd violation. Don't make it half of the screen.`,
+            message: `Warning: Do not minimize the window or switch tabs during the test. This is violation ${newCount} out of 3. If you do this 3 times, the test will be submitted automatically. Please keep the test in full screen.`,
             count: newCount
           });
           return newCount;
@@ -194,9 +194,16 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
               <div className="w-16 h-16 bg-black text-white flex items-center justify-center mx-auto mb-8">
                 <AlertTriangle className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-display font-bold uppercase tracking-tight mb-4">Security Alert</h4>
-              <p className="text-black/60 text-sm font-medium leading-relaxed mb-10 uppercase tracking-tight">
-                {securityAlert.message}
+              <h4 className="text-xl font-display font-bold capitalize tracking-tight mb-4">Security Alert</h4>
+              <p className="text-black/60 text-sm font-medium leading-relaxed mb-10 tracking-tight">
+                {securityAlert.message.startsWith('Warning:') ? (
+                  <>
+                    <span className="font-bold text-black">Warning:</span>
+                    {securityAlert.message.substring(8)}
+                  </>
+                ) : (
+                  securityAlert.message
+                )}
               </p>
               {securityAlert.count < 3 && (
                 <button
@@ -207,7 +214,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                       setHasStarted(true);
                     }
                   }}
-                  className="w-full py-4 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
+                  className="w-full py-4 bg-black text-white font-bold capitalize tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
                 >
                   {securityAlert.isInitial ? "I Understand & Begin" : "Acknowledge & Continue"}
                 </button>
@@ -223,10 +230,10 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
           animate={{ opacity: 1 }}
         >
           <div className="flex items-center gap-4 mb-3">
-            <span className="px-2 py-0.5 bg-black text-white text-[9px] font-bold uppercase tracking-widest rounded">Live Session</span>
-            <span className="text-black/30 text-[9px] font-bold uppercase tracking-widest">ID: {user.rollNumber}</span>
+            <span className="px-2 py-0.5 bg-black text-white text-[9px] font-bold capitalize tracking-widest rounded">Live Session</span>
+            <span className="text-black/30 text-[9px] font-bold capitalize tracking-widest">ID: {user.rollNumber}</span>
           </div>
-          <h2 className="text-4xl font-display font-bold text-black tracking-tight uppercase">{user.name}</h2>
+          <h2 className="text-4xl font-display font-bold text-black tracking-tight capitalize">{user.name}</h2>
           <p className="text-black/40 font-medium mt-1 text-sm">Technical Aptitude Evaluation</p>
         </motion.div>
 
@@ -236,7 +243,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
             animate={{ opacity: 1 }}
             className="flex flex-col gap-1 min-w-[140px]"
           >
-            <span className="text-[9px] font-bold uppercase tracking-widest text-black/30">Total Remaining</span>
+            <span className="text-[9px] font-bold capitalize tracking-widest text-black/30">Total Remaining</span>
             <div className="flex items-center gap-3">
               <Clock className={cn("w-3 h-3", timeLeft < 300 ? "text-black animate-pulse" : "text-black/40")} />
               <span className={cn("font-mono text-2xl font-bold", timeLeft < 300 ? "text-black" : "text-black/80")}>
@@ -251,7 +258,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
             transition={{ delay: 0.1 }}
             className="flex flex-col gap-1 min-w-[140px]"
           >
-            <span className="text-[9px] font-bold uppercase tracking-widest text-black/30">Question Timer</span>
+            <span className="text-[9px] font-bold capitalize tracking-widest text-black/30">Question Timer</span>
             <div className="flex items-center gap-3">
               <Clock className={cn("w-3 h-3", questionTimeLeft < 10 ? "text-black animate-pulse" : "text-black/40")} />
               <span className={cn("font-mono text-2xl font-bold", questionTimeLeft < 10 ? "text-black" : "text-black/80")}>
@@ -288,29 +295,55 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
               </div>
 
               {/* Question Header */}
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="mb-16"
-              >
-                <div className="flex items-center gap-4 mb-8">
-                  <span className="text-black/40 text-[9px] font-bold uppercase tracking-widest">
-                    Question {currentQuestionIndex + 1} / {questions.length}
-                  </span>
-                  {currentQuestion.difficulty && (
-                    <span className="px-2 py-0.5 border border-black/10 text-black/60 text-[9px] font-bold uppercase tracking-widest rounded">
-                      {currentQuestion.difficulty}
+              <div className="mb-16 flex justify-between items-start gap-6">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="flex-grow"
+                >
+                  <div className="flex items-center gap-4 mb-8">
+                    <span className="text-black/40 text-[9px] font-bold capitalize tracking-widest">
+                      Question {currentQuestionIndex + 1} / {questions.length}
                     </span>
+                    {currentQuestion.difficulty && (
+                      <span className="px-2 py-0.5 border border-black/10 text-black/60 text-[9px] font-bold capitalize tracking-widest rounded">
+                        {currentQuestion.difficulty}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-black leading-tight text-balance capitalize tracking-tight">
+                    {currentQuestion.question}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  {currentQuestionIndex === questions.length - 1 ? (
+                    <button
+                      onClick={handleSubmit}
+                      className="flex items-center gap-3 px-6 py-3 bg-black text-white font-bold capitalize tracking-widest text-[10px] shadow-lg hover:bg-black/90 transition-all whitespace-nowrap"
+                    >
+                      Submit
+                      <Send className="w-3 h-3" />
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}
+                      className="flex items-center gap-3 px-8 py-3 bg-black text-white font-bold capitalize tracking-widest text-[10px] shadow-lg hover:bg-black/90 transition-all whitespace-nowrap"
+                    >
+                      Next
+                      <ChevronRight className="w-3 h-3" />
+                    </button>
                   )}
-                </div>
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-black leading-tight text-balance uppercase tracking-tight">
-                  {currentQuestion.question}
-                </h3>
-              </motion.div>
+                </motion.div>
+              </div>
 
               {/* Options Grid */}
-              <div className="grid grid-cols-1 gap-4 mb-16 flex-grow">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16 flex-grow">
                 {Object.entries(currentQuestion.options).map(([key, option], index) => (
                   <motion.button
                     initial={{ opacity: 0, y: 10 }}
@@ -335,47 +368,18 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                     )}>
                       {key.toUpperCase()}
                     </span>
-                    <span className="font-bold text-lg uppercase tracking-tight">{option}</span>
+                    <span className="font-bold text-lg capitalize tracking-tight">{option}</span>
                   </motion.button>
                 ))}
               </div>
 
-              {/* Footer Controls */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="flex items-center justify-end pt-12 border-t border-black/5"
-              >
-                {currentQuestionIndex === questions.length - 1 ? (
-                  <motion.button
-                    whileHover={{ scale: 1.02, x: 4 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={handleSubmit}
-                    className="flex items-center gap-4 px-12 py-5 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] shadow-xl transition-all"
-                  >
-                    Finalize Submission
-                    <Send className="w-3 h-3" />
-                  </motion.button>
-                ) : (
-                  <motion.button
-                    whileHover={{ scale: 1.02, x: 4 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}
-                    className="flex items-center gap-4 px-12 py-5 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] shadow-xl transition-all"
-                  >
-                    Next Question
-                    <ChevronRight className="w-3 h-3" />
-                  </motion.button>
-                )}
-              </motion.div>
             </motion.div>
           </AnimatePresence>
           
           <div className="mt-12 flex justify-center opacity-30">
             <div className="flex items-center gap-4">
               <div className="w-1.5 h-1.5 rounded-full bg-black" />
-              <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-black">
+              <span className="text-[9px] font-bold capitalize tracking-[0.3em] text-black">
                 Security Violations: {violations}/3
               </span>
             </div>
