@@ -20,6 +20,8 @@ export default function App() {
     message: string; 
     type: 'warning' | 'error' | 'key-entry';
     inputValue?: string;
+    emailValue?: string;
+    rollNumberValue?: string;
     error?: string;
   } | null>(null);
 
@@ -62,24 +64,39 @@ export default function App() {
     setRetakeAlert({
       show: true,
       type: 'key-entry',
-      message: "Please enter your authorized Retake Key to initialize the final attempt.",
+      message: "Please enter your authorized credentials to initialize the final attempt.",
       inputValue: '',
+      emailValue: '',
+      rollNumberValue: '',
       error: ''
     });
   };
 
-  const handleKeyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRetakeAlert(prev => prev ? { ...prev, inputValue: e.target.value, error: '' } : null);
+  const handleCredentialChange = (field: 'inputValue' | 'emailValue' | 'rollNumberValue', value: string) => {
+    setRetakeAlert(prev => prev ? { ...prev, [field]: value, error: '' } : null);
   };
 
-  const validateRetakeKey = () => {
-    if (!retakeAlert?.inputValue) return;
+  const validateRetakeCredentials = () => {
+    if (!retakeAlert || !user) return;
     
-    if (retakeAlert.inputValue.trim() === "673573") {
-      confirmRetake();
-    } else {
-      setRetakeAlert(prev => prev ? { ...prev, error: 'Invalid Retake Key. Please enter the correct authorization code.' } : null);
+    const { inputValue, emailValue, rollNumberValue } = retakeAlert;
+
+    if (inputValue?.trim() !== "673573") {
+      setRetakeAlert(prev => prev ? { ...prev, error: 'Invalid Authorization Key.' } : null);
+      return;
     }
+
+    if (emailValue?.trim().toLowerCase() !== user.email.toLowerCase()) {
+      setRetakeAlert(prev => prev ? { ...prev, error: 'Email ID does not match registration records.' } : null);
+      return;
+    }
+
+    if (rollNumberValue?.trim() !== user.rollNumber) {
+      setRetakeAlert(prev => prev ? { ...prev, error: 'Roll Number does not match registration records.' } : null);
+      return;
+    }
+
+    confirmRetake();
   };
 
   const confirmRetake = () => {
@@ -153,18 +170,47 @@ export default function App() {
                     </>
                   ) : retakeAlert.type === 'key-entry' ? (
                     <div className="flex flex-col gap-6">
-                      <div className="relative">
-                        <input
-                          autoFocus
-                          type="text"
-                          value={retakeAlert.inputValue}
-                          onChange={handleKeyChange}
-                          placeholder="Enter Code"
-                          className={cn(
-                            "w-full bg-black/5 border-b-2 px-4 py-4 text-center font-mono text-xl tracking-[0.2em] focus:outline-none transition-all",
-                            retakeAlert.error ? "border-red-500" : "border-black focus:bg-black/10"
-                          )}
-                        />
+                      <div className="flex flex-col gap-4">
+                        <div className="relative">
+                          <span className="text-[8px] font-bold uppercase tracking-widest text-black/40 mb-1 block text-left">Authorization Key</span>
+                          <input
+                            autoFocus
+                            type="text"
+                            value={retakeAlert.inputValue}
+                            onChange={(e) => handleCredentialChange('inputValue', e.target.value)}
+                            placeholder="Enter Key"
+                            className={cn(
+                              "w-full bg-black/5 border-b px-4 py-3 text-center font-mono text-lg tracking-widest focus:outline-none transition-all",
+                              retakeAlert.error?.includes('Key') ? "border-red-500" : "border-black/20 focus:border-black focus:bg-black/10"
+                            )}
+                          />
+                        </div>
+                        <div className="relative">
+                          <span className="text-[8px] font-bold uppercase tracking-widest text-black/40 mb-1 block text-left">Email ID</span>
+                          <input
+                            type="email"
+                            value={retakeAlert.emailValue}
+                            onChange={(e) => handleCredentialChange('emailValue', e.target.value)}
+                            placeholder="Confirm Email"
+                            className={cn(
+                              "w-full bg-black/5 border-b px-4 py-3 text-center font-sans text-sm tracking-tight focus:outline-none transition-all",
+                              retakeAlert.error?.includes('Email') ? "border-red-500" : "border-black/20 focus:border-black focus:bg-black/10"
+                            )}
+                          />
+                        </div>
+                        <div className="relative">
+                          <span className="text-[8px] font-bold uppercase tracking-widest text-black/40 mb-1 block text-left">Roll Number</span>
+                          <input
+                            type="text"
+                            value={retakeAlert.rollNumberValue}
+                            onChange={(e) => handleCredentialChange('rollNumberValue', e.target.value)}
+                            placeholder="Confirm Roll Number"
+                            className={cn(
+                              "w-full bg-black/5 border-b px-4 py-3 text-center font-sans text-sm tracking-tight focus:outline-none transition-all",
+                              retakeAlert.error?.includes('Roll') ? "border-red-500" : "border-black/20 focus:border-black focus:bg-black/10"
+                            )}
+                          />
+                        </div>
                         {retakeAlert.error && (
                           <span className="text-[9px] text-red-500 font-bold uppercase tracking-widest mt-2 block">
                             {retakeAlert.error}
@@ -173,7 +219,7 @@ export default function App() {
                       </div>
                       <div className="flex flex-col gap-3">
                         <button
-                          onClick={validateRetakeKey}
+                          onClick={validateRetakeCredentials}
                           className="w-full py-4 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
                         >
                           Verify & Start
