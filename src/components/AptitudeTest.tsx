@@ -247,10 +247,13 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
           <AnimatePresence mode="wait">
             <motion.div
               key={currentQuestionIndex}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ 
+                duration: 0.4, 
+                ease: [0.23, 1, 0.32, 1] 
+              }}
               className="bg-white p-12 md:p-16 border border-black/10 shadow-2xl min-h-[500px] flex flex-col relative"
             >
               {/* Progress Bar */}
@@ -258,12 +261,18 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: `${progress}%` }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                   className="h-full bg-black"
                 />
               </div>
 
               {/* Question Header */}
-              <div className="mb-16">
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="mb-16"
+              >
                 <div className="flex items-center gap-4 mb-8">
                   <span className="text-black/40 text-[9px] font-bold uppercase tracking-widest">
                     Question {currentQuestionIndex + 1} / {questions.length}
@@ -277,28 +286,31 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                 <h3 className="text-2xl md:text-3xl font-display font-bold text-black leading-tight text-balance uppercase tracking-tight">
                   {currentQuestion.question}
                 </h3>
-              </div>
+              </motion.div>
 
               {/* Options Grid */}
               <div className="grid grid-cols-1 gap-4 mb-16 flex-grow">
-                {Object.entries(currentQuestion.options).map(([key, option]) => (
+                {Object.entries(currentQuestion.options).map(([key, option], index) => (
                   <motion.button
-                    whileHover={{ x: 4 }}
-                    whileTap={{ scale: 0.99 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 + (index * 0.05) }}
+                    whileHover={{ x: 8 }}
+                    whileTap={{ scale: 0.98 }}
                     key={key}
                     onClick={() => handleOptionSelect(key)}
                     className={cn(
-                      "group relative flex items-center p-6 border transition-all duration-200 text-left",
+                      "group relative flex items-center p-6 border transition-all duration-300 text-left overflow-hidden",
                       answers[currentQuestion.id] === key
                         ? "bg-black border-black text-white"
-                        : "bg-transparent border-black/10 text-black/60 hover:border-black hover:text-black"
+                        : "bg-transparent border-black/10 text-black/60 hover:border-black hover:bg-black/[0.02] hover:text-black"
                     )}
                   >
                     <span className={cn(
-                      "w-8 h-8 flex items-center justify-center border mr-6 text-[10px] font-bold transition-all",
+                      "w-8 h-8 flex items-center justify-center border mr-6 text-[10px] font-bold transition-all duration-300",
                       answers[currentQuestion.id] === key
                         ? "bg-white/10 border-white/20 text-white"
-                        : "bg-black/5 border-black/5 text-black/30 group-hover:border-black/20"
+                        : "bg-black/5 border-black/5 text-black/30 group-hover:border-black/20 group-hover:text-black"
                     )}>
                       {key.toUpperCase()}
                     </span>
@@ -308,29 +320,34 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
               </div>
 
               {/* Footer Controls */}
-              <div className="flex items-center justify-end pt-12 border-t border-black/5">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="flex items-center justify-end pt-12 border-t border-black/5"
+              >
                 {currentQuestionIndex === questions.length - 1 ? (
                   <motion.button
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.02, x: 4 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleSubmit}
-                    className="flex items-center gap-4 px-12 py-5 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] shadow-xl"
+                    className="flex items-center gap-4 px-12 py-5 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] shadow-xl transition-all"
                   >
                     Finalize Submission
                     <Send className="w-3 h-3" />
                   </motion.button>
                 ) : (
                   <motion.button
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.02, x: 4 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}
-                    className="flex items-center gap-4 px-12 py-5 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] shadow-xl"
+                    className="flex items-center gap-4 px-12 py-5 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] shadow-xl transition-all"
                   >
                     Next Question
                     <ChevronRight className="w-3 h-3" />
                   </motion.button>
                 )}
-              </div>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
           

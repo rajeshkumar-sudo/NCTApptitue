@@ -83,20 +83,6 @@ export default function App() {
             <span className="text-[9px] uppercase tracking-[0.3em] text-black/40 font-bold mt-1">Professional Evaluation</span>
           </div>
         </motion.div>
-        
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="hidden md:flex items-center gap-10 text-[10px] font-bold uppercase tracking-widest text-black/40"
-        >
-          <span className="hover:text-black cursor-pointer transition-colors">Documentation</span>
-          <span className="hover:text-black cursor-pointer transition-colors">Support</span>
-          <div className="h-3 w-px bg-black/10" />
-          <div className="flex items-center gap-2">
-            <div className="w-1 h-1 rounded-full bg-black" />
-            <span className="text-black/60">System Online</span>
-          </div>
-        </motion.div>
       </nav>
 
       <main className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] px-4 py-20">

@@ -72,6 +72,21 @@ export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, onRe
         ))}
       </div>
 
+      {/* Official Statement Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.7 }}
+        className="max-w-2xl mx-auto mb-20 p-10 border border-black/5 bg-black/[0.01] text-center"
+      >
+        <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-black/30 mb-6 block">Official Status Report</span>
+        <p className="text-sm text-black/60 leading-relaxed uppercase tracking-tight font-medium">
+          {isPassed 
+            ? "Congratulations. Your performance metrics meet the established benchmarks for technical proficiency. Our recruitment team will review your detailed response patterns and contact you regarding the next phase of the evaluation process."
+            : "The assessment session has concluded. Your current performance index is being reviewed by our technical board. Please await further communication regarding your status and potential future opportunities."}
+        </p>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
