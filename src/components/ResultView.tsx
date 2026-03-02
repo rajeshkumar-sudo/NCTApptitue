@@ -48,9 +48,9 @@ export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, onRe
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
         {[
-          { label: 'Performance Score', value: `${score} / ${total}`, sub: 'Raw Points' },
-          { label: 'Accuracy Index', value: `${Math.round(percentage)}%`, sub: 'Precision Rate' },
-          { label: 'Final Standing', value: isPassed ? 'Qualified' : 'Review Required', sub: 'Status' }
+          { label: 'Performance Score', value: `${score} / ${total}`, sub: 'Raw Points', color: 'text-blue-600', blur: true },
+          { label: 'Accuracy Index', value: `${Math.round(percentage)}%`, sub: 'Precision Rate', color: 'text-blue-600', blur: true },
+          { label: 'Final Standing', value: isPassed ? 'Qualified' : 'Review Required', sub: 'Status', color: 'text-black', blur: false }
         ].map((stat, i) => (
           <motion.div
             key={i}
@@ -60,7 +60,13 @@ export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, onRe
             className="p-10 border border-black/5 flex flex-col items-center justify-center"
           >
             <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-black/30 mb-6">{stat.label}</span>
-            <p className="text-4xl font-display font-bold mb-2 text-black">{stat.value}</p>
+            <p className={cn(
+              "text-4xl font-display font-bold mb-2 transition-all duration-700",
+              stat.color,
+              stat.blur && "blur-md select-none"
+            )}>
+              {stat.value}
+            </p>
             <span className="text-[9px] font-bold uppercase tracking-widest text-black/20">{stat.sub}</span>
           </motion.div>
         ))}

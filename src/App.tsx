@@ -5,6 +5,7 @@ import { AptitudeTest } from './components/AptitudeTest';
 import { ResultView } from './components/ResultView';
 import { UserData, AppState } from './types';
 import { sendTestResults } from './services/emailService';
+import { AlertTriangle } from 'lucide-react';
 
 export default function App() {
   const [appState, setAppState] = useState<AppState>('registration');
@@ -13,6 +14,7 @@ export default function App() {
   const [total, setTotal] = useState(0);
   const [isSendingEmail, setIsSendingEmail] = useState(false);
   const [attempts, setAttempts] = useState(0);
+  const [retakeAlert, setRetakeAlert] = useState<{ show: boolean; message: string; type: 'warning' | 'error' } | null>(null);
 
   const handleRegister = (data: UserData) => {
     setUser(data);
@@ -34,18 +36,25 @@ export default function App() {
 
   const handleRestart = () => {
     if (attempts >= 2) {
-      alert("Only one time Retake allowed. You have already completed your retake attempt.");
+      setRetakeAlert({
+        show: true,
+        type: 'error',
+        message: "Only one time Retake allowed. You have already completed your retake attempt."
+      });
       return;
     }
 
-    const confirmRetake = window.confirm("Only one time Retake allowed. Click OK to continue or Cancel to refresh.");
-    
-    if (confirmRetake) {
-      setScore(0);
-      setAppState('test');
-    } else {
-      window.location.reload();
-    }
+    setRetakeAlert({
+      show: true,
+      type: 'warning',
+      message: "Only one time Retake allowed. Click 'Continue' to start your final attempt or 'Cancel' to refresh."
+    });
+  };
+
+  const confirmRetake = () => {
+    setRetakeAlert(null);
+    setScore(0);
+    setAppState('test');
   };
 
   return (
@@ -91,6 +100,54 @@ export default function App() {
       </nav>
 
       <main className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] px-4 py-20">
+        <AnimatePresence>
+          {retakeAlert?.show && (
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                className="w-full max-w-md bg-white border border-black p-10 shadow-2xl text-center"
+              >
+                <div className="w-16 h-16 bg-black text-white flex items-center justify-center mx-auto mb-8">
+                  <AlertTriangle className="w-8 h-8" />
+                </div>
+                <h4 className="text-xl font-display font-bold uppercase tracking-tight mb-4">
+                  {retakeAlert.type === 'error' ? 'Limit Reached' : 'Retake Policy'}
+                </h4>
+                <p className="text-black/60 text-sm font-medium leading-relaxed mb-10 uppercase tracking-tight">
+                  {retakeAlert.message}
+                </p>
+                <div className="flex flex-col gap-4">
+                  {retakeAlert.type === 'warning' ? (
+                    <>
+                      <button
+                        onClick={confirmRetake}
+                        className="w-full py-4 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
+                      >
+                        Continue Retake
+                      </button>
+                      <button
+                        onClick={() => window.location.reload()}
+                        className="w-full py-4 bg-white text-black/40 border border-black/10 font-bold uppercase tracking-[0.3em] text-[10px] hover:text-black transition-all"
+                      >
+                        Cancel
+                      </button>
+                    </>
+                  ) : (
+                    <button
+                      onClick={() => setRetakeAlert(null)}
+                      className="w-full py-4 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
+                    >
+                      Acknowledge
+                    </button>
+                  )}
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+
         <AnimatePresence mode="wait">
           {appState === 'registration' && (
             <RegistrationForm key="reg" onRegister={handleRegister} />

@@ -20,8 +20,13 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
   const [questionTimeLeft, setQuestionTimeLeft] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [violations, setViolations] = useState(0);
-  const [hasStarted] = useState(true);
-  const [securityAlert, setSecurityAlert] = useState<{ show: boolean; message: string; count: number } | null>(null);
+  const [hasStarted, setHasStarted] = useState(false);
+  const [securityAlert, setSecurityAlert] = useState<{ show: boolean; message: string; count: number; isInitial?: boolean } | null>({
+    show: true,
+    isInitial: true,
+    count: 0,
+    message: "Warning: Window minimization or tab switching is not allowed during the assessment. Violation 1/3. The test will automatically submit on the 3rd violation. Don't make it half of the screen."
+  });
 
   const selectedSet = questionsData.sets[selectedSetIndex];
   const questions: Question[] = selectedSet.questions;
@@ -177,10 +182,13 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
               </p>
               {securityAlert.count < 3 && (
                 <button
-                  onClick={() => setSecurityAlert(null)}
+                  onClick={() => {
+                    setSecurityAlert(null);
+                    if (securityAlert.isInitial) setHasStarted(true);
+                  }}
                   className="w-full py-4 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
                 >
-                  Acknowledge & Continue
+                  {securityAlert.isInitial ? "I Understand & Begin" : "Acknowledge & Continue"}
                 </button>
               )}
             </motion.div>
