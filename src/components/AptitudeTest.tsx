@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Clock, CheckCircle2, AlertCircle, AlertTriangle, ChevronRight, ChevronLeft, Send } from 'lucide-react';
 import { Question, UserData, QuestionsData } from '../types';
@@ -21,6 +21,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [violations, setViolations] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
+  const lastViolationTime = useRef(0);
   const [securityAlert, setSecurityAlert] = useState<{ show: boolean; message: string; count: number; isInitial?: boolean } | null>({
     show: true,
     isInitial: true,
@@ -61,16 +62,20 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
     if (!hasStarted || isSubmitted) return;
 
     const handleSecurityViolation = (message: string) => {
+      const now = Date.now();
+      if (now - lastViolationTime.current < 3000) return; // 3 second cooldown to prevent double-counting
+      lastViolationTime.current = now;
+
       setViolations((prev) => {
         const newCount = prev + 1;
         if (newCount >= 3) {
           setSecurityAlert({ 
             show: true, 
             message: `Warning: Window minimization or tab switching is not allowed during the assessment. Violation 3/3. The test will automatically submit on the 3rd violation. Don't make it half of the screen.`,
-            count: newCount 
+            count: 3 
           });
           setTimeout(() => handleSubmit(), 3000);
-          return 3; // Cap at 3 for display
+          return 3;
         } else {
           setSecurityAlert({ 
             show: true, 
@@ -184,7 +189,10 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                 <button
                   onClick={() => {
                     setSecurityAlert(null);
-                    if (securityAlert.isInitial) setHasStarted(true);
+                    if (securityAlert.isInitial) {
+                      lastViolationTime.current = Date.now(); // Set grace period
+                      setHasStarted(true);
+                    }
                   }}
                   className="w-full py-4 bg-black text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
                 >
@@ -355,7 +363,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
             <div className="flex items-center gap-4">
               <div className="w-1.5 h-1.5 rounded-full bg-black" />
               <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-black">
-                {violations === 0 ? "Environment Secure" : `Security Violations: ${violations}/3`}
+                Security Violations: {violations}/3
               </span>
             </div>
           </div>
