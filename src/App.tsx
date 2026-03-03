@@ -124,14 +124,6 @@ export default function App() {
           animate={{ opacity: 1 }}
           className="flex items-center gap-6"
         >
-          <div className="h-16 flex items-center justify-center overflow-hidden">
-            <img 
-              src="https://ik.imagekit.io/qjw6xz1vo/NICHE%20TECHIES.svg" 
-              alt="Niche Techies Logo" 
-              className="h-full w-auto object-contain"
-              referrerPolicy="no-referrer"
-            />
-          </div>
           <div className="flex flex-col">
             <span className="text-xl font-sans font-bold tracking-tight leading-none">Aptitude</span>
             <span className="text-[9px] tracking-[0.3em] text-black/40 font-bold mt-1">Professional Evaluation</span>

@@ -59,14 +59,6 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.1 }}
-          className="mb-8"
-        >
-        
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
           <h2 className="text-3xl md:text-4xl font-sans font-bold tracking-tight text-black mb-4">
