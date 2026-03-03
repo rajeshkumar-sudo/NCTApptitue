@@ -1,138 +1,103 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Trophy, CheckCircle2, XCircle, RefreshCcw, LogOut } from 'lucide-react';
-import { UserData } from '../types';
+import { Trophy, CheckCircle2, RefreshCcw, LogOut, Clock, User, Mail, Hash, Check, X } from 'lucide-react';
+import { UserData, Question } from '../types';
 import { cn } from '../utils';
 
 interface ResultViewProps {
   user: UserData;
   score: number;
   total: number;
+  questions: Question[];
+  answers: Record<number, string>;
+  timeTaken: number;
   onRestart: () => void;
   attempts: number;
 }
 
-export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, onRestart, attempts }) => {
+export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, questions, answers, timeTaken, onRestart, attempts }) => {
   const percentage = (score / total) * 100;
   const isPassed = percentage >= 60;
-  const canRetake = attempts < 2;
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}m ${secs}s`;
+  };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="w-full max-w-4xl mx-auto bg-white p-12 md:p-20 border border-black/10 shadow-2xl relative overflow-hidden text-center"
+      className="w-full max-w-2xl mx-auto bg-white border border-black/10 shadow-2xl relative overflow-hidden flex flex-col min-h-[500px]"
     >
-      <div className="relative z-10 mb-20">
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="w-24 h-24 mx-auto bg-black text-white flex items-center justify-center mb-12 shadow-2xl"
-        >
-          {isPassed ? <Trophy className="w-10 h-10" /> : <CheckCircle2 className="w-10 h-10" />}
-        </motion.div>
+      {/* Main Panel: Summary */}
+      <div className="w-full bg-black text-white p-8 md:p-10 flex flex-col justify-between relative overflow-hidden flex-grow">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/[0.03] rounded-full -mr-48 -mt-48 blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/[0.02] rounded-full -ml-48 -mb-48 blur-3xl" />
         
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          <h2 className="text-5xl md:text-6xl font-display font-bold text-black mb-8 tracking-tight capitalize">
-            Assessment Finalized
+        <div className="relative z-10 h-full flex flex-col items-center text-center">
+          <div className="w-12 h-12 bg-white/10 flex items-center justify-center mb-6">
+            <Trophy className="w-6 h-6 text-white" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-sans font-bold mb-2 capitalize tracking-tight">
+            Assessment Completed
           </h2>
-          <p className="text-black/40 text-lg font-medium max-w-xl mx-auto leading-relaxed capitalize tracking-tight">
-            The evaluation for <span className="text-black font-bold">{user.name}</span> has been archived in the central repository.
+          <p className="text-white/40 text-sm font-medium mb-8 capitalize tracking-tight max-w-md">
+            The assessment session has concluded. Your current performance index is being reviewed by our technical board
           </p>
-        </motion.div>
-      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
-        {[
-          { label: 'Performance Score', value: `${score} / ${total}`, sub: 'Raw Points', color: 'text-blue-600', blur: true },
-          { label: 'Accuracy Index', value: `${Math.round(percentage)}%`, sub: 'Precision Rate', color: 'text-blue-600', blur: true },
-          { label: 'Final Standing', value: isPassed ? 'Qualified' : 'Review Required', sub: 'Status', color: 'text-black', blur: false }
-        ].map((stat, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 + (i * 0.1) }}
-            className="p-10 border border-black/5 flex flex-col items-center justify-center"
-          >
-            <span className="text-[9px] font-bold capitalize tracking-[0.4em] text-black/30 mb-6">{stat.label}</span>
-            <p className={cn(
-              "text-4xl font-display font-bold mb-2 transition-all duration-700",
-              stat.color,
-              stat.blur && "blur-md select-none"
-            )}>
-              {stat.value}
-            </p>
-            <span className="text-[9px] font-bold capitalize tracking-widest text-black/20">{stat.sub}</span>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Official Statement Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7 }}
-        className="max-w-2xl mx-auto mb-20 p-10 border border-black/5 bg-black/[0.01] text-center"
-      >
-        <span className="text-[9px] font-bold capitalize tracking-[0.4em] text-black/30 mb-6 block">Official Status Report</span>
-        <p className="text-sm text-black/60 leading-relaxed capitalize tracking-tight font-medium">
-          {isPassed 
-            ? "Congratulations. Your performance metrics meet the established benchmarks for technical proficiency. Our recruitment team will review your detailed response patterns and contact you regarding the next phase of the evaluation process."
-            : "The assessment session has concluded. Your current performance index is being reviewed by our technical board. Please await further communication regarding your status and potential future opportunities."}
-        </p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-        className="flex flex-col md:flex-row items-center justify-center gap-8"
-      >
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={onRestart}
-          className="w-full md:w-auto flex items-center justify-center gap-4 px-12 py-6 bg-black text-white font-bold capitalize tracking-[0.3em] text-[10px] shadow-2xl transition-all"
-        >
-          <RefreshCcw className="w-3 h-3" />
-          Re-Initialize
-        </motion.button>
-        
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => window.location.reload()}
-          className="w-full md:w-auto flex items-center justify-center gap-4 px-12 py-6 bg-white text-black/40 border border-black/10 font-bold capitalize tracking-[0.3em] text-[10px] hover:text-black transition-all"
-        >
-          <LogOut className="w-3 h-3" />
-          Terminate
-        </motion.button>
-      </motion.div>
-
-      <div className="mt-24 pt-12 border-t border-black/5 flex flex-col md:flex-row items-center justify-between gap-8 opacity-40">
-        <div className="flex flex-col items-start gap-1">
-          <span className="text-[8px] font-bold capitalize tracking-[0.3em] text-black">Verification ID</span>
-          <span className="text-[10px] font-mono text-black font-bold">{user.rollNumber}</span>
-        </div>
-        <div className="flex items-center gap-10">
-          <div className="flex flex-col items-end gap-1">
-            <span className="text-[8px] font-bold capitalize tracking-[0.3em] text-black">Timestamp</span>
-            <span className="text-[10px] font-mono text-black font-bold">{new Date().toLocaleTimeString()}</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-2xl mb-10">
+            <div className="flex flex-col gap-2">
+              <span className="text-[10px] font-bold capitalize tracking-widest text-white/30">Candidate Name</span>
+              <div className="flex items-center justify-center gap-3">
+                <User className="w-4 h-4 text-white/40" />
+                <span className="font-bold text-xl capitalize">{user.name}</span>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-[10px] font-bold capitalize tracking-widest text-white/30">Roll Number</span>
+              <div className="flex items-center justify-center gap-3">
+                <Hash className="w-4 h-4 text-white/40" />
+                <span className="font-mono font-bold text-xl">{user.rollNumber}</span>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-[10px] font-bold capitalize tracking-widest text-white/30">Time Duration</span>
+              <div className="flex items-center justify-center gap-3">
+                <Clock className="w-4 h-4 text-white/40" />
+                <span className="font-mono font-bold text-xl">{formatTime(timeTaken)}</span>
+              </div>
+            </div>
           </div>
-          <div className="w-10 h-10 bg-black rounded flex items-center justify-center p-2 invert">
-            <img 
-              src="https://ik.imagekit.io/hgl70kbgh/nichetectcareer_logo%20(1).png" 
-              alt="Niche Logo" 
-              className="w-full h-full object-contain"
-              referrerPolicy="no-referrer"
-            />
+
+          <div className="w-full max-w-md flex flex-col md:flex-row gap-6">
+            <button
+              onClick={onRestart}
+              className="flex-1 flex items-center justify-center gap-4 py-5 bg-white text-black font-bold capitalize tracking-[0.2em] text-[11px] hover:bg-white/90 transition-all shadow-xl"
+            >
+              <RefreshCcw className="w-4 h-4" />
+              Re-Initialize
+            </button>
+            <button
+              onClick={() => window.location.reload()}
+              className="flex-1 flex items-center justify-center gap-4 py-5 bg-transparent border border-white/20 text-white/60 font-bold capitalize tracking-[0.2em] text-[11px] hover:text-white hover:border-white transition-all"
+            >
+              <LogOut className="w-4 h-4" />
+              Terminate
+            </button>
           </div>
         </div>
+      </div>
+
+      <div className="bg-zinc-50 py-6 px-10 flex items-center justify-between opacity-40 border-t border-black/5">
+        <div className="flex items-center gap-3">
+          <div className="w-2 h-2 rounded-full bg-black" />
+          <span className="text-[9px] font-bold capitalize tracking-[0.2em] text-black">Session Security Verified</span>
+        </div>
+        <span className="text-[9px] font-mono text-black font-bold">
+          {new Date().toLocaleDateString()} &bull; {new Date().toLocaleTimeString()}
+        </span>
       </div>
     </motion.div>
   );

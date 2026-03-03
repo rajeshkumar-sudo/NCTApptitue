@@ -9,7 +9,7 @@ const questionsData = questionsRaw as unknown as QuestionsData;
 
 interface AptitudeTestProps {
   user: UserData;
-  onComplete: (score: number, total: number) => void;
+  onComplete: (score: number, total: number, questions: Question[], answers: Record<number, string>, timeTaken: number) => void;
 }
 
 export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) => {
@@ -56,7 +56,8 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
         score++;
       }
     });
-    onComplete(score, questions.length);
+    const timeTaken = (30 * 60) - timeLeft;
+    onComplete(score, questions.length, questions, answers, timeTaken);
   };
 
   useEffect(() => {
@@ -176,11 +177,18 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
     });
   };
 
+  const toCamelCase = (str: string) => {
+    return str
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  };
+
   const currentQuestion = questions[currentQuestionIndex];
   const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 py-10">
+    <div className="w-full max-w-7xl mx-auto px-4 py-4">
       {/* Security Alert Dialog */}
       <AnimatePresence>
         {securityAlert?.show && (
@@ -194,7 +202,18 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
               <div className="w-16 h-16 bg-black text-white flex items-center justify-center mx-auto mb-8">
                 <AlertTriangle className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-display font-bold capitalize tracking-tight mb-4">Security Alert</h4>
+              <h4 className="text-xl font-sans font-bold capitalize tracking-tight mb-6">Security Alert</h4>
+              <div className={cn(
+                "mb-8 py-3 border-y transition-colors",
+                securityAlert.count > 0 ? "bg-red-50 border-red-100" : "bg-zinc-50 border-zinc-100"
+              )}>
+                <span className={cn(
+                  "text-2xl font-sans font-black tracking-tighter",
+                  securityAlert.count > 0 ? "text-red-600" : "text-black"
+                )}>
+                  Security Violations: {securityAlert.count}/3
+                </span>
+              </div>
               <p className="text-black/60 text-sm font-medium leading-relaxed mb-10 tracking-tight">
                 {securityAlert.message.startsWith('Warning:') ? (
                   <>
@@ -224,16 +243,15 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
         )}
       </AnimatePresence>
       {/* Dashboard Header */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-16">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-4">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
           <div className="flex items-center gap-4 mb-3">
-            <span className="px-2 py-0.5 bg-black text-white text-[9px] font-bold capitalize tracking-widest rounded">Live Session</span>
             <span className="text-black/30 text-[9px] font-bold capitalize tracking-widest">ID: {user.rollNumber}</span>
           </div>
-          <h2 className="text-4xl font-display font-bold text-black tracking-tight capitalize">{user.name}</h2>
+          <h2 className="text-3xl font-sans font-bold text-black tracking-tight capitalize">{user.name}</h2>
           <p className="text-black/40 font-medium mt-1 text-sm">Technical Aptitude Evaluation</p>
         </motion.div>
 
@@ -271,7 +289,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
 
       <div className="w-full">
         {/* Question Area */}
-        <div className="max-w-3xl mx-auto">
+        <div className="w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentQuestionIndex}
@@ -282,7 +300,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                 duration: 0.4, 
                 ease: [0.23, 1, 0.32, 1] 
               }}
-              className="bg-white p-12 md:p-16 border border-black/10 shadow-2xl min-h-[500px] flex flex-col relative"
+              className="bg-white p-6 md:p-8 border border-black/10 shadow-2xl flex flex-col relative"
             >
               {/* Progress Bar */}
               <div className="absolute top-0 left-0 w-full h-1 bg-black/5">
@@ -295,14 +313,14 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
               </div>
 
               {/* Question Header */}
-              <div className="mb-16 flex justify-between items-start gap-6">
+              <div className="mb-4 flex justify-between items-start gap-6">
                 <motion.div 
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
                   className="flex-grow"
                 >
-                  <div className="flex items-center gap-4 mb-8">
+                  <div className="flex items-center gap-4 mb-4">
                     <span className="text-black/40 text-[9px] font-bold capitalize tracking-widest">
                       Question {currentQuestionIndex + 1} / {questions.length}
                     </span>
@@ -312,8 +330,8 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                       </span>
                     )}
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-display font-bold text-black leading-tight text-balance capitalize tracking-tight">
-                    {currentQuestion.question}
+                  <h3 className="text-xl md:text-2xl font-sans font-bold text-black leading-tight text-balance tracking-tight">
+                    {toCamelCase(currentQuestion.question)}
                   </h3>
                 </motion.div>
 
@@ -343,7 +361,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
               </div>
 
               {/* Options Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16 flex-grow">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4 flex-grow">
                 {Object.entries(currentQuestion.options).map(([key, option], index) => (
                   <motion.button
                     initial={{ opacity: 0, y: 10 }}
@@ -354,36 +372,43 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                     key={key}
                     onClick={() => handleOptionSelect(key)}
                     className={cn(
-                      "group relative flex items-center p-6 border transition-all duration-300 text-left overflow-hidden",
+                      "group relative flex items-center p-4 border transition-all duration-300 text-left overflow-hidden",
                       answers[currentQuestion.id] === key
                         ? "bg-black border-black text-white"
                         : "bg-transparent border-black/10 text-black/60 hover:border-black hover:bg-black/[0.02] hover:text-black"
                     )}
                   >
                     <span className={cn(
-                      "w-8 h-8 flex items-center justify-center border mr-6 text-[10px] font-bold transition-all duration-300",
+                      "w-6 h-6 flex items-center justify-center border mr-4 text-[9px] font-bold transition-all duration-300",
                       answers[currentQuestion.id] === key
                         ? "bg-white/10 border-white/20 text-white"
                         : "bg-black/5 border-black/5 text-black/30 group-hover:border-black/20 group-hover:text-black"
                     )}>
                       {key.toUpperCase()}
                     </span>
-                    <span className="font-bold text-lg capitalize tracking-tight">{option}</span>
+                    <span className="font-bold text-base tracking-tight">{toCamelCase(option)}</span>
                   </motion.button>
                 ))}
               </div>
 
+              {/* Centered Violations Count in Card */}
+              <div className="mt-auto pt-4 border-t border-black/5 flex justify-center">
+                <div className="flex items-center gap-3">
+                  <div className={cn(
+                    "w-1.5 h-1.5 rounded-full transition-colors",
+                    violations > 0 ? "bg-red-600 animate-pulse" : "bg-black/20"
+                  )} />
+                  <span className={cn(
+                    "text-[10px] font-bold capitalize tracking-[0.2em] transition-colors",
+                    violations > 0 ? "text-red-600" : "text-black/30"
+                  )}>
+                    Security Violations: {violations}/3
+                  </span>
+                </div>
+              </div>
+
             </motion.div>
           </AnimatePresence>
-          
-          <div className="mt-12 flex justify-center opacity-30">
-            <div className="flex items-center gap-4">
-              <div className="w-1.5 h-1.5 rounded-full bg-black" />
-              <span className="text-[9px] font-bold capitalize tracking-[0.3em] text-black">
-                Security Violations: {violations}/3
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </div>

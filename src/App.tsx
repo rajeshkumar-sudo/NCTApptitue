@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { RegistrationForm } from './components/RegistrationForm';
 import { AptitudeTest } from './components/AptitudeTest';
 import { ResultView } from './components/ResultView';
-import { UserData, AppState } from './types';
+import { UserData, AppState, Question } from './types';
 import { sendTestResults } from './services/emailService';
 import { AlertTriangle } from 'lucide-react';
 import { cn } from './utils';
@@ -13,6 +13,9 @@ export default function App() {
   const [user, setUser] = useState<UserData | null>(null);
   const [score, setScore] = useState(0);
   const [total, setTotal] = useState(0);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [timeTaken, setTimeTaken] = useState(0);
   const [isSendingEmail, setIsSendingEmail] = useState(false);
   const [attempts, setAttempts] = useState(0);
   const [retakeAlert, setRetakeAlert] = useState<{ 
@@ -30,9 +33,12 @@ export default function App() {
     setAppState('test');
   };
 
-  const handleComplete = async (finalScore: number, totalQuestions: number) => {
+  const handleComplete = async (finalScore: number, totalQuestions: number, testQuestions: Question[], testAnswers: Record<number, string>, testTimeTaken: number) => {
     setScore(finalScore);
     setTotal(totalQuestions);
+    setQuestions(testQuestions);
+    setAnswers(testAnswers);
+    setTimeTaken(testTimeTaken);
     setAppState('result');
     setAttempts(prev => prev + 1);
 
@@ -112,7 +118,7 @@ export default function App() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
-      <nav className="relative z-50 w-full px-8 py-10 flex items-center justify-between max-w-7xl mx-auto border-b border-black/5">
+      <nav className="relative z-50 w-full px-8 py-4 flex items-center justify-between max-w-7xl mx-auto border-b border-black/5">
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -127,13 +133,13 @@ export default function App() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-xl font-display font-bold tracking-tight leading-none capitalize">Aptitude</span>
+            <span className="text-xl font-sans font-bold tracking-tight leading-none capitalize">Aptitude</span>
             <span className="text-[9px] capitalize tracking-[0.3em] text-black/40 font-bold mt-1">Professional Evaluation</span>
           </div>
         </motion.div>
       </nav>
 
-      <main className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] px-4 py-20">
+      <main className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-120px)] px-4 py-4">
         <AnimatePresence>
           {retakeAlert?.show && (
             <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
@@ -146,7 +152,7 @@ export default function App() {
                 <div className="w-16 h-16 bg-black text-white flex items-center justify-center mx-auto mb-8">
                   <AlertTriangle className="w-8 h-8" />
                 </div>
-                <h4 className="text-xl font-display font-bold capitalize tracking-tight mb-4">
+                <h4 className="text-xl font-sans font-bold capitalize tracking-tight mb-4">
                   {retakeAlert.type === 'error' ? 'Limit Reached' : 'Retake Policy'}
                 </h4>
                 <p className="text-black/60 text-sm font-medium leading-relaxed mb-10 capitalize tracking-tight">
@@ -270,6 +276,9 @@ export default function App() {
               user={user}
               score={score}
               total={total}
+              questions={questions}
+              answers={answers}
+              timeTaken={timeTaken}
               onRestart={handleRestart}
               attempts={attempts}
             />
@@ -277,15 +286,11 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      <footer className="relative z-10 w-full py-12 text-center">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <footer className="relative z-10 w-full py-4 text-center">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center">
           <p className="text-zinc-600 text-[10px] capitalize tracking-[0.3em]">
             &copy; 2026 Niche Tech Career &bull; Global Standard Assessment
           </p>
-          <div className="flex items-center gap-4">
-            <div className="h-px w-8 bg-zinc-800" />
-            <span className="text-zinc-700 text-[10px] capitalize tracking-widest font-bold">Secure Environment v4.0</span>
-          </div>
         </div>
       </footer>
     </div>

@@ -53,15 +53,15 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="w-full max-w-lg bg-white p-12 md:p-16 border border-black/10 shadow-2xl relative overflow-hidden"
+      className="w-full max-w-lg bg-white p-8 md:p-10 border border-black/10 shadow-2xl relative overflow-hidden"
     >
-      <div className="relative z-10 mb-16">
+      <div className="relative z-10 mb-8">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight text-black mb-4 capitalize">
+          <h2 className="text-3xl md:text-4xl font-sans font-bold tracking-tight text-black mb-4 capitalize">
             Registration
           </h2>
           <p className="text-black/40 text-sm font-medium leading-relaxed max-w-xs">
@@ -70,8 +70,8 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
         </motion.div>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-10 relative z-10">
-        <div className="grid grid-cols-1 gap-10">
+      <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+        <div className="grid grid-cols-1 gap-6">
           <div className="space-y-2">
             <label className="text-[9px] font-bold capitalize tracking-[0.3em] text-black/30 ml-1">Full Name</label>
             <div className="relative group">
@@ -168,14 +168,14 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.99 }}
           type="submit"
-          className="w-full group relative flex items-center justify-center gap-4 py-5 bg-black text-white font-bold capitalize tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all mt-10"
+          className="w-full group relative flex items-center justify-center gap-4 py-5 bg-black text-white font-bold capitalize tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all mt-6"
         >
           Begin Assessment
           <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
         </motion.button>
       </form>
       
-      <div className="mt-20 pt-8 border-t border-black/5 flex items-center justify-between opacity-30">
+      <div className="mt-10 pt-8 border-t border-black/5 flex items-center justify-between opacity-30">
         <span className="text-[8px] font-bold capitalize tracking-[0.2em] text-black">Secure Connection</span>
         <span className="text-[8px] font-bold capitalize tracking-[0.2em] text-black">System v4.2.0</span>
       </div>
