@@ -65,7 +65,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
 
     const handleSecurityViolation = (message: string) => {
       const now = Date.now();
-      if (now - lastViolationTime.current < 3000) return; // 3 second cooldown to prevent double-counting
+      if (now - lastViolationTime.current < 2000) return; // 3 second cooldown to prevent double-counting
       lastViolationTime.current = now;
 
       setViolations((prev) => {
@@ -241,7 +241,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          
+         
           <div className="flex items-center gap-4 mb-3">
             <span className="text-black/30 text-[9px] font-bold tracking-widest">ID: {user.rollNumber}</span>
           </div>
