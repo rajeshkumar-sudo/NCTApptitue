@@ -133,8 +133,8 @@ export default function App() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-xl font-sans font-bold tracking-tight leading-none capitalize">Aptitude</span>
-            <span className="text-[9px] capitalize tracking-[0.3em] text-black/40 font-bold mt-1">Professional Evaluation</span>
+            <span className="text-xl font-sans font-bold tracking-tight leading-none">Aptitude</span>
+            <span className="text-[9px] tracking-[0.3em] text-black/40 font-bold mt-1">Professional Evaluation</span>
           </div>
         </motion.div>
       </nav>
@@ -152,10 +152,10 @@ export default function App() {
                 <div className="w-16 h-16 bg-black text-white flex items-center justify-center mx-auto mb-8">
                   <AlertTriangle className="w-8 h-8" />
                 </div>
-                <h4 className="text-xl font-sans font-bold capitalize tracking-tight mb-4">
+                <h4 className="text-xl font-sans font-bold tracking-tight mb-4">
                   {retakeAlert.type === 'error' ? 'Limit Reached' : 'Retake Policy'}
                 </h4>
-                <p className="text-black/60 text-sm font-medium leading-relaxed mb-10 capitalize tracking-tight">
+                <p className="text-black/60 text-sm font-medium leading-relaxed mb-10 tracking-tight">
                   {retakeAlert.message}
                 </p>
                 <div className="flex flex-col gap-4">
@@ -163,13 +163,13 @@ export default function App() {
                     <>
                       <button
                         onClick={proceedToKeyEntry}
-                        className="w-full py-4 bg-black text-white font-bold capitalize tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
+                        className="w-full py-4 bg-black text-white font-bold tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
                       >
                         Continue
                       </button>
                       <button
                         onClick={() => window.location.reload()}
-                        className="w-full py-4 bg-white text-black/40 border border-black/10 font-bold capitalize tracking-[0.3em] text-[10px] hover:text-black transition-all"
+                        className="w-full py-4 bg-white text-black/40 border border-black/10 font-bold tracking-[0.3em] text-[10px] hover:text-black transition-all"
                       >
                         Cancel
                       </button>
@@ -178,7 +178,7 @@ export default function App() {
                     <div className="flex flex-col gap-6">
                       <div className="flex flex-col gap-4">
                         <div className="relative">
-                          <span className="text-[8px] font-bold capitalize tracking-widest text-black/40 mb-1 block text-left">Authorization Key</span>
+                          <span className="text-[8px] font-bold tracking-widest text-black/40 mb-1 block text-left">Authorization Key</span>
                           <input
                             autoFocus
                             type="password"
@@ -192,7 +192,7 @@ export default function App() {
                           />
                         </div>
                         <div className="relative">
-                          <span className="text-[8px] font-bold capitalize tracking-widest text-black/40 mb-1 block text-left">Email ID</span>
+                          <span className="text-[8px] font-bold tracking-widest text-black/40 mb-1 block text-left">Email ID</span>
                           <input
                             type="email"
                             value={retakeAlert.emailValue}
@@ -205,7 +205,7 @@ export default function App() {
                           />
                         </div>
                         <div className="relative">
-                          <span className="text-[8px] font-bold capitalize tracking-widest text-black/40 mb-1 block text-left">Roll Number</span>
+                          <span className="text-[8px] font-bold tracking-widest text-black/40 mb-1 block text-left">Roll Number</span>
                           <input
                             type="text"
                             value={retakeAlert.rollNumberValue}
@@ -218,7 +218,7 @@ export default function App() {
                           />
                         </div>
                         {retakeAlert.error && (
-                          <span className="text-[9px] text-red-500 font-bold capitalize tracking-widest mt-2 block">
+                          <span className="text-[9px] text-red-500 font-bold tracking-widest mt-2 block">
                             {retakeAlert.error}
                           </span>
                         )}
@@ -226,13 +226,13 @@ export default function App() {
                       <div className="flex flex-col gap-3">
                         <button
                           onClick={validateRetakeCredentials}
-                          className="w-full py-4 bg-black text-white font-bold capitalize tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
+                          className="w-full py-4 bg-black text-white font-bold tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
                         >
                           Verify & Start
                         </button>
                         <button
                           onClick={() => setRetakeAlert(null)}
-                          className="text-[9px] font-bold capitalize tracking-widest text-black/40 hover:text-black transition-colors py-2"
+                          className="text-[9px] font-bold tracking-widest text-black/40 hover:text-black transition-colors py-2"
                         >
                           Back to Results
                         </button>
@@ -241,7 +241,7 @@ export default function App() {
                   ) : (
                     <button
                       onClick={() => setRetakeAlert(null)}
-                      className="w-full py-4 bg-black text-white font-bold capitalize tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
+                      className="w-full py-4 bg-black text-white font-bold tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
                     >
                       Acknowledge
                     </button>
@@ -288,7 +288,7 @@ export default function App() {
 
       <footer className="relative z-10 w-full py-4 text-center">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center">
-          <p className="text-zinc-600 text-[10px] capitalize tracking-[0.3em]">
+          <p className="text-zinc-600 text-[10px] tracking-[0.3em]">
             &copy; 2026 Niche Tech Career &bull; Global Standard Assessment
           </p>
         </div>

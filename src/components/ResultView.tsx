@@ -40,30 +40,30 @@ export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, ques
           <div className="w-12 h-12 bg-white/10 flex items-center justify-center mb-6">
             <Trophy className="w-6 h-6 text-white" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-sans font-bold mb-2 capitalize tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-sans font-bold mb-2 tracking-tight">
             Assessment Completed
           </h2>
-          <p className="text-white/40 text-sm font-medium mb-8 capitalize tracking-tight max-w-md">
-            The assessment session has concluded. Your current performance index is being reviewed by our technical board
+          <p className="text-white/40 text-sm font-medium mb-8 tracking-tight max-w-md">
+            Your evaluation session has been completed and saved securely in our system. Our technical team has evaluated your test, and we will get back to you shortly with further updates.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-2xl mb-10">
             <div className="flex flex-col gap-2">
-              <span className="text-[10px] font-bold capitalize tracking-widest text-white/30">Candidate Name</span>
+              <span className="text-[10px] font-bold tracking-widest text-white/30">Candidate Name</span>
               <div className="flex items-center justify-center gap-3">
                 <User className="w-4 h-4 text-white/40" />
-                <span className="font-bold text-xl capitalize">{user.name}</span>
+                <span className="font-bold text-xl">{user.name}</span>
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-[10px] font-bold capitalize tracking-widest text-white/30">Roll Number</span>
+              <span className="text-[10px] font-bold tracking-widest text-white/30">Roll Number</span>
               <div className="flex items-center justify-center gap-3">
                 <Hash className="w-4 h-4 text-white/40" />
                 <span className="font-mono font-bold text-xl">{user.rollNumber}</span>
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-[10px] font-bold capitalize tracking-widest text-white/30">Time Duration</span>
+              <span className="text-[10px] font-bold tracking-widest text-white/30">Time Duration</span>
               <div className="flex items-center justify-center gap-3">
                 <Clock className="w-4 h-4 text-white/40" />
                 <span className="font-mono font-bold text-xl">{formatTime(timeTaken)}</span>
@@ -74,14 +74,14 @@ export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, ques
           <div className="w-full max-w-md flex flex-col md:flex-row gap-6">
             <button
               onClick={onRestart}
-              className="flex-1 flex items-center justify-center gap-4 py-5 bg-white text-black font-bold capitalize tracking-[0.2em] text-[11px] hover:bg-white/90 transition-all shadow-xl"
+              className="flex-1 flex items-center justify-center gap-4 py-5 bg-white text-black font-bold tracking-[0.2em] text-[11px] hover:bg-white/90 transition-all shadow-xl"
             >
               <RefreshCcw className="w-4 h-4" />
               Re-Initialize
             </button>
             <button
               onClick={() => window.location.reload()}
-              className="flex-1 flex items-center justify-center gap-4 py-5 bg-transparent border border-white/20 text-white/60 font-bold capitalize tracking-[0.2em] text-[11px] hover:text-white hover:border-white transition-all"
+              className="flex-1 flex items-center justify-center gap-4 py-5 bg-transparent border border-white/20 text-white/60 font-bold tracking-[0.2em] text-[11px] hover:text-white hover:border-white transition-all"
             >
               <LogOut className="w-4 h-4" />
               Terminate
@@ -93,7 +93,7 @@ export const ResultView: React.FC<ResultViewProps> = ({ user, score, total, ques
       <div className="bg-zinc-50 py-6 px-10 flex items-center justify-between opacity-40 border-t border-black/5">
         <div className="flex items-center gap-3">
           <div className="w-2 h-2 rounded-full bg-black" />
-          <span className="text-[9px] font-bold capitalize tracking-[0.2em] text-black">Session Security Verified</span>
+          <span className="text-[9px] font-bold tracking-[0.2em] text-black">Session Security Verified</span>
         </div>
         <span className="text-[9px] font-mono text-black font-bold">
           {new Date().toLocaleDateString()} &bull; {new Date().toLocaleTimeString()}

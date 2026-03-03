@@ -61,7 +61,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <h2 className="text-3xl md:text-4xl font-sans font-bold tracking-tight text-black mb-4 capitalize">
+          <h2 className="text-3xl md:text-4xl font-sans font-bold tracking-tight text-black mb-4">
             Registration
           </h2>
           <p className="text-black/40 text-sm font-medium leading-relaxed max-w-xs">
@@ -73,7 +73,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
       <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
         <div className="grid grid-cols-1 gap-6">
           <div className="space-y-2">
-            <label className="text-[9px] font-bold capitalize tracking-[0.3em] text-black/30 ml-1">Full Name</label>
+            <label className="text-[9px] font-bold tracking-[0.3em] text-black/30 ml-1">Full Name</label>
             <div className="relative group">
               <input
                 required
@@ -93,11 +93,11 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
                 }}
               />
             </div>
-            {errors.name && <p className="text-[9px] font-bold text-rose-500 capitalize tracking-widest ml-1">{errors.name}</p>}
+            {errors.name && <p className="text-[9px] font-bold text-rose-500 tracking-widest ml-1">{errors.name}</p>}
           </div>
 
           <div className="space-y-2">
-            <label className="text-[9px] font-bold capitalize tracking-[0.3em] text-black/30 ml-1">Roll Number</label>
+            <label className="text-[9px] font-bold tracking-[0.3em] text-black/30 ml-1">Roll Number</label>
             <div className="relative group">
               <input
                 required
@@ -114,11 +114,11 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
                 }}
               />
             </div>
-            {errors.rollNumber && <p className="text-[9px] font-bold text-rose-500 capitalize tracking-widest ml-1">{errors.rollNumber}</p>}
+            {errors.rollNumber && <p className="text-[9px] font-bold text-rose-500 tracking-widest ml-1">{errors.rollNumber}</p>}
           </div>
 
           <div className="space-y-2">
-            <label className="text-[9px] font-bold capitalize tracking-[0.3em] text-black/30 ml-1">Email Address</label>
+            <label className="text-[9px] font-bold tracking-[0.3em] text-black/30 ml-1">Email Address</label>
             <div className="relative group">
               <input
                 required
@@ -135,11 +135,11 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
                 }}
               />
             </div>
-            {errors.email && <p className="text-[9px] font-bold text-rose-500 capitalize tracking-widest ml-1">{errors.email}</p>}
+            {errors.email && <p className="text-[9px] font-bold text-rose-500 tracking-widest ml-1">{errors.email}</p>}
           </div>
 
           <div className="space-y-2">
-            <label className="text-[9px] font-bold capitalize tracking-[0.3em] text-black/30 ml-1">Phone Number</label>
+            <label className="text-[9px] font-bold tracking-[0.3em] text-black/30 ml-1">Phone Number</label>
             <div className="relative group">
               <input
                 required
@@ -160,7 +160,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
                 }}
               />
             </div>
-            {errors.phone && <p className="text-[9px] font-bold text-rose-500 capitalize tracking-widest ml-1">{errors.phone}</p>}
+            {errors.phone && <p className="text-[9px] font-bold text-rose-500 tracking-widest ml-1">{errors.phone}</p>}
           </div>
         </div>
 
@@ -168,7 +168,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.99 }}
           type="submit"
-          className="w-full group relative flex items-center justify-center gap-4 py-5 bg-black text-white font-bold capitalize tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all mt-6"
+          className="w-full group relative flex items-center justify-center gap-4 py-5 bg-black text-white font-bold tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all mt-6"
         >
           Begin Assessment
           <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
@@ -176,8 +176,8 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
       </form>
       
       <div className="mt-10 pt-8 border-t border-black/5 flex items-center justify-between opacity-30">
-        <span className="text-[8px] font-bold capitalize tracking-[0.2em] text-black">Secure Connection</span>
-        <span className="text-[8px] font-bold capitalize tracking-[0.2em] text-black">System v4.2.0</span>
+        <span className="text-[8px] font-bold tracking-[0.2em] text-black">Secure Connection</span>
+        <span className="text-[8px] font-bold tracking-[0.2em] text-black">System v4.2.0</span>
       </div>
     </motion.div>
   );

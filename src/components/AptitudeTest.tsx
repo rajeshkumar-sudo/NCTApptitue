@@ -177,13 +177,6 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
     });
   };
 
-  const toCamelCase = (str: string) => {
-    return str
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join(' ');
-  };
-
   const currentQuestion = questions[currentQuestionIndex];
   const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
 
@@ -202,7 +195,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
               <div className="w-16 h-16 bg-black text-white flex items-center justify-center mx-auto mb-8">
                 <AlertTriangle className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-sans font-bold capitalize tracking-tight mb-6">Security Alert</h4>
+              <h4 className="text-xl font-sans font-bold tracking-tight mb-6">Security Alert</h4>
               <div className={cn(
                 "mb-8 py-3 border-y transition-colors",
                 securityAlert.count > 0 ? "bg-red-50 border-red-100" : "bg-zinc-50 border-zinc-100"
@@ -225,18 +218,18 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                 )}
               </p>
               {securityAlert.count < 3 && (
-                <button
-                  onClick={() => {
-                    setSecurityAlert(null);
-                    if (securityAlert.isInitial) {
-                      lastViolationTime.current = Date.now(); // Set grace period
-                      setHasStarted(true);
-                    }
-                  }}
-                  className="w-full py-4 bg-black text-white font-bold capitalize tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
-                >
-                  {securityAlert.isInitial ? "I Understand & Begin" : "Acknowledge & Continue"}
-                </button>
+                  <button
+                    onClick={() => {
+                      setSecurityAlert(null);
+                      if (securityAlert.isInitial) {
+                        lastViolationTime.current = Date.now(); // Set grace period
+                        setHasStarted(true);
+                      }
+                    }}
+                    className="w-full py-4 bg-black text-white font-bold tracking-[0.3em] text-[10px] hover:bg-black/90 transition-all"
+                  >
+                    {securityAlert.isInitial ? "I Understand & Begin" : "Acknowledge & Continue"}
+                  </button>
               )}
             </motion.div>
           </div>
@@ -249,9 +242,9 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
           animate={{ opacity: 1 }}
         >
           <div className="flex items-center gap-4 mb-3">
-            <span className="text-black/30 text-[9px] font-bold capitalize tracking-widest">ID: {user.rollNumber}</span>
+            <span className="text-black/30 text-[9px] font-bold tracking-widest">ID: {user.rollNumber}</span>
           </div>
-          <h2 className="text-3xl font-sans font-bold text-black tracking-tight capitalize">{user.name}</h2>
+          <h2 className="text-3xl font-sans font-bold text-black tracking-tight">{user.name}</h2>
           <p className="text-black/40 font-medium mt-1 text-sm">Technical Aptitude Evaluation</p>
         </motion.div>
 
@@ -261,7 +254,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
             animate={{ opacity: 1 }}
             className="flex flex-col gap-1 min-w-[140px]"
           >
-            <span className="text-[9px] font-bold capitalize tracking-widest text-black/30">Total Remaining</span>
+            <span className="text-[9px] font-bold tracking-widest text-black/30">Total Remaining</span>
             <div className="flex items-center gap-3">
               <Clock className={cn("w-3 h-3", timeLeft < 300 ? "text-black animate-pulse" : "text-black/40")} />
               <span className={cn("font-mono text-2xl font-bold", timeLeft < 300 ? "text-black" : "text-black/80")}>
@@ -276,7 +269,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
             transition={{ delay: 0.1 }}
             className="flex flex-col gap-1 min-w-[140px]"
           >
-            <span className="text-[9px] font-bold capitalize tracking-widest text-black/30">Question Timer</span>
+            <span className="text-[9px] font-bold tracking-widest text-black/30">Question Timer</span>
             <div className="flex items-center gap-3">
               <Clock className={cn("w-3 h-3", questionTimeLeft < 10 ? "text-black animate-pulse" : "text-black/40")} />
               <span className={cn("font-mono text-2xl font-bold", questionTimeLeft < 10 ? "text-black" : "text-black/80")}>
@@ -321,17 +314,17 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                   className="flex-grow"
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="text-black/40 text-[9px] font-bold capitalize tracking-widest">
+                    <span className="text-black/40 text-[9px] font-bold tracking-widest">
                       Question {currentQuestionIndex + 1} / {questions.length}
                     </span>
                     {currentQuestion.difficulty && (
-                      <span className="px-2 py-0.5 border border-black/10 text-black/60 text-[9px] font-bold capitalize tracking-widest rounded">
+                      <span className="px-2 py-0.5 border border-black/10 text-black/60 text-[9px] font-bold tracking-widest rounded">
                         {currentQuestion.difficulty}
                       </span>
                     )}
                   </div>
                   <h3 className="text-xl md:text-2xl font-sans font-bold text-black leading-tight text-balance tracking-tight">
-                    {toCamelCase(currentQuestion.question)}
+                    {currentQuestion.question}
                   </h3>
                 </motion.div>
 
@@ -343,7 +336,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                   {currentQuestionIndex === questions.length - 1 ? (
                     <button
                       onClick={handleSubmit}
-                      className="flex items-center gap-3 px-6 py-3 bg-black text-white font-bold capitalize tracking-widest text-[10px] shadow-lg hover:bg-black/90 transition-all whitespace-nowrap"
+                      className="flex items-center gap-3 px-6 py-3 bg-black text-white font-bold tracking-widest text-[10px] shadow-lg hover:bg-black/90 transition-all whitespace-nowrap"
                     >
                       Submit
                       <Send className="w-3 h-3" />
@@ -351,7 +344,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                   ) : (
                     <button
                       onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}
-                      className="flex items-center gap-3 px-8 py-3 bg-black text-white font-bold capitalize tracking-widest text-[10px] shadow-lg hover:bg-black/90 transition-all whitespace-nowrap"
+                      className="flex items-center gap-3 px-8 py-3 bg-black text-white font-bold tracking-widest text-[10px] shadow-lg hover:bg-black/90 transition-all whitespace-nowrap"
                     >
                       Next
                       <ChevronRight className="w-3 h-3" />
@@ -386,7 +379,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                     )}>
                       {key.toUpperCase()}
                     </span>
-                    <span className="font-bold text-base tracking-tight">{toCamelCase(option)}</span>
+                    <span className="font-bold text-base tracking-tight">{option}</span>
                   </motion.button>
                 ))}
               </div>
@@ -399,7 +392,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
                     violations > 0 ? "bg-red-600 animate-pulse" : "bg-black/20"
                   )} />
                   <span className={cn(
-                    "text-[10px] font-bold capitalize tracking-[0.2em] transition-colors",
+                    "text-[10px] font-bold tracking-[0.2em] transition-colors",
                     violations > 0 ? "text-red-600" : "text-black/30"
                   )}>
                     Security Violations: {violations}/3
