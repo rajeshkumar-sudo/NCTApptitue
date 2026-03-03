@@ -124,11 +124,11 @@ export default function App() {
           animate={{ opacity: 1 }}
           className="flex items-center gap-6"
         >
-          <div className="w-10 h-10 bg-black rounded flex items-center justify-center overflow-hidden">
+          <div className="h-16 flex items-center justify-center overflow-hidden">
             <img 
-              src="https://ik.imagekit.io/hgl70kbgh/nichetectcareer_logo%20(1).png" 
-              alt="Niche Logo" 
-              className="w-full h-full object-contain p-1.5 invert"
+              src="https://ik.imagekit.io/qjw6xz1vo/NICHE%20TECHIES.svg" 
+              alt="Niche Techies Logo" 
+              className="h-full w-auto object-contain"
               referrerPolicy="no-referrer"
             />
           </div>
@@ -289,7 +289,7 @@ export default function App() {
       <footer className="relative z-10 w-full py-4 text-center">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center">
           <p className="text-zinc-600 text-[10px] tracking-[0.3em]">
-            &copy; 2026 Niche Tech Career &bull; Global Standard Assessment
+            &copy; 2026 Niche Techies &bull; Global Standard Assessment
           </p>
         </div>
       </footer>

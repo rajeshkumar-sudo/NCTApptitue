@@ -59,6 +59,19 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          transition={{ delay: 0.1 }}
+          className="mb-8"
+        >
+          <img 
+            src="https://ik.imagekit.io/qjw6xz1vo/NICHE%20TECHIES.png" 
+            alt="Niche Techies Logo" 
+            className="h-16 w-auto object-contain"
+            referrerPolicy="no-referrer"
+          />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
           <h2 className="text-3xl md:text-4xl font-sans font-bold tracking-tight text-black mb-4">
