@@ -241,14 +241,7 @@ export const AptitudeTest: React.FC<AptitudeTestProps> = ({ user, onComplete }) 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <div className="mb-4">
-            <img 
-              src="https://ik.imagekit.io/qjw6xz1vo/NICHE%20TECHIES.png" 
-              alt="Niche Techies Logo" 
-              className="h-12 w-auto object-contain"
-              referrerPolicy="no-referrer"
-            />
-          </div>
+          
           <div className="flex items-center gap-4 mb-3">
             <span className="text-black/30 text-[9px] font-bold tracking-widest">ID: {user.rollNumber}</span>
           </div>
